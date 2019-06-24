@@ -195,6 +195,87 @@
           }
         }
       }
+    },
+    "logger": {
+      "projectType": "library",
+      "root": "libs/logger",
+      "sourceRoot": "libs/logger/src",
+      "prefix": "itg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/logger/tsconfig.lib.json",
+              "libs/logger/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/logger/jest.config.js",
+            "tsConfig": "libs/logger/tsconfig.spec.json",
+            "setupFile": "libs/logger/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "config": {
+      "projectType": "library",
+      "root": "libs/config",
+      "sourceRoot": "libs/config/src",
+      "prefix": "itg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/config/tsconfig.lib.json",
+              "libs/config/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/config/jest.config.js",
+            "tsConfig": "libs/config/tsconfig.spec.json",
+            "setupFile": "libs/config/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "notify": {
+      "projectType": "library",
+      "root": "libs/notify",
+      "sourceRoot": "libs/notify/src",
+      "prefix": "itg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/notify/tsconfig.lib.json",
+              "libs/notify/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/notify/jest.config.js",
+            "tsConfig": "libs/notify/tsconfig.spec.json",
+            "setupFile": "libs/notify/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

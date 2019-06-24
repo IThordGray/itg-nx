@@ -19,6 +19,15 @@
     },
     "api-interface": {
       "tags": []
+    },
+    "logger": {
+      "tags": []
+    },
+    "config": {
+      "tags": []
+    },
+    "notify": {
+      "tags": []
     }
   }
 }
