@@ -1,7 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, ModuleWithProviders, Provider } from '@angular/core';
+import { DefaultNotifyProvider } from './models/default-notification.provider.class';
+import { NotifyService } from './models/notification.provider.interface';
 
-@NgModule({
-  imports: [CommonModule]
-})
-export class NotifyModule {}
+@NgModule()
+export class NotifyModule {
+  public static withDefaultProvider(): ModuleWithProviders {
+    return {
+      ngModule: NotifyModule,
+      providers: [
+        { provide: NotifyService, useClass: DefaultNotifyProvider }
+      ]
+    }
+  }
+
+  public static withCustomProviders(providers: Provider[]): ModuleWithProviders {
+    return {
+      ngModule: NotifyModule,
+      providers: providers
+    };
+  }
+}
