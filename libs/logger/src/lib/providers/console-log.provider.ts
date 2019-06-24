@@ -1,0 +1,43 @@
+// tslint:disable:no-console
+
+import { LogEntry } from '../models/log-entry';
+import { LogLevel } from '../models/log-level.enum';
+import { ILogProviderConfig } from '../models/log-provider-config';
+import { LogProvider } from './log.provider.abstract';
+
+export class ConsoleLogProvider extends LogProvider {
+
+  constructor(
+    config: ILogProviderConfig = { logLevel: LogLevel.Trace }
+  ) {
+    super(config);
+  }
+
+  public clear(): void {
+    console.clear();
+  }
+
+  public debug(entry: LogEntry): void {
+    console.log(entry.toString());
+  }
+
+  public error(entry: LogEntry): void {
+    console.error(entry.toString());
+  }
+
+  public fatal(entry: LogEntry): void {
+    console.error(entry.toString());
+  }
+
+  public info(entry: LogEntry): void {
+    console.info(entry.toString());
+  }
+
+  public trace(entry: LogEntry): void {
+    console.trace(entry.toString());
+  }
+
+  public warn(entry: LogEntry): void {
+    console.warn(entry.toString());
+  }
+}

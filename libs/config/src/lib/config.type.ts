@@ -1,0 +1,1 @@
+export type IConfigConfig = { [key: string]: any }
