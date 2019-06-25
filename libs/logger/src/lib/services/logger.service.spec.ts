@@ -45,6 +45,15 @@ describe('LogService', () => {
     expect(logger.shouldLog(LogLevel.Fatal, LogLevel.Off)).toBe(false);
   });
 
+  it('should get the MockProvider instance and set the config', () => {
+    const x: MockProvider = logger.get(MockProvider);
+    expect(x).toBeTruthy();
+
+    expect(x.config.logLevel).toBe(LogLevel.Debug);
+    x.config.logLevel = LogLevel.Off;
+    expect(x.config.logLevel).toBe(LogLevel.Off);
+  });
+
   it('should not log LogLevel.Trace on LogLevel.Info', () => {
     expect(logger.shouldLog(LogLevel.Trace, LogLevel.Info)).toBe(false);
   });
