@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Optional, Inject, InjectionToken } from '@angular/core';
-import { IConfigConfig } from './config.type';
+import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { cloneDeep, get, set } from 'lodash';
+import { IConfigConfig } from './config.type';
 
 export const CONFIG_VALUE_TOKEN = new InjectionToken<IConfigConfig>(
   'Config value'

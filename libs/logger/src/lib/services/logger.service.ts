@@ -1,17 +1,19 @@
-import { Injectable, InjectionToken, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { LoggerModule } from '../logger.module';
 import { LogEntry } from '../models/log-entry';
 import { LogLevel } from '../models/log-level.enum';
-import { LogProvider } from '../providers/log.provider.abstract';
-import { ILoggerConfig } from "../models/logger-config.interface";
-import { Type } from '@angular/compiler';
+import { LogProvider } from '../models/abstract.log.provider';
+import { LoggerProvidersService } from './logger-providers.service';
 
-export const LOG_PROVIDERS_TOKEN = new InjectionToken<LogProvider[]>(
-  'Log config token'
-);
-
-@Injectable()
+@Injectable({
+  providedIn: LoggerModule
+})
 export class LoggerService {
-  constructor(@Inject(LOG_PROVIDERS_TOKEN) private providers: LogProvider[] = []) { }
+
+  constructor(
+    private providers: LoggerProvidersService
+  ) {
+  }
 
   private shouldLog(requestingLogLevel: LogLevel, requiredLogLevel: LogLevel): boolean {
     if (requiredLogLevel === LogLevel.Trace) {
@@ -30,11 +32,12 @@ export class LoggerService {
     entry.logLevel = logLevel;
     entry.optionalParams = optionalParams;
 
-    if (this.providers.length <= 0) {
+    const providers: LogProvider[] = this.providers.get();
+    if (providers.length <= 0) {
       return;
     }
 
-    this.providers.forEach(pub => {
+    providers.forEach(pub => {
       if (!this.shouldLog(logLevel, pub.config.logLevel)) {
         return;
       }
@@ -68,8 +71,19 @@ export class LoggerService {
     });
   }
 
-  public get<T>(providerType: typeof LogProvider): T | LogProvider | undefined {
-    return this.providers.find(p => p instanceof providerType);
+  public get<T = LogProvider>(name: string): T | LogProvider | undefined {
+    return this.providers.get(name);
+  }
+
+  public clear(): void {
+    const providers: LogProvider[] = this.providers.get();
+    if (providers.length <= 0) {
+      return;
+    }
+
+    providers.forEach(pub => {
+      pub.clear();
+    });
   }
 
   public trace(message: string, ...optionalParams: any[]): void {

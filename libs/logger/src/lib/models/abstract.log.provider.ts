@@ -1,7 +1,9 @@
-import { LogEntry } from '../models/log-entry';
-import { ILogProviderConfig } from '../models/log-provider-config';
+import { LogEntry } from './log-entry';
+import { ILogProviderConfig } from './log-provider-config';
 
 export abstract class LogProvider {
+
+  public name: string;
 
   protected constructor(
     public config: ILogProviderConfig

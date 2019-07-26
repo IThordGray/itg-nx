@@ -15,3 +15,8 @@ export function isNullOrWhitespace(value: string): boolean {
   return isNullOrUndefined(value) || isWhiteSpace(value);
 }
 
+export function throwIfAlreadyLoaded(parentModule: any, moduleName: string): void {
+  if (parentModule) {
+    throw new Error(`${moduleName} has already been loaded. Import ${moduleName} in the AppModule only.`);
+  }
+}

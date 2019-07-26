@@ -3,7 +3,7 @@
 import { LogEntry } from '../models/log-entry';
 import { LogLevel } from '../models/log-level.enum';
 import { ILogProviderConfig } from '../models/log-provider-config';
-import { LogProvider } from './log.provider.abstract';
+import { LogProvider } from '../models/abstract.log.provider';
 
 export class ConsoleLogProvider extends LogProvider {
 

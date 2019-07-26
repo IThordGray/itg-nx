@@ -1,5 +1,5 @@
 import { Type } from '@angular/core';
-import { LogProvider } from '../providers/log.provider.abstract';
+import { LogProvider } from './abstract.log.provider';
 import { ILogProviderConfig } from './log-provider-config';
 
 export interface ILoggerConfig {

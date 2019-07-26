@@ -1,34 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ConfigModule, ConfigService } from '@itg/config';
-import { ConsoleLogProvider, LoggerModule, LoggerService } from '@itg/logger';
+import { BootstrapModule } from '@itg/bootstrap';
+import { ConsoleLogProvider, LoggerModule, LogLevel } from '@itg/logger';
+import { TransportProvidersService, TransportServiceModule } from '@itg/transport/service';
+import { LoggerProvidersService } from '../../../../libs/logger/src/lib/services/logger-providers.service';
 import { AppComponent } from './app.component';
+import { MockTProvider } from './mocks/mock-transport.provider';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
 
-    ConfigModule.withValue({
-      debug: true
-    }),
-    LoggerModule.withConfig({
-      providers: [
-        { provider: ConsoleLogProvider }
-      ]
-    })
-
+    BootstrapModule,
+    TransportServiceModule,
+    LoggerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
-  // Used to adjust the logger.
   constructor(
-    config: ConfigService,
-    logger: LoggerService
+    loggerProviders: LoggerProvidersService,
+    transportProviders: TransportProvidersService
   ) {
 
+    loggerProviders
+      .register(new ConsoleLogProvider({
+        logLevel: LogLevel.Info
+      }));
+
+    transportProviders
+      .register(new MockTProvider())
+      .addMessageFilters(['TEST.TRANSCEIVE'])
+      .startAsync();
   }
+
+
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { ConfigService, CONFIG_PATH_TOKEN, CONFIG_VALUE_TOKEN } from '../lib/config.service';
+import { CONFIG_PATH_TOKEN, CONFIG_VALUE_TOKEN, ConfigService } from '../lib/config.service';
 import { IConfigConfig } from './config.type';
 
 export function getWithValue(obj: IConfigConfig): ConfigService {

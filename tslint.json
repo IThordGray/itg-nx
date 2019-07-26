@@ -1,7 +1,8 @@
 {
   "rulesDirectory": [
     "node_modules/@nrwl/workspace/src/tslint",
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "dist/out-tsc/tools/tslint-rules"
   ],
   "rules": {
     "arrow-return-shorthand": true,
@@ -75,6 +76,7 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-pipe-transform-interface": true,
+    "check-async": [true, "_async"]
   }
 }

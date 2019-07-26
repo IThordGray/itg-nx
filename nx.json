@@ -34,6 +34,15 @@
     },
     "test-app": {
       "tags": []
+    },
+    "bootstrap": {
+      "tags": []
+    },
+    "transport-abstractions": {
+      "tags": []
+    },
+    "transport-service": {
+      "tags": []
     }
   }
 }

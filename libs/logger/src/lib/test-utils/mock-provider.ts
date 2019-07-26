@@ -1,4 +1,4 @@
-import { LogProvider } from '../providers/log.provider.abstract';
+import { LogProvider } from '../models/abstract.log.provider';
 import { LogEntry } from '../models/log-entry';
 import { LogLevel } from '../models/log-level.enum';
 

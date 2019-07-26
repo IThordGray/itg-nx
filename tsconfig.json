@@ -19,7 +19,12 @@
       "@itg/api-interface": ["libs/api-interface/src/index.ts"],
       "@itg/logger": ["libs/logger/src/index.ts"],
       "@itg/config": ["libs/config/src/index.ts"],
-      "@itg/notify": ["libs/notify/src/index.ts"]
+      "@itg/notify": ["libs/notify/src/index.ts"],
+      "@itg/bootstrap": ["libs/bootstrap/src/index.ts"],
+      "@itg/transport/abstractions": [
+        "libs/transport/abstractions/src/index.ts"
+      ],
+      "@itg/transport/service": ["libs/transport/service/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

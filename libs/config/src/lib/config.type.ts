@@ -1,1 +1,3 @@
-export type IConfigConfig = { [key: string]: any }
+export interface IConfigConfig {
+  [key: string]: any
+}

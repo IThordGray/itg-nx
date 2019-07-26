@@ -7,7 +7,7 @@ export { ILogProviderConfig } from './lib/models/log-provider-config';
 export { LoggerModule } from './lib/logger.module';
 
 // Providers
-export { LogProvider } from './lib/providers/log.provider.abstract';
+export { LogProvider } from './lib/models/abstract.log.provider';
 export { ConsoleLogProvider } from './lib/providers/console-log.provider';
 
 // Services
