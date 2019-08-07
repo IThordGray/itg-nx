@@ -18,7 +18,7 @@ export class TransportProvidersService {
   ) {
   }
 
-  public register(provider: TransportProvider): TransportProvider {
+  public register<T extends TransportProvider>(provider: T): T {
     if (!provider.name) {
       provider.name = getGuid();
     }

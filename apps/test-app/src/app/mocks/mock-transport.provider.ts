@@ -4,7 +4,8 @@ import { TransportProvider } from '@itg/transport/service';
 export class MockTProvider extends TransportProvider {
   publish(msg: IRequestMessage): void {
     this.responseHandler.message = {
-      sourceMessageId: msg.messageId
+      sourceMessageId: msg.messageId,
+      payload: undefined
     };
   }
 
@@ -13,8 +14,7 @@ export class MockTProvider extends TransportProvider {
   }
 
   async startAsync(): Promise<void> {
-    super.startAsync(() => {
-      console.log('Credentials fetched');
-    });
+    console.log('Credentials fetched');
+    super._startAsync();
   }
 }

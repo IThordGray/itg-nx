@@ -43,6 +43,9 @@
     },
     "transport-service": {
       "tags": []
+    },
+    "transport-providers": {
+      "tags": []
     }
   }
 }

@@ -40,9 +40,7 @@ export abstract class TransportProvider extends TProvider {
     return this;
   }
 
-  public async startAsync(initCb: (() => void) | (() => Promise<void>) = Promise.resolve): Promise<void> {
-    await initCb();
-
+  protected async _startAsync(): Promise<void> {
     this.requestHandler.message$.pipe(
       takeUntil(this._onDestroy$),
       filter(e => this.options.filteredTypes && this.options.filteredTypes.length > 0 ? this.options.filteredTypes.includes(e.messageType) : true)
@@ -57,9 +55,8 @@ export abstract class TransportProvider extends TProvider {
     });
   }
 
-  public async stopAsync(cleanupCb: (() => void) | (() => Promise<void>) = Promise.resolve): Promise<void> {
+  protected async _stopAsync(): Promise<void> {
     this._onDestroy$.next();
-    await cleanupCb();
   }
 
 }

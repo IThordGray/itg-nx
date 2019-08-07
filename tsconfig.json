@@ -24,7 +24,8 @@
       "@itg/transport/abstractions": [
         "libs/transport/abstractions/src/index.ts"
       ],
-      "@itg/transport/service": ["libs/transport/service/src/index.ts"]
+      "@itg/transport/service": ["libs/transport/service/src/index.ts"],
+      "@itg/transport/providers": ["libs/transport/providers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
