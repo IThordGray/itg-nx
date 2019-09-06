@@ -46,6 +46,12 @@
     },
     "ui-components-text-box": {
       "tags": []
+    },
+    "digitwin-simulator-e2e": {
+      "tags": []
+    },
+    "digitwin-simulator": {
+      "tags": []
     }
   }
 }

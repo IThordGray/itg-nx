@@ -476,6 +476,124 @@
           "styleext": "scss"
         }
       }
+    },
+    "digitwin-simulator": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/digitwin-simulator",
+      "sourceRoot": "apps/digitwin-simulator/src",
+      "prefix": "itg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/digitwin-simulator",
+            "index": "apps/digitwin-simulator/src/index.html",
+            "main": "apps/digitwin-simulator/src/main.ts",
+            "polyfills": "apps/digitwin-simulator/src/polyfills.ts",
+            "tsConfig": "apps/digitwin-simulator/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/digitwin-simulator/src/favicon.ico",
+              "apps/digitwin-simulator/src/assets"
+            ],
+            "styles": ["apps/digitwin-simulator/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/digitwin-simulator/src/environments/environment.ts",
+                  "with": "apps/digitwin-simulator/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "digitwin-simulator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "digitwin-simulator:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "digitwin-simulator:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/digitwin-simulator/tsconfig.app.json",
+              "apps/digitwin-simulator/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/digitwin-simulator/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/digitwin-simulator/jest.config.js",
+            "tsConfig": "apps/digitwin-simulator/tsconfig.spec.json",
+            "setupFile": "apps/digitwin-simulator/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "digitwin-simulator-e2e": {
+      "root": "apps/digitwin-simulator-e2e",
+      "sourceRoot": "apps/digitwin-simulator-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/digitwin-simulator-e2e/cypress.json",
+            "tsConfig": "apps/digitwin-simulator-e2e/tsconfig.e2e.json",
+            "devServerTarget": "digitwin-simulator:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "digitwin-simulator:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/digitwin-simulator-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/digitwin-simulator-e2e/**"]
+          }
+        }
+      }
     }
   },
   "cli": {
