@@ -45,7 +45,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
         "test": {
@@ -70,7 +70,7 @@
               "libs\\api-interface\\tsconfig.lib.json",
               "libs/api-interface/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/api-interface/**"]
           }
         },
         "test": {
@@ -95,7 +95,7 @@
               "libs/logger/tsconfig.lib.json",
               "libs/logger/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/logger/**"]
           }
         },
         "test": {
@@ -122,7 +122,7 @@
               "libs/config/tsconfig.lib.json",
               "libs/config/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/config/**"]
           }
         },
         "test": {
@@ -149,7 +149,7 @@
               "libs/notify/tsconfig.lib.json",
               "libs/notify/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/notify/**"]
           }
         },
         "test": {
@@ -240,7 +240,7 @@
               "apps/test-app/tsconfig.app.json",
               "apps/test-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/test-app/**"]
           }
         },
         "test": {
@@ -266,7 +266,7 @@
               "libs/bootstrap/tsconfig.lib.json",
               "libs/bootstrap/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/bootstrap/**"]
           }
         },
         "test": {
@@ -297,7 +297,7 @@
               "libs/transport/abstractions/tsconfig.lib.json",
               "libs/transport/abstractions/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/transport/abstractions/**"]
           }
         },
         "test": {
@@ -328,7 +328,7 @@
               "libs/transport/service/tsconfig.lib.json",
               "libs/transport/service/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/transport/service/**"]
           }
         },
         "test": {
@@ -359,7 +359,7 @@
               "libs/transport/providers/tsconfig.lib.json",
               "libs/transport/providers/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/transport/providers/**"]
           }
         },
         "test": {
@@ -390,7 +390,7 @@
               "libs/ui/button/tsconfig.lib.json",
               "libs/ui/button/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/ui/button/**"]
           }
         },
         "test": {
@@ -428,7 +428,7 @@
               "libs/ui/styles/tsconfig.lib.json",
               "libs/ui/styles/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/ui/styles/**"]
           }
         },
         "test": {
@@ -459,7 +459,7 @@
               "libs/ui/components/text-box/tsconfig.lib.json",
               "libs/ui/components/text-box/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/ui/components/text-box/**"]
           }
         },
         "test": {
