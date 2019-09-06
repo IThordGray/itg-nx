@@ -25,7 +25,12 @@
         "libs/transport/abstractions/src/index.ts"
       ],
       "@itg/transport/service": ["libs/transport/service/src/index.ts"],
-      "@itg/transport/providers": ["libs/transport/providers/src/index.ts"]
+      "@itg/transport/providers": ["libs/transport/providers/src/index.ts"],
+      "@itg/ui/styles": ["libs/ui/styles/src/index.ts"],
+      "@itg/ui/button": ["libs/ui/button/src/index.ts"],
+      "@itg/ui/components/text-box": [
+        "libs/ui/components/text-box/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -8,12 +8,6 @@
     "nx.json": "*"
   },
   "projects": {
-    "itg-e2e": {
-      "tags": []
-    },
-    "itg": {
-      "tags": []
-    },
     "api": {
       "tags": []
     },
@@ -29,9 +23,6 @@
     "notify": {
       "tags": []
     },
-    "test-app-e2e": {
-      "tags": []
-    },
     "test-app": {
       "tags": []
     },
@@ -45,6 +36,15 @@
       "tags": []
     },
     "transport-providers": {
+      "tags": []
+    },
+    "ui-button": {
+      "tags": []
+    },
+    "ui-styles": {
+      "tags": []
+    },
+    "ui-components-text-box": {
       "tags": []
     }
   }
