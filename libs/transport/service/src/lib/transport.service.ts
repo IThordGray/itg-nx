@@ -21,7 +21,7 @@ export class TransportService extends TProvider implements OnDestroy {
   }
 
   public get onMessage$(): Observable<IResponseMessage> {
-    return super.onMessage$;
+    return this._onMessage$;
   };
 
   constructor(

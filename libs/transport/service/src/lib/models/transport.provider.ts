@@ -9,7 +9,7 @@ interface ITransportProviderOptions {
 
 export abstract class TransportProvider extends TProvider {
 
-  private readonly _onDestroy$: Subject<any> = new Subject();
+  protected readonly _onDestroy$: Subject<any> = new Subject();
 
   protected _onMessage$: Subject<IResponseMessage> = new Subject();
 
@@ -18,7 +18,7 @@ export abstract class TransportProvider extends TProvider {
   public eventBus: TransportEventBusService = undefined;
 
   public get onMessage$(): Observable<IResponseMessage> {
-    return super.onMessage$;
+    return this._onMessage$;
   };
 
   protected get requestHandler(): EventHandler<IRequestMessage> {
