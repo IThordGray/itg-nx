@@ -1,37 +1,35 @@
-import { NgModule } from '@angular/core';
-import { ConfigModule, ConfigService } from '@itg/config';
-import { LoggerModule, LogLevel } from '@itg/logger';
+import { CommonModule } from '@angular/common';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { ConfigModule } from '@itg/config';
+import { ConsoleLogProvider, LoggerModule, LogLevel, LoggerService } from '@itg/logger';
+import { environment } from 'apps/digitwin-simulator/src/environments/environment';
+import { LoggerProvidersService } from 'libs/logger/src/lib/services/logger-providers.service';
+import { throwIfAlreadyLoaded } from 'libs/common';
 
 @NgModule({
   imports: [
-    ConfigModule.withValue({
-      logLevel: LogLevel.Trace
-    }),
+    CommonModule,
+    ConfigModule.withValue({}),
     LoggerModule
   ]
 })
 export class BootstrapModule {
 
   constructor(
-    config: ConfigService
-    // logger: LoggerService
+    @Optional()
+    @SkipSelf()
+    parentModule: BootstrapModule,
+
+    logger: LoggerService,
+    loggerProviders: LoggerProvidersService
   ) {
+    throwIfAlreadyLoaded(parentModule, 'BootstrapModule');
 
-    // Used to adjust the logger.
-    // const consoleLogger: ConsoleLogProvider = logger.get<ConsoleLogProvider>(ConsoleLogProvider);
-    //
-    // Object.defineProperty(consoleLogger.config, 'logLevel', {
-    //   get: () => {
-    //     return config.get('logLevel');
-    //   },
-    //   set: v => {
-    //     config.set('logLevel', v);
-    //   },
-    //   enumerable: true,
-    //   configurable: false
-    // });
+    const consoleLogProvider = new ConsoleLogProvider();
+    consoleLogProvider.config.logLevel = environment.production ? LogLevel.Error : LogLevel.Debug;
+    loggerProviders.register(consoleLogProvider);
 
-
+    logger.debug('Logger instantiated successfully.');
   }
 }
 
