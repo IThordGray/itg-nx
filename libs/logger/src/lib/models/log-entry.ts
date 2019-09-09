@@ -1,5 +1,5 @@
+import { isNullOrWhiteSpace } from '@itg/common';
 import { LogLevel } from './log-level.enum';
-import { isNullOrWhitespace } from './utils/utils';
 
 export class LogEntry {
   public entryDate: Date = new Date();
@@ -28,15 +28,26 @@ export class LogEntry {
     return ret;
   }
 
+  private getEntryDateAsString(): string {
+    return this.entryDate.getDay().toString() + '/' +
+      this.entryDate.getMonth().toString() + '/' +
+      this.entryDate.getFullYear().toString() +
+      ' ' +
+      this.entryDate.getHours().toString() + ':' +
+      this.entryDate.getMinutes().toString() + ':' +
+      this.entryDate.getSeconds().toString();
+  }
+
   public toString(): string {
-    const date: string = `${this.entryDate}`;
+    const date: string = this.getEntryDateAsString();
+
     const type: string = `${LogLevel[this.logLevel]}`;
 
     const paramString: string = this.formatParams(this.optionalParams);
 
     const msg: string = this.message +
-      (!isNullOrWhitespace(paramString) ? ` ${paramString}` : '');
+      (!isNullOrWhiteSpace(paramString) ? ` ${paramString}` : '');
 
-    return `${date}: ${type} - ${msg}`;
+    return `${date} [${type}] - ${msg}`;
   }
 }

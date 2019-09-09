@@ -12,3 +12,4 @@ export { ConsoleLogProvider } from './lib/providers/console-log.provider';
 
 // Services
 export { LoggerService } from './lib/services/logger.service';
+export { LoggerProvidersService } from './lib/services/logger-providers.service';

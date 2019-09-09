@@ -1,5 +1,5 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { throwIfAlreadyLoaded } from './models/utils/utils';
+import { throwIfAlreadyLoaded } from '@itg/common';
 
 @NgModule()
 export class LoggerModule {
