@@ -1,0 +1,55 @@
+import { Guard } from '@itg/common';
+import { IRequestMessage, ResponseMessage } from '@itg/transport/abstractions';
+import { TransportProvider } from '@itg/transport/service';
+import { connect, MqttClient } from 'mqtt';
+import { Subject } from 'rxjs';
+import { take, takeUntil, filter } from 'rxjs/operators';
+
+export class MqttProvider extends TransportProvider {
+
+    private _client: MqttClient;
+    private _onMqttMessage$ = new Subject<{ topic: string, message: any }>();
+
+    constructor() {
+        super();
+    }
+
+    private connectToMqtt(options: { host: string, port?: number }): void {
+        const url = options.host + options.port ? `:${options.port}` : '';
+        this._client = connect(url);
+    }
+
+    private disconnectFromMqtt(): void {
+        this._client.end();
+    }
+
+    private subscribeToMqttMessage(): void {
+        this._client.on('message', (topic, message) => {
+            this._onMqttMessage$.next({ topic, message });
+        });
+    }
+
+    public publish(msg: IRequestMessage): void {
+        this._client.publish(msg.messageType, msg.payload);
+
+        // this._onMqttMessage$.pipe(
+        //     take(1),
+        //     takeUntil(this._onDestroy$),
+        //     filter(v => v.topic)
+        // ).subscribe()
+    }
+
+    public async startAsync(options: { host: string, port?: number }): Promise<void> {
+        Guard.againstNullArgument(options, 'options');
+
+        this.connectToMqtt(options);
+        this.subscribeToMqttMessage();
+
+        await this._startAsync();
+    }
+
+    public async stopAsync(): Promise<void> {
+        this.disconnectFromMqtt();
+        await this._stopAsync();
+    }
+}

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { IRequestMessage, IResponseMessage, ResponseMessage } from '@itg/transport/abstractions';
 import { TransportProvider } from '@itg/transport/service';
-import { Dictionary } from 'lodash';
+import { Dictionary } from '@itg/common';
 
 export interface IHttpEndpoint {
   endpointUrl: string;
@@ -23,7 +23,7 @@ export class HttpProvider extends TransportProvider {
     this._endpointOptions[messageType] = { ...options };
   }
 
-  public getEndpointOptions(messageType: string): IHttpEndpoint {
+  private getEndpointOptions(messageType: string): IHttpEndpoint {
     return this._endpointOptions[messageType];
   }
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
-import { cloneDeep, get, set } from 'lodash';
+import { cloneDeep as _cloneDeep, get as _get, set as _set } from 'lodash-es';
 import { IConfigConfig } from './config.type';
 
 export const CONFIG_VALUE_TOKEN = new InjectionToken<IConfigConfig>(
@@ -18,7 +18,7 @@ export class ConfigService {
     @Optional() @Inject(CONFIG_PATH_TOKEN) _path?: string,
     @Optional() private _httpClient?: HttpClient
   ) {
-    this._appConfig = cloneDeep(_obj) || {};
+    this._appConfig = _cloneDeep(_obj) || {};
     this._path = _path;
   }
 
@@ -34,10 +34,10 @@ export class ConfigService {
    */
   public get<T = any>(key?: string, fallbackValue?: any): T | undefined {
     if (!key) {
-      return cloneDeep(this._appConfig) as T;
+      return _cloneDeep(this._appConfig) as T;
     }
 
-    return cloneDeep(get(this._appConfig, key, fallbackValue));
+    return _cloneDeep(_get(this._appConfig, key, fallbackValue));
   }
 
   /** Set the config at a certain path.
@@ -48,7 +48,7 @@ export class ConfigService {
    * @param value Can be a value of any type
    */
   public set(key: string, value: any): void {
-    set(this._appConfig, key, value);
+    _set(this._appConfig, key, value);
   }
 
   public async loadConfig(): Promise<void> {

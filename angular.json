@@ -346,59 +346,28 @@
         }
       }
     },
-    "transport-providers": {
+    "ui-components-text-box": {
       "projectType": "library",
-      "root": "libs/transport/providers",
-      "sourceRoot": "libs/transport/providers/src",
+      "root": "libs/ui/components/text-box",
+      "sourceRoot": "libs/ui/components/text-box/src",
       "prefix": "itg",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/transport/providers/tsconfig.lib.json",
-              "libs/transport/providers/tsconfig.spec.json"
+              "libs/ui/components/text-box/tsconfig.lib.json",
+              "libs/ui/components/text-box/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/transport/providers/**"]
+            "exclude": ["**/node_modules/**", "!libs/ui/components/text-box/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/transport/providers/jest.config.js",
-            "tsConfig": "libs/transport/providers/tsconfig.spec.json",
-            "setupFile": "libs/transport/providers/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ui-button": {
-      "projectType": "library",
-      "root": "libs/ui/button",
-      "sourceRoot": "libs/ui/button/src",
-      "prefix": "itg",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui/button/tsconfig.lib.json",
-              "libs/ui/button/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/button/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/button/jest.config.js",
-            "tsConfig": "libs/ui/button/tsconfig.spec.json",
-            "setupFile": "libs/ui/button/src/test-setup.ts"
+            "jestConfig": "libs/ui/components/text-box/jest.config.js",
+            "tsConfig": "libs/ui/components/text-box/tsconfig.spec.json",
+            "setupFile": "libs/ui/components/text-box/src/test-setup.ts"
           }
         }
       },
@@ -446,70 +415,39 @@
         }
       }
     },
-    "ui-components-text-box": {
-      "projectType": "library",
-      "root": "libs/ui/components/text-box",
-      "sourceRoot": "libs/ui/components/text-box/src",
-      "prefix": "itg",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui/components/text-box/tsconfig.lib.json",
-              "libs/ui/components/text-box/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/components/text-box/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/components/text-box/jest.config.js",
-            "tsConfig": "libs/ui/components/text-box/tsconfig.spec.json",
-            "setupFile": "libs/ui/components/text-box/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "digitwin-simulator": {
+    "base-components": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/digitwin-simulator",
-      "sourceRoot": "apps/digitwin-simulator/src",
+      "root": "apps/base-components",
+      "sourceRoot": "apps/base-components/src",
       "prefix": "itg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/digitwin-simulator",
-            "index": "apps/digitwin-simulator/src/index.html",
-            "main": "apps/digitwin-simulator/src/main.ts",
-            "polyfills": "apps/digitwin-simulator/src/polyfills.ts",
-            "tsConfig": "apps/digitwin-simulator/tsconfig.app.json",
+            "outputPath": "dist/apps/base-components",
+            "index": "apps/base-components/src/index.html",
+            "main": "apps/base-components/src/main.ts",
+            "polyfills": "apps/base-components/src/polyfills.ts",
+            "tsConfig": "apps/base-components/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "apps/digitwin-simulator/src/favicon.ico",
-              "apps/digitwin-simulator/src/assets"
+              "apps/base-components/src/favicon.ico",
+              "apps/base-components/src/assets"
             ],
-            "styles": ["apps/digitwin-simulator/src/styles.scss"],
+            "styles": ["apps/base-components/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/digitwin-simulator/src/environments/environment.ts",
-                  "with": "apps/digitwin-simulator/src/environments/environment.prod.ts"
+                  "replace": "apps/base-components/src/environments/environment.ts",
+                  "with": "apps/base-components/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -534,63 +472,63 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "digitwin-simulator:build"
+            "browserTarget": "base-components:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "digitwin-simulator:build:production"
+              "browserTarget": "base-components:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "digitwin-simulator:build"
+            "browserTarget": "base-components:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/digitwin-simulator/tsconfig.app.json",
-              "apps/digitwin-simulator/tsconfig.spec.json"
+              "apps/base-components/tsconfig.app.json",
+              "apps/base-components/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/digitwin-simulator/**"]
+            "exclude": ["**/node_modules/**", "!apps/base-components/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/digitwin-simulator/jest.config.js",
-            "tsConfig": "apps/digitwin-simulator/tsconfig.spec.json",
-            "setupFile": "apps/digitwin-simulator/src/test-setup.ts"
+            "jestConfig": "apps/base-components/jest.config.js",
+            "tsConfig": "apps/base-components/tsconfig.spec.json",
+            "setupFile": "apps/base-components/src/test-setup.ts"
           }
         }
       }
     },
-    "digitwin-simulator-e2e": {
-      "root": "apps/digitwin-simulator-e2e",
-      "sourceRoot": "apps/digitwin-simulator-e2e/src",
+    "base-components-e2e": {
+      "root": "apps/base-components-e2e",
+      "sourceRoot": "apps/base-components-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/digitwin-simulator-e2e/cypress.json",
-            "tsConfig": "apps/digitwin-simulator-e2e/tsconfig.e2e.json",
-            "devServerTarget": "digitwin-simulator:serve"
+            "cypressConfig": "apps/base-components-e2e/cypress.json",
+            "tsConfig": "apps/base-components-e2e/tsconfig.e2e.json",
+            "devServerTarget": "base-components:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "digitwin-simulator:serve:production"
+              "devServerTarget": "base-components:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/digitwin-simulator-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/digitwin-simulator-e2e/**"]
+            "tsConfig": ["apps/base-components-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/base-components-e2e/**"]
           }
         }
       }
@@ -612,5 +550,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "itg"
+  "defaultProject": "test-app"
 }

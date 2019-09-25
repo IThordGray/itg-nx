@@ -35,22 +35,16 @@
     "transport-service": {
       "tags": []
     },
-    "transport-providers": {
-      "tags": []
-    },
-    "ui-button": {
+    "ui-components-text-box": {
       "tags": []
     },
     "ui-styles": {
       "tags": []
     },
-    "ui-components-text-box": {
+    "base-components-e2e": {
       "tags": []
     },
-    "digitwin-simulator-e2e": {
-      "tags": []
-    },
-    "digitwin-simulator": {
+    "base-components": {
       "tags": []
     }
   }

@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-
-import * as _ from 'lodash';
+import { Dictionary, Guid } from '@itg/common';
 import { TransportProvider } from './models/transport.provider';
 import { TransportEventBusService } from './transport-event-bus.service';
 import { TransportServiceModule } from './transport-service.module';
-import { getGuid } from './utils/get-guid';
 
 @Injectable({
   providedIn: TransportServiceModule
 })
 export class TransportProvidersService {
 
-  private _providers: _.Dictionary<TransportProvider> = {};
+  private _providers: Dictionary<TransportProvider> = {};
 
   constructor(
     private eventBus: TransportEventBusService
@@ -20,7 +18,7 @@ export class TransportProvidersService {
 
   public register<T extends TransportProvider>(provider: T): T {
     if (!provider.name) {
-      provider.name = getGuid();
+      provider.name = Guid.newGuid();
     }
 
     provider.eventBus = this.eventBus;

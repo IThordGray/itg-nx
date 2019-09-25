@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as _ from 'lodash';
-import { getGuid } from '../../../../transport/service/src/lib/utils/get-guid';
+import { Guid } from '@itg/common';
+import { values as _values } from 'lodash-es';
 import { LoggerModule } from '../logger.module';
 import { LogProvider } from '../models/abstract.log.provider';
 
@@ -16,7 +16,7 @@ export class LoggerProvidersService {
 
   public register(provider: LogProvider): LogProvider {
     if (!provider.name) {
-      provider.name = getGuid();
+      provider.name = Guid.newGuid();
     }
 
     this._providers[provider.name] = provider;
@@ -31,6 +31,6 @@ export class LoggerProvidersService {
       return this._providers[name];
     }
 
-    return _.values(this._providers);
+    return _values(this._providers);
   }
 }

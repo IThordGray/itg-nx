@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TransportService } from '@itg/transport/service';
+import { LoggerService } from '@itg/logger';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'itg-root',
@@ -9,20 +11,24 @@ import { TransportService } from '@itg/transport/service';
 export class AppComponent {
 
   constructor(
-    private transportService: TransportService
+    private transportService: TransportService,
+    private _logger: LoggerService
   ) {
 
     this.transportService.onMessage$.subscribe(e => {
-      console.info(e);
-    });
-
-    this.transportService.publish({
-      messageId: '123',
-      messageType: 'TEST.TRANSCEIVE',
-      payload: {
-        someVar: 123
-      }
+      this._logger.info(JSON.stringify(e)); 
     });
   }
+
+  async sendMessage() {
+    // this.transportService.publish({
+    //   messageId: '123',
+    //   messageType: 'TEST.TRANSCEIVE',
+    //   payload: {
+    //     someVar: 123
+    //   }
+    // });
+  }
+
 
 }

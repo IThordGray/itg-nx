@@ -2,18 +2,18 @@ import { EventHandler, IRequestMessage, IResponseMessage, TProvider } from '@itg
 import { TransportEventBusService } from '@itg/transport/service';
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import { Dictionary } from '@itg/common';
 
 interface ITransportProviderOptions {
-  filteredTypes?: string[];
+  filteredTypes?: Dictionary<boolean>;
 }
 
 export abstract class TransportProvider extends TProvider {
 
   protected readonly _onDestroy$: Subject<any> = new Subject();
+  protected readonly _options: ITransportProviderOptions = {};
 
   protected _onMessage$: Subject<IResponseMessage> = new Subject();
-
-  private options: ITransportProviderOptions = {};
 
   public eventBus: TransportEventBusService = undefined;
 
@@ -33,17 +33,35 @@ export abstract class TransportProvider extends TProvider {
     super();
   }
 
+  private filterMessagesByType(e: IRequestMessage): boolean {
+
+    if (!this._options.filteredTypes) {
+      return true;
+    }
+
+    const messageType = e.messageType ? e.messageType.toUpperCase() : '';
+
+    return !!this._options.filteredTypes[messageType];
+  }
+
   public abstract publish(msg: IRequestMessage): void;
 
-  public addMessageFilters(list: string[]): this {
-    this.options.filteredTypes = [...list];
+  public registerMessageFilters(list: string[] = []): this {
+
+    this._options.filteredTypes = this._options.filteredTypes || {};
+
+    list.forEach(x => {
+      this._options.filteredTypes[x.toUpperCase()] = true;
+    });
+
     return this;
   }
 
   protected async _startAsync(): Promise<void> {
+
     this.requestHandler.message$.pipe(
       takeUntil(this._onDestroy$),
-      filter(e => this.options.filteredTypes && this.options.filteredTypes.length > 0 ? this.options.filteredTypes.includes(e.messageType) : true)
+      filter(e => this.filterMessagesByType(e))
     ).subscribe(e => {
       this.publish(e);
     });
