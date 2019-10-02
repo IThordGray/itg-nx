@@ -46,6 +46,15 @@
     },
     "base-components": {
       "tags": []
+    },
+    "logger-app-e2e": {
+      "tags": []
+    },
+    "logger-app": {
+      "tags": []
+    },
+    "logger-api": {
+      "tags": []
     }
   }
 }
