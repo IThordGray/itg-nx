@@ -3,60 +3,43 @@ import { LogProvider } from '../../models/abstract.log.provider';
 import { LogLevel } from '../../models/log-level.enum';
 import { ILogProviderConfig } from '../../models/log-provider-config';
 import { LogEntry } from '../../models/log-entry';
+// import * as consoleReClient from 'console-remote-client'
 
-// import consolRe = require('console-remote-client')
-//
-// import * as consoleRe from 'console-remote-client'
-// const consolRe : any = require('console-remote-client')
-//
+type ConsoleReLogType =  "info" | "trace" | "debug" | "error" | "warn"
 
-// const consolRe: any = {
-//     channel: 'itg-remote-log-dev',
-//     api: '//console.re/connector.js',
-//     ready: function (c) { var d = document, s = <any>d.createElement('script'), l; s.src = this.api; s.id = 'consolerescript'; s.setAttribute('data-channel', this.channel); s.onreadystatechange = s.onload = function () { if (!l) { c(); } l = true; }; d.getElementsByTagName('head')[0].appendChild(s); }
-// };
-
-// export interface RemoteLoggerInterface {
-//     re : {
-//         info(message) : void
-//     }
-// }
 
 export class ConsoleRemoteLogProvider extends LogProvider {
 
-    // public get remoteLogger(): RemoteLoggerInterface {
-    //     return (console as unknown as RemoteLoggerInterface)
-    // }
+    private _consoleReClient: any
 
-    // private consolere: any
+    private bootstrapLogger_async(): Promise<void> {
+        return new Promise<void>(resolve => {
+            this._consoleReClient = {
+                channel: 'itg-remote-log-dev',
+                api: '//console.re/connector.js',
+                ready: function (c) { var d = document, s = <any>d.createElement('script'), l; s.src = this.api; s.id = 'consolerescript'; s.setAttribute('data-channel', this.channel); s.onreadystatechange = s.onload = function () { if (!l) { c(); } l = true; console.log("Script ready") }; d.getElementsByTagName('head')[0].appendChild(s); }
+            };
 
-    private init() {
-        const consoleRe: any = {
-        channel: 'itg-remote-log-dev',
-        api: '//console.re/connector.js',
-        ready: function (c) { var d = document, s = <any>d.createElement('script'), l; s.src = this.api; s.id = 'consolerescript'; s.setAttribute('data-channel', this.channel); s.onreadystatechange = s.onload = function () { if (!l) { c(); } l = true; }; d.getElementsByTagName('head')[0].appendChild(s); }
-        };
-        let self = this;
-        // this.consolere = require('console-remote-client').connect('console.re', '80', 'itg-remote-log-dev');
-        consoleRe.ready(function () {
-            setInterval(()=>{
-                let log = new LogEntry();
-                log.message = "remote log test";
-                log.logLevel = LogLevel.Info;
-                log.entryDate = new Date();
-                self.info(log)
-            },5000)
+            resolve()
+        })
+    }
 
-            // console.re.log('remote log test');
-        });
-        // this.consolere = consolRe.toServerRe.connect('console.re', '80', 'itg-remote-log-dev');
-        // setInterval(() => {
-        //     let log = new LogEntry();
-        //     log.message = "Test";
-        //     log.logLevel = LogLevel.Info;
-        //     log.entryDate = new Date();
-        //     this.info(log)
-        // }, 1000)
+    private async init() {
+        await this.bootstrapLogger_async();
+        // this._consoleReClient.ready(() => {
+        //     (console as any).re.debug("Consol.Re ready on channel XYZ")
+        // })
+    }
+
+    private logWhenReady(logType: ConsoleReLogType, message: string) {
+        if (!(console as any).re) {
+            this._consoleReClient.ready(() => {
+                (console as any).re[logType](message);
+            })
+            return
+        }
+
+        (console as any).re[logType](message);
     }
 
     constructor(
@@ -67,30 +50,37 @@ export class ConsoleRemoteLogProvider extends LogProvider {
     }
 
     public clear(): void {
+        this._consoleReClient.ready(()=>{
         (console as any).re.clear()
+        })
     }
 
     public debug(entry: LogEntry): void {
-        // (console as any).re.debug(entry.message)
+        this.logWhenReady("debug",entry.message)
     }
 
     public error(entry: LogEntry): void {
-        (console as any).re.error(entry.message)
+        this.logWhenReady("error",entry.message)
+
     }
 
     public fatal(entry: LogEntry): void {
-        (console as any).re.error(entry.message)
+        this.logWhenReady("error",entry.message)
+
     }
 
     public info(entry: LogEntry): void {
-        (console as any).re.info(entry.message);
+        this.logWhenReady("info",entry.message)
+
     }
 
     public trace(entry: LogEntry): void {
-        (console as any).re.trace(entry.message);
+        this.logWhenReady("trace",entry.message)
+
     }
 
     public warn(entry: LogEntry): void {
-        (console as any).re.warn(entry.message);
+        this.logWhenReady("warn",entry.message)
+
     }
 }
