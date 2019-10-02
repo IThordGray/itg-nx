@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Inject, NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { ConfigModule, ConfigService, IConfigConfig } from '@itg/config';
-import { ConsoleLogProvider, LoggerModule, LoggerService, LogLevel } from '@itg/logger';
+import { ConsoleLogProvider, LoggerModule, LoggerService, LogLevel, ConsoleRemoteLogProvider } from '@itg/logger';
 import { createProxy, throwIfAlreadyLoaded } from 'libs/common';
 import { LoggerProvidersService } from 'libs/logger/src/lib/services/logger-providers.service';
 import { ENVIRONMENT_TOKEN } from './tokens/environment.token';
@@ -37,11 +37,15 @@ export class BootstrapModule {
     throwIfAlreadyLoaded(parentModule, 'BootstrapModule');
 
     config.set('logLevel', environment.production ? LogLevel.Error : LogLevel.Debug);
+    config.set('consoleRemoteChannelName', environment.consoleRemoteLogger ? environment.consoleRemoteLogger : "default-channel-name");
 
     const consoleLogProvider: ConsoleLogProvider = new ConsoleLogProvider();
+    const consoleRemoteLogProvider : ConsoleRemoteLogProvider = new ConsoleRemoteLogProvider({channelName : config.get('consoleRemoteChannelName').channelName})
     createProxy(config.get(), 'logLevel', consoleLogProvider.config, 'logLevel')
 
     loggerProviders.register(consoleLogProvider);
+    loggerProviders.register(consoleRemoteLogProvider);
+    
 
     logger.debug('Logger instantiated successfully.');
   }

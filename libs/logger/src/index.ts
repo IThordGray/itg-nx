@@ -9,6 +9,7 @@ export { LoggerModule } from './lib/logger.module';
 // Providers
 export { LogProvider } from './lib/models/abstract.log.provider';
 export { ConsoleLogProvider } from './lib/providers/console-log.provider';
+export { ConsoleRemoteLogProvider } from './lib/providers/console-re-logger/console-re-logger.provider';
 
 // Services
 export { LoggerService } from './lib/services/logger.service';
