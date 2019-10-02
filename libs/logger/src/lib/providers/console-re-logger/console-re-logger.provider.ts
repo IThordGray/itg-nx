@@ -15,7 +15,7 @@ export class ConsoleRemoteLogProvider extends LogProvider {
     private bootstrapLogger_async(): Promise<void> {
         return new Promise<void>(resolve => {
             this._consoleReClient = {
-                channel: 'itg-remote-log-dev',
+                channel: this.options.channelName,
                 api: '//console.re/connector.js',
                 ready: function (c) { var d = document, s = <any>d.createElement('script'), l; s.src = this.api; s.id = 'consolerescript'; s.setAttribute('data-channel', this.channel); s.onreadystatechange = s.onload = function () { if (!l) { c(); } l = true; console.log("Script ready") }; d.getElementsByTagName('head')[0].appendChild(s); }
             };
@@ -43,7 +43,8 @@ export class ConsoleRemoteLogProvider extends LogProvider {
     }
 
     constructor(
-        config: ILogProviderConfig = { logLevel: LogLevel.Trace }
+        private options : {channelName : string},
+        config: ILogProviderConfig = { logLevel: LogLevel.Trace },
     ) {
         super(config);
         this.init();

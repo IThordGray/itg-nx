@@ -37,9 +37,10 @@ export class BootstrapModule {
     throwIfAlreadyLoaded(parentModule, 'BootstrapModule');
 
     config.set('logLevel', environment.production ? LogLevel.Error : LogLevel.Debug);
+    config.set('consoleRemoteChannelName', environment.consoleRemoteLogger ? environment.consoleRemoteLogger : "default-channel-name");
 
     const consoleLogProvider: ConsoleLogProvider = new ConsoleLogProvider();
-    const consoleRemoteLogProvider : ConsoleRemoteLogProvider = new ConsoleRemoteLogProvider()
+    const consoleRemoteLogProvider : ConsoleRemoteLogProvider = new ConsoleRemoteLogProvider({channelName : config.get('consoleRemoteChannelName').channelName})
     createProxy(config.get(), 'logLevel', consoleLogProvider.config, 'logLevel')
 
     loggerProviders.register(consoleLogProvider);
