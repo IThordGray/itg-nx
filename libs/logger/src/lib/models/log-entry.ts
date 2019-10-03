@@ -1,5 +1,5 @@
 import { isNullOrWhiteSpace } from '@itg/common';
-import { LogLevel } from './log-level.enum';
+import { LogLevel } from '@itg/logger/abstractions';
 
 export class LogEntry {
   public entryDate: Date = new Date();
@@ -15,7 +15,6 @@ export class LogEntry {
     let ret: string = '';
 
     params.forEach(param => {
-
       if (typeof param === 'object') {
         ret += JSON.stringify(param);
         return;
@@ -29,13 +28,19 @@ export class LogEntry {
   }
 
   private getEntryDateAsString(): string {
-    return this.entryDate.getDay().toString() + '/' +
-      this.entryDate.getMonth().toString() + '/' +
+    return (
+      this.entryDate.getDay().toString() +
+      '/' +
+      this.entryDate.getMonth().toString() +
+      '/' +
       this.entryDate.getFullYear().toString() +
       ' ' +
-      this.entryDate.getHours().toString() + ':' +
-      this.entryDate.getMinutes().toString() + ':' +
-      this.entryDate.getSeconds().toString();
+      this.entryDate.getHours().toString() +
+      ':' +
+      this.entryDate.getMinutes().toString() +
+      ':' +
+      this.entryDate.getSeconds().toString()
+    );
   }
 
   public toString(): string {
@@ -45,7 +50,8 @@ export class LogEntry {
 
     const paramString: string = this.formatParams(this.optionalParams);
 
-    const msg: string = this.message +
+    const msg: string =
+      this.message +
       (!isNullOrWhiteSpace(paramString) ? ` ${paramString}` : '');
 
     return `${date} [${type}] - ${msg}`;

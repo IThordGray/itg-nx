@@ -1,4 +1,4 @@
-import { LogLevel } from './log-level.enum';
+import { LogLevel } from '@itg/logger/abstractions';
 
 export interface ILogProviderConfig {
   logLevel: LogLevel;
