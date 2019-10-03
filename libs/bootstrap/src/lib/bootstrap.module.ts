@@ -7,16 +7,19 @@ import {
   ModuleWithProviders
 } from '@angular/core';
 import { ConfigModule, ConfigService, IConfigConfig } from '@itg/config';
-import {
-  ConsoleLogProvider,
-  LoggerModule,
-  LoggerService,
-  ConsoleRemoteLogProvider
-} from '@itg/logger';
 import { createProxy, throwIfAlreadyLoaded } from 'libs/common';
-import { LoggerProvidersService } from 'libs/logger/src/lib/services/logger-providers.service';
 import { ENVIRONMENT_TOKEN } from './tokens/environment.token';
 import { LogLevel } from '@itg/logger/abstractions';
+
+import {
+  LoggerModule,
+  LoggerService,
+  LoggerProvidersService
+} from '@itg/logger/service';
+import {
+  ConsoleLogProvider,
+  ConsoleRemoteLogProvider
+} from '@itg/logger/providers';
 
 @NgModule({
   imports: [CommonModule, ConfigModule.withValue({}), LoggerModule]

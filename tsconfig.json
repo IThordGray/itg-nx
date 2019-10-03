@@ -17,7 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@itg/api-interface": ["libs/api-interface/src/index.ts"],
-      "@itg/logger": ["libs/logger/src/index.ts"],
       "@itg/config": ["libs/config/src/index.ts"],
       "@itg/notify": ["libs/notify/src/index.ts"],
       "@itg/bootstrap": ["libs/bootstrap/src/index.ts"],
@@ -52,7 +51,9 @@
         "libs/digitwin-simulator/abstractions/src/index.ts"
       ],
       "@itg/common": ["libs/common/index.ts"],
-      "@itg/logger/abstractions": ["libs/logger/abstractions/src/index.ts"]
+      "@itg/logger/abstractions": ["libs/logger/abstractions/src/index.ts"],
+      "@itg/logger/providers": ["libs/logger/providers/src/index.ts"],
+      "@itg/logger/service": ["libs/logger/service/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

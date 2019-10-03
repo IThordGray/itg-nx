@@ -1,7 +1,7 @@
-# logger
+# logger-providers
 
 This library was generated with [Nx](https://nx.dev).
 
 ## Running unit tests
 
-Run `ng test logger` to execute the unit tests.
+Run `nx test logger-providers` to execute the unit tests.
