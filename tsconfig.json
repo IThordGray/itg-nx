@@ -51,7 +51,8 @@
       "@itg/digitwin-simulator/abstractions": [
         "libs/digitwin-simulator/abstractions/src/index.ts"
       ],
-      "@itg/common": ["libs/common/index.ts"]
+      "@itg/common": ["libs/common/index.ts"],
+      "@itg/logger/abstractions": ["libs/logger/abstractions/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,23 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { LoggerModule } from '../logger.module';
-import { LogLevel } from '../models/log-level.enum';
 import { MockProvider } from '../test-utils/mock-provider';
 import { LoggerService } from './logger.service';
+import { LogLevel } from '@itg/logger/abstractions';
 
 describe('LogService', () => {
   let logger: any | LoggerService = undefined;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        LoggerModule.withConfig({
-          providers: [
-            {
-              provider: MockProvider
-            }
-          ]
-        })
-      ]
+      imports: [LoggerModule]
     });
 
     logger = TestBed.get(LoggerService);

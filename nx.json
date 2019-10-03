@@ -55,6 +55,9 @@
     },
     "logger-api": {
       "tags": []
+    },
+    "logger-abstractions": {
+      "tags": []
     }
   }
 }

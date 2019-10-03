@@ -1,15 +1,12 @@
 // tslint:disable:no-console
 
 import { LogEntry } from '../models/log-entry';
-import { LogLevel } from '../models/log-level.enum';
 import { ILogProviderConfig } from '../models/log-provider-config';
 import { LogProvider } from '../models/abstract.log.provider';
+import { LogLevel } from '@itg/logger/abstractions';
 
 export class ConsoleLogProvider extends LogProvider {
-
-  constructor(
-    config: ILogProviderConfig = { logLevel: LogLevel.Trace }
-  ) {
+  constructor(config: ILogProviderConfig = { logLevel: LogLevel.Trace }) {
     super(config);
   }
 

@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { LoggerModule } from '../logger.module';
 import { LogEntry } from '../models/log-entry';
-import { LogLevel } from '../models/log-level.enum';
 import { LogProvider } from '../models/abstract.log.provider';
 import { LoggerProvidersService } from './logger-providers.service';
+import { LogLevel } from '@itg/logger/abstractions';
 
 @Injectable({
   providedIn: LoggerModule
 })
 export class LoggerService {
+  constructor(private providers: LoggerProvidersService) {}
 
-  constructor(
-    private providers: LoggerProvidersService
-  ) {
-  }
-
-  private shouldLog(requestingLogLevel: LogLevel, requiredLogLevel: LogLevel): boolean {
+  private shouldLog(
+    requestingLogLevel: LogLevel,
+    requiredLogLevel: LogLevel
+  ): boolean {
     if (requiredLogLevel === LogLevel.Trace) {
       return true;
     }
@@ -26,7 +25,11 @@ export class LoggerService {
     );
   }
 
-  private writeToLog(message: string, logLevel: LogLevel, optionalParams: any[]): void {
+  private writeToLog(
+    message: string,
+    logLevel: LogLevel,
+    optionalParams: any[]
+  ): void {
     const entry: LogEntry = new LogEntry();
     entry.message = message;
     entry.logLevel = logLevel;
@@ -103,9 +106,7 @@ export class LoggerService {
   }
 
   public error(message: any, ...optionalParams: any[]): void {
-
     const messageToDisplay = message instanceof Error ? message.stack : message;
-
 
     this.writeToLog(messageToDisplay, LogLevel.Error, optionalParams);
   }
