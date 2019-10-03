@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
+import { LoggerService } from '@itg/logger/service';
 import { TransportService } from '@itg/transport/service';
-import { LoggerService } from '@itg/logger';
-import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'itg-root',
@@ -9,14 +8,12 @@ import { combineLatest } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   constructor(
     private transportService: TransportService,
     private _logger: LoggerService
   ) {
-
     this.transportService.onMessage$.subscribe(e => {
-      this._logger.info(JSON.stringify(e)); 
+      this._logger.info(JSON.stringify(e));
     });
   }
 
@@ -29,6 +26,4 @@ export class AppComponent {
     //   }
     // });
   }
-
-
 }

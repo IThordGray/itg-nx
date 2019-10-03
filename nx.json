@@ -14,9 +14,6 @@
     "api-interface": {
       "tags": []
     },
-    "logger": {
-      "tags": []
-    },
     "config": {
       "tags": []
     },
@@ -57,6 +54,12 @@
       "tags": []
     },
     "logger-abstractions": {
+      "tags": []
+    },
+    "logger-providers": {
+      "tags": []
+    },
+    "logger-service": {
       "tags": []
     }
   }

@@ -1,8 +1,6 @@
 // tslint:disable:no-console
-import { LogProvider } from '../../models/abstract.log.provider';
-import { ILogProviderConfig } from '../../models/log-provider-config';
-import { LogEntry } from '../../models/log-entry';
 import { LogLevel } from '@itg/logger/abstractions';
+import { LogProvider, ILogProviderConfig, LogEntry } from '@itg/logger/service';
 // import * as consoleReClient from 'console-remote-client'
 
 type ConsoleReLogType = 'info' | 'trace' | 'debug' | 'error' | 'warn';

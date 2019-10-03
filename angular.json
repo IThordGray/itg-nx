@@ -82,33 +82,6 @@
         }
       }
     },
-    "logger": {
-      "projectType": "library",
-      "root": "libs/logger",
-      "sourceRoot": "libs/logger/src",
-      "prefix": "itg",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/logger/tsconfig.lib.json",
-              "libs/logger/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/logger/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/logger/jest.config.js",
-            "tsConfig": "libs/logger/tsconfig.spec.json",
-            "setupFile": "libs/logger/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {}
-    },
     "config": {
       "projectType": "library",
       "root": "libs/config",
@@ -728,6 +701,68 @@
             "jestConfig": "libs/logger/abstractions/jest.config.js",
             "tsConfig": "libs/logger/abstractions/tsconfig.spec.json",
             "setupFile": "libs/logger/abstractions/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "logger-providers": {
+      "projectType": "library",
+      "root": "libs/logger/providers",
+      "sourceRoot": "libs/logger/providers/src",
+      "prefix": "itg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/logger/providers/tsconfig.lib.json",
+              "libs/logger/providers/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/logger/providers/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/logger/providers/jest.config.js",
+            "tsConfig": "libs/logger/providers/tsconfig.spec.json",
+            "setupFile": "libs/logger/providers/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "logger-service": {
+      "projectType": "library",
+      "root": "libs/logger/service",
+      "sourceRoot": "libs/logger/service/src",
+      "prefix": "itg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/logger/service/tsconfig.lib.json",
+              "libs/logger/service/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/logger/service/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/logger/service/jest.config.js",
+            "tsConfig": "libs/logger/service/tsconfig.spec.json",
+            "setupFile": "libs/logger/service/src/test-setup.ts"
           }
         }
       },
