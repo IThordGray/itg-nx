@@ -41,9 +41,7 @@ export class LoggerService {
     return [];
   }
 
-  public async getLogsByCategoryAsync(
-    category: string
-  ): Promise<LogEntryDto[]> {
+  public async getLogsByCategoryAsync(category: string): Promise<LogEntryDto[]> {
     return [];
   }
 
@@ -51,10 +49,7 @@ export class LoggerService {
     return [];
   }
 
-  public async getLogsByTimestampAsync(
-    from: Date,
-    to: Date
-  ): Promise<LogEntryDto[]> {
+  public async getLogsByTimestampAsync(from: Date, to: Date): Promise<LogEntryDto[]> {
     return [];
   }
 }
