@@ -53,7 +53,8 @@
       "@itg/common": ["libs/common/index.ts"],
       "@itg/logger/abstractions": ["libs/logger/abstractions/src/index.ts"],
       "@itg/logger/providers": ["libs/logger/providers/src/index.ts"],
-      "@itg/logger/service": ["libs/logger/service/src/index.ts"]
+      "@itg/logger/service": ["libs/logger/service/src/index.ts"],
+      "@itg/ui/components": ["libs/ui/components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
