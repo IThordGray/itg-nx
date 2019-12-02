@@ -16,7 +16,9 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -45,7 +47,10 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**"
+            ]
           }
         },
         "test": {
@@ -70,7 +75,10 @@
               "libs\\api-interface\\tsconfig.lib.json",
               "libs/api-interface/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interface/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interface/**"
+            ]
           }
         },
         "test": {
@@ -95,7 +103,10 @@
               "libs/config/tsconfig.lib.json",
               "libs/config/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/config/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/config/**"
+            ]
           }
         },
         "test": {
@@ -122,7 +133,10 @@
               "libs/notify/tsconfig.lib.json",
               "libs/notify/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/notify/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/notify/**"
+            ]
           }
         },
         "test": {
@@ -159,7 +173,9 @@
               "apps/test-app/src/favicon.ico",
               "apps/test-app/src/assets"
             ],
-            "styles": ["apps/test-app/src/styles.scss"],
+            "styles": [
+              "apps/test-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -213,7 +229,10 @@
               "apps/test-app/tsconfig.app.json",
               "apps/test-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/test-app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/test-app/**"
+            ]
           }
         },
         "test": {
@@ -239,7 +258,10 @@
               "libs/bootstrap/tsconfig.lib.json",
               "libs/bootstrap/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/bootstrap/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/bootstrap/**"
+            ]
           }
         },
         "test": {
@@ -270,7 +292,10 @@
               "libs/transport/abstractions/tsconfig.lib.json",
               "libs/transport/abstractions/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/transport/abstractions/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/transport/abstractions/**"
+            ]
           }
         },
         "test": {
@@ -301,7 +326,10 @@
               "libs/transport/service/tsconfig.lib.json",
               "libs/transport/service/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/transport/service/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/transport/service/**"
+            ]
           }
         },
         "test": {
@@ -343,7 +371,9 @@
               "apps/base-components/src/favicon.ico",
               "apps/base-components/src/assets"
             ],
-            "styles": ["apps/base-components/src/styles.scss"],
+            "styles": [
+              "apps/base-components/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -397,7 +427,10 @@
               "apps/base-components/tsconfig.app.json",
               "apps/base-components/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/base-components/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/base-components/**"
+            ]
           }
         },
         "test": {
@@ -431,8 +464,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/base-components-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/base-components-e2e/**"]
+            "tsConfig": [
+              "apps/base-components-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/base-components-e2e/**"
+            ]
           }
         }
       }
@@ -461,7 +499,9 @@
               "apps/logger/app/src/favicon.ico",
               "apps/logger/app/src/assets"
             ],
-            "styles": ["apps/logger/app/src/styles.scss"],
+            "styles": [
+              "apps/logger/app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -516,7 +556,10 @@
               "apps/logger/app/tsconfig.app.json",
               "apps/logger/app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/logger/app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/logger/app/**"
+            ]
           }
         },
         "test": {
@@ -550,8 +593,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/logger/app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/logger/app-e2e/**"]
+            "tsConfig": [
+              "apps/logger/app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/logger/app-e2e/**"
+            ]
           }
         }
       }
@@ -569,7 +617,9 @@
             "outputPath": "dist/apps/logger/api",
             "main": "apps/logger/api/src/main.ts",
             "tsConfig": "apps/logger/api/tsconfig.app.json",
-            "assets": ["apps/logger/api/src/assets"]
+            "assets": [
+              "apps/logger/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -598,7 +648,10 @@
               "apps/logger/api/tsconfig.app.json",
               "apps/logger/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/logger/api/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/logger/api/**"
+            ]
           }
         },
         "test": {
@@ -623,7 +676,10 @@
               "libs/logger/abstractions/tsconfig.lib.json",
               "libs/logger/abstractions/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/logger/abstractions/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/logger/abstractions/**"
+            ]
           }
         },
         "test": {
@@ -654,7 +710,10 @@
               "libs/logger/providers/tsconfig.lib.json",
               "libs/logger/providers/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/logger/providers/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/logger/providers/**"
+            ]
           }
         },
         "test": {
@@ -685,7 +744,10 @@
               "libs/logger/service/tsconfig.lib.json",
               "libs/logger/service/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/logger/service/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/logger/service/**"
+            ]
           }
         },
         "test": {
@@ -716,7 +778,10 @@
               "libs/ui/components/tsconfig.lib.json",
               "libs/ui/components/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/components/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/components/**"
+            ]
           }
         },
         "test": {
@@ -726,11 +791,61 @@
             "tsConfig": "libs/ui/components/tsconfig.spec.json",
             "setupFile": "libs/ui/components/src/test-setup.ts"
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/components/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       },
       "schematics": {
         "@nrwl/angular:component": {
           "styleext": "scss"
+        }
+      }
+    },
+    "ui-components-e2e": {
+      "root": "apps/ui-components-e2e",
+      "sourceRoot": "apps/ui-components-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ui-components-e2e/cypress.json",
+            "tsConfig": "apps/ui-components-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ui-components:storybook",
+            "headless": false,
+            "watch": true
+          },
+          "configurations": {
+            "headless": {
+              "devServerTarget": "ui-components:storybook:ci",
+              "headless": true
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ui-components-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ui-components-e2e/**"
+            ]
+          }
         }
       }
     }
