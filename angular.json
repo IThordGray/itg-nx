@@ -350,44 +350,6 @@
         }
       }
     },
-    "ui-styles": {
-      "projectType": "library",
-      "root": "libs/ui/styles",
-      "sourceRoot": "libs/ui/styles/src",
-      "prefix": "itg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "libs/ui/styles/tsconfig.lib.json",
-            "project": "libs/ui/styles/ng-package.json"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui/styles/tsconfig.lib.json",
-              "libs/ui/styles/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui/styles/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/styles/jest.config.js",
-            "tsConfig": "libs/ui/styles/tsconfig.spec.json",
-            "setupFile": "libs/ui/styles/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "base-components": {
       "projectType": "application",
       "schematics": {
