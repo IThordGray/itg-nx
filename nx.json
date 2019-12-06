@@ -32,9 +32,6 @@
     "transport-service": {
       "tags": []
     },
-    "ui-styles": {
-      "tags": []
-    },
     "base-components-e2e": {
       "tags": []
     },

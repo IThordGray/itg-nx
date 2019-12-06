@@ -11,12 +11,20 @@ export default {
 }
 
 export const primary = () => ({
-  component: ButtonComponent,
-  props: {
-  }
+  moduleMetadata: {
+    declarations: [ButtonComponent]
+  },
+  template: `<itg-button>Some button</itg-button>`
 })
 
 export const withCustomText = () => ({
+  component: ButtonComponent,
+  props: {
+    text: text('text', 'Custom text')
+  }
+})
+
+export const someOtherStory = () => ({
   component: ButtonComponent,
   props: {
     text: text('text', 'Custom text')
