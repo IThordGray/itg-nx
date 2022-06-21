@@ -10,3 +10,5 @@ export * from './lib/models/errors/argument-null.error';
 export * from './lib/models/errors/overflow.error';
 export * from './lib/models/errors/invalid-operation.error';
 export * from './lib/models/utils/guard.utils';
+export * from './lib/models/errors/aggregate.error';
+export * from './lib/models/types/type.type';
