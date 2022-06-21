@@ -15,6 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@itg/frontend-common": ["libs/frontend/common/src/index.ts"],
+      "@itg/frontend-common/permissions": [
+        "libs/frontend/common/permissions/src/index.ts"
+      ],
       "@itg/shared-config": ["libs/frontend/config/src/index.ts"],
       "@itg/shared-logger": ["libs/frontend/logger/src/index.ts"],
       "@itg/shared-notify": ["libs/frontend/notify/src/index.ts"],

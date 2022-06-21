@@ -1,0 +1,43 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/frontend/common/src",
+  "prefix": "itg",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/frontend/common"],
+      "options": {
+        "project": "libs/frontend/common/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/frontend/common/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/frontend/common/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/frontend/common"],
+      "options": {
+        "jestConfig": "libs/frontend/common/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/frontend/common/**/*.ts",
+          "libs/frontend/common/**/*.html",
+          "libs/frontend/common/permissions/**/*.ts",
+          "libs/frontend/common/permissions/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
