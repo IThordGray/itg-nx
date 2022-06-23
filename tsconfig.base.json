@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@itg/backend-audit-logs": ["libs/backend/audit-logs/src/index.ts"],
       "@itg/frontend-common": ["libs/frontend/common/src/index.ts"],
       "@itg/frontend-common/permissions": [
         "libs/frontend/common/permissions/src/index.ts"
