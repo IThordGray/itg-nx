@@ -10,6 +10,9 @@ export default {
     },
   },
   coverageDirectory: '../../../coverage/libs/frontend/config',
+  moduleNameMapper: {
+    "^lodash-es$": "lodash"
+  },
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

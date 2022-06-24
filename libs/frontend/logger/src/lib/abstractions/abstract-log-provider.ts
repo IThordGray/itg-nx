@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { Log } from './log';
 import { LogLevel } from './log-level.enum';
 
@@ -10,7 +9,8 @@ export abstract class LogProvider {
 
   constructor(
     public providerConfig: ILogProviderConfig
-  ) { }
+  ) {
+  }
 
   abstract trace(entry: Log): void;
 

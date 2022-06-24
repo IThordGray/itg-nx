@@ -12,5 +12,6 @@ export class QueryResults<TResultType extends RestrictedRecord<TResultType>> imp
   constructor(
     public results: TResultType[],
     public resultsMeta: IQueryResultsOptions
-  ) { }
+  ) {
+  }
 }

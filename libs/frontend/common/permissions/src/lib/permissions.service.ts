@@ -10,7 +10,8 @@ export class PermissionsService {
 
   constructor(
     private permissionsApi: PermissionsApi
-  ) { }
+  ) {
+  }
 
   load(): void {
     this.permissionsApi.getAll().subscribe(x => this._permission$.next(x));

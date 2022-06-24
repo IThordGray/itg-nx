@@ -4,12 +4,19 @@ export default {
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-    },
+      tsconfig: '<rootDir>/tsconfig.spec.json'
+    }
+  },
+  moduleNameMapper: {
+    '^lodash-es$': 'lodash'
   },
   transform: {
     '^.+\\.[tj]s$': 'ts-jest',
+    '^.+\\.js$': 'babel-jest'
   },
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/libs/shared/filter-expressions',
+  transformIgnorePatterns: [
+    `node_modules/(?!lodash-es)`
+  ],
+  moduleFileExtensions: [ 'ts', 'js', 'html' ],
+  coverageDirectory: '../../../coverage/libs/shared/filter-expressions'
 };

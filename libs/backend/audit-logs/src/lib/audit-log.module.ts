@@ -11,6 +11,7 @@ import { AuditLogService } from './audit-log.service';
   exports: [
     AuditLogService,
     AuditLogContext
-  ],
+  ]
 })
-export class AuditLogModule {}
+export class AuditLogModule {
+}

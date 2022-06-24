@@ -1,4 +1,4 @@
-import isEmpty from 'lodash-es/isEmpty';
+import { isEmpty } from 'lodash-es';
 import { isNullOrUndefined } from '../../helpers/is-null-or-undefined.helper';
 import { isWhiteSpace } from '../../helpers/is-white-space.helper';
 import { ArgumentNullError } from '../errors/argument-null.error';

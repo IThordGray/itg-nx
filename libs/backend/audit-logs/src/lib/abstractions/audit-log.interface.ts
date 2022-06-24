@@ -2,8 +2,9 @@ import { RestrictedRecord } from '@itg/shared-utils';
 
 export interface IAuditMeta {
   reference?: string;
+
   [key: string]: any;
-};
+}
 
 export interface IAuditLog<TDataType extends RestrictedRecord<TDataType>> {
   userId: string;
@@ -24,6 +25,6 @@ export class AuditLog<TDataType extends RestrictedRecord<TDataType>> implements 
   processedAt: Date;
 
   constructor(args: Partial<Omit<AuditLog<TDataType>, 'dispatchTimestamp' | 'processedTimestamp'>>) {
-    Object.assign(this, args ?? {})
+    Object.assign(this, args ?? {});
   }
 }

@@ -9,37 +9,37 @@ describe('Timespan.getHashCode', () => {
 
   test('00:00:00.001 = 1', () => {
     const result = 1;
-    const ts = new Timespan({ milliseconds: 1});
+    const ts = new Timespan({ milliseconds: 1 });
     expect(ts.getHashCode()).toEqual(result);
   });
 
   test('00:00:01 = 1000', () => {
     const result = 1000;
-    const ts = new Timespan({ seconds: 1});
+    const ts = new Timespan({ seconds: 1 });
     expect(ts.getHashCode()).toEqual(result);
   });
 
   test('00:01:00 = 60000', () => {
     const result = 60000;
-    const ts = new Timespan({ minutes: 1});
+    const ts = new Timespan({ minutes: 1 });
     expect(ts.getHashCode()).toEqual(result);
   });
 
   test('01:00:00 = 3600000', () => {
     const result = 3600000;
-    const ts = new Timespan({ hours: 1});
+    const ts = new Timespan({ hours: 1 });
     expect(ts.getHashCode()).toEqual(result);
   });
 
   test('01:00:00.001 = 3600001', () => {
     const result = 3600001;
-    const ts = new Timespan({ hours: 1, milliseconds: 1});
+    const ts = new Timespan({ hours: 1, milliseconds: 1 });
     expect(ts.getHashCode()).toEqual(result);
   });
 
   test('01:00:01 = 3601000', () => {
     const result = 3601000;
-    const ts = new Timespan({ hours: 1, seconds: 1});
+    const ts = new Timespan({ hours: 1, seconds: 1 });
     expect(ts.getHashCode()).toEqual(result);
   });
 

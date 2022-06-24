@@ -1,5 +1,5 @@
 import { IQueryResults, IQueryResultsOptions } from '@itg/shared-utils';
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { IAuditLog } from './abstractions/audit-log.interface';
 import { AuditLogContext } from './audit-log.context';
 import { AuditLogRepository } from './audit-log.repository';
@@ -10,7 +10,8 @@ export class AuditLogService {
   constructor(
     protected _repo: AuditLogRepository,
     protected _auditContext: AuditLogContext
-  ) { }
+  ) {
+  }
 
   dispatch(msg: IAuditLog<unknown>): void {
     msg.dispatchedAt = new Date();

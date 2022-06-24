@@ -1,6 +1,4 @@
-import get from 'lodash-es/get';
-import isNumber from 'lodash-es/isNumber';
-import isString from 'lodash-es/isString';
+import { get, isNumber, isString } from 'lodash-es';
 import { ComparatorExpression, Expression, LogicalExpression } from './filter-expressions';
 
 function getFilterQuery<TValue>(value: TValue, expression: Expression): boolean {

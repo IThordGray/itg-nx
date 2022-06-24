@@ -9,7 +9,7 @@ describe('ConfigService', () => {
     cfg = { a: { b: { c: 'Congrats. You won.' } }, x: 1 };
     TestBed.configureTestingModule({
       providers: [
-        { provide: ConfigService, useFactory: () => new ConfigService(cfg) },
+        { provide: ConfigService, useFactory: () => new ConfigService(cfg) }
       ]
     });
   });
@@ -43,7 +43,7 @@ describe('ConfigService', () => {
   it('should return value "Congrats. You won." of config section "a.b.c"', () => {
     const service: ConfigService = TestBed.inject(ConfigService);
     expect(service.get('a.b.c')).toBe('Congrats. You won.');
-  })
+  });
 
   it('should return a fallback value', () => {
     const service: ConfigService = TestBed.inject(ConfigService);

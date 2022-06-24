@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash-es/cloneDeep';
+import { cloneDeep } from 'lodash-es';
 import { Expression } from './filter-expressions';
 import { FilterExpression } from './filter-expressions.utils';
 
@@ -53,7 +53,7 @@ const dataSet: IPerson[] = [
 
 describe('Filter expression utilities', () => {
   test('Get all people above 30', () => {
-    const expectedExpression = new Expression.GreaterThan('age', '30');
+    const expectedExpression = new Expression.GreaterThan('age', 30);
     const expressionString = 'age=gt:30';
 
     const expression = Expression.parse(expressionString);
@@ -65,8 +65,8 @@ describe('Filter expression utilities', () => {
 
   test('Get all people between 30 and 50, inclusive', () => {
     const expectedExpression = new Expression.And(
-      new Expression.GreaterOrEqualTo('age', '30'),
-      new Expression.LesserOrEqualTo('age', '50')
+      new Expression.GreaterOrEqualTo('age', 30),
+      new Expression.LesserOrEqualTo('age', 50)
     );
     const expressionString = 'and(age=gte:30,age=lte:50)';
 
@@ -85,12 +85,26 @@ describe('Filter expression utilities', () => {
     expect(expression).toMatchObject(expectedExpression);
 
     const filteredData = FilterExpression.filter(cloneDeep(dataSet), expression);
-    expect(filteredData.length).toBe(4);
+    expect(filteredData.length).toBe(5);
   });
 
   test('Get all people that like sandwiches or pasta', () => {
-    const expectedExpression = new Expression.In('foods', 'sandwiches,pasta');
-    const expressionString = 'foods=in:sandwiches,pasta';
+    const expectedExpression = new Expression.In('foods', [ 'sandwiches', 'pasta' ]);
+    const expressionString = 'foods=in:[sandwiches,pasta]';
+
+    const expression = Expression.parse(expressionString);
+    expect(expression).toMatchObject(expectedExpression);
+
+    const filteredData = FilterExpression.filter(cloneDeep(dataSet), expression);
+    expect(filteredData.length).toBe(4);
+  });
+
+  test('Get all people that like pies, but not cereals', () => {
+    const expectedExpression = new Expression.And(
+      new Expression.Contains('foods', 'pies'),
+      new Expression.NotIn('foods', [ 'cereals' ])
+    );
+    const expressionString = 'and(foods=contains:pies,foods=notIn:[cereals])';
 
     const expression = Expression.parse(expressionString);
     expect(expression).toMatchObject(expectedExpression);
@@ -99,27 +113,13 @@ describe('Filter expression utilities', () => {
     expect(filteredData.length).toBe(3);
   });
 
-  test('Get all people that like pies, but not cereals', () => {
-    const expectedExpression = new Expression.And(
-      new Expression.Contains('foods', 'pies'),
-      new Expression.NotIn('foods', 'cereals')
-    );
-    const expressionString = 'and(foods=contains:pies,foods=notIn:cereals)';
-
-    const expression = Expression.parse(expressionString);
-    expect(expression).toMatchObject(expectedExpression);
-
-    const filteredData = FilterExpression.filter(cloneDeep(dataSet), expression);
-    expect(filteredData.length).toBe(2);
-  });
-
   test('Get all people that like pies, but not cereals and is over 30', () => {
     const expectedExpression = new Expression.And(
       new Expression.Contains('foods', 'pies'),
-      new Expression.NotIn('foods', 'cereals'),
-      new Expression.GreaterThan('age', '30')
+      new Expression.NotIn('foods', [ 'cereals' ]),
+      new Expression.GreaterThan('age', 30)
     );
-    const expressionString = 'and(foods=contains:pies,foods=notIn:cereals,age=gt:30)';
+    const expressionString = 'and(foods=contains:pies,foods=notIn:[cereals],age=gt:30)';
 
     const expression = Expression.parse(expressionString);
     expect(expression).toMatchObject(expectedExpression);

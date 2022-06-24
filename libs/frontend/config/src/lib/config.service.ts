@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import cloneDeep from 'lodash-es/cloneDeep';
-import get from 'lodash-es/get';
-import set from 'lodash-es/set';
+import { cloneDeep, get, set } from 'lodash-es';
 
 @Injectable()
 export class ConfigService {
   private readonly _config: Record<string, any> = {};
 
   constructor(
-    defaultConfig?: Record<string, any>,
+    defaultConfig?: Record<string, any>
   ) {
     this._config = cloneDeep(defaultConfig) ?? {};
   }

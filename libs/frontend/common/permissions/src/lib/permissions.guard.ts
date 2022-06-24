@@ -7,7 +7,8 @@ import { PermissionsService } from './permissions.service';
 export class PermissionsGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(
     private _permissionsService: PermissionsService
-  ) { }
+  ) {
+  }
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     return this._permissionsService.hasPermissions(route.data['permissions']);

@@ -10,6 +10,6 @@ export class LoggerModule {
     @Inject(DEFAULT_PROVIDER_CONFIG) defaultProviderConfig: ILogProviderConfig
   ) {
 
-    _provider.set('console', new DefaultProvider(defaultProviderConfig))
+    _provider.set('console', new DefaultProvider(defaultProviderConfig));
   }
 }

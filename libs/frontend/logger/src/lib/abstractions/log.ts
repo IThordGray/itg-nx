@@ -7,10 +7,11 @@ export class Log {
     public message: string,
     public level: LogLevel,
     public optionalParams: any[]
-  ) { }
+  ) {
+  }
 
   toString(/* Formatter */): string {
-      return `${ LogLevel[this.level] } ${ this.message }`;
+    return `${ LogLevel[this.level] } ${ this.message }`;
   }
 
 }

@@ -11,17 +11,23 @@ export class MockProvider extends LogProvider {
     super({ logLevel: LogLevel.Debug });
   }
 
-  debug(entry: Log): void {}
+  debug(entry: Log): void {
+  }
 
-  error(entry: Log): void {}
+  error(entry: Log): void {
+  }
 
-  fatal(entry: Log): void {}
+  fatal(entry: Log): void {
+  }
 
-  info(entry: Log): void {}
+  info(entry: Log): void {
+  }
 
-  trace(entry: Log): void {}
+  trace(entry: Log): void {
+  }
 
-  warn(entry: Log): void {}
+  warn(entry: Log): void {
+  }
 
 }
 

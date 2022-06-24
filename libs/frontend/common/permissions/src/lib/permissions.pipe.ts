@@ -10,7 +10,8 @@ export class PermissionsPipe implements PipeTransform, OnDestroy {
 
   constructor(
     private _permissionsService: PermissionsService
-  ) { }
+  ) {
+  }
 
   transform(permissions: string[], includeAll: boolean = false): Observable<boolean> {
     return this.checkPermissions(permissions, includeAll);

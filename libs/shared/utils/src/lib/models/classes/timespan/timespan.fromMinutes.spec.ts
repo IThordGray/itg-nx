@@ -1,4 +1,4 @@
-import { Timespan } from "./timespan";
+import { Timespan } from './timespan';
 
 describe('Timespan.fromMinutes => Timespan.totalMinutes', () => {
   test('0.12345 => 00:00:07.407 => 0.12345', () => {

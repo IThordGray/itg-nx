@@ -1,4 +1,4 @@
-import { Timespan } from "./timespan";
+import { Timespan } from './timespan';
 
 describe('Timespan.fromDays =. Timestamp.fromDays', () => {
   test('0.00012 => 00:00:10.368 => 0.00012', () => {

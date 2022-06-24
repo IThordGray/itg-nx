@@ -27,7 +27,7 @@ class LogStream {
       if (log.level === LogLevel.Warn) return (this as unknown as LogProvider).warn(log);
       if (log.level === LogLevel.Error) return (this as unknown as LogProvider).error(log);
       if (log.level === LogLevel.Fatal) return (this as unknown as LogProvider).fatal(log);
-    })
+    });
   }
 
 }
@@ -39,7 +39,8 @@ export class LoggerProvidersService {
 
   constructor(
     private _logger: LoggerService
-  ) { }
+  ) {
+  }
 
   private subscribeProvider(provider: LogProvider): void {
     Object.assign(provider, new LogStream());

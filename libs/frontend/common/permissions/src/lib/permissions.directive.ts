@@ -11,18 +11,19 @@ export class PermissionsDirective implements OnDestroy {
 
   private _displayingTemplate = false;
 
-  constructor(
-    private _templateRef: TemplateRef<any>,
-    private _viewContainer: ViewContainerRef,
-    private _permissionsService: PermissionsService
-  ) { }
-
   @Input() set hasPermissionsIncludeAll(value: boolean) {
     this._hasPermissionsAll$.next(value);
   }
 
   @Input() set hasPermissions(permissions: string[]) {
     this.checkPermissions(permissions);
+  }
+
+  constructor(
+    private _templateRef: TemplateRef<any>,
+    private _viewContainer: ViewContainerRef,
+    private _permissionsService: PermissionsService
+  ) {
   }
 
   checkPermissions(permissions: string[]): void {

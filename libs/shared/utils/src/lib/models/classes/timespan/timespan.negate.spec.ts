@@ -32,7 +32,13 @@ describe('Timespan.negate', () => {
   });
 
   test('10.20:30:40.050 => -10.20:30:40.050', () => {
-    const result = new Timespan({ days: -10, hours: -20, minutes: -30, seconds: -40, milliseconds: -50 }).totalMilliseconds;
+    const result = new Timespan({
+      days: -10,
+      hours: -20,
+      minutes: -30,
+      seconds: -40,
+      milliseconds: -50
+    }).totalMilliseconds;
     const ts = new Timespan({ days: 10, hours: 20, minutes: 30, seconds: 40, milliseconds: 50 });
     expect(ts.negate().totalMilliseconds).toEqual(result);
   });

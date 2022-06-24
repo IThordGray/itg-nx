@@ -10,7 +10,7 @@ describe('Filter expressions - Parse', () => {
           new Expression.Contains('name', 'vor'),
           new Expression.EndsWith('name', 'man')
         ),
-        new Expression.GreaterOrEqualTo('price', '50'),
+        new Expression.GreaterOrEqualTo('price', 50),
         new Expression.Or(
           new Expression.StartsWith('name', 'Iv'),
           new Expression.Contains('name', 'man')
@@ -35,7 +35,7 @@ describe('Filter expressions - ToString', () => {
         new Expression.Contains('name', 'vor'),
         new Expression.EndsWith('name', 'man')
       ),
-      new Expression.GreaterOrEqualTo('price', '50')
+      new Expression.GreaterOrEqualTo('price', 50)
     );
 
     expect(exp.toString()).toBe('and(or(name=contains:vor,name=endsWith:man),price=gte:50)');

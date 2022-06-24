@@ -6,8 +6,8 @@ import { PermissionsPipe } from './permissions.pipe';
 import { PermissionsService } from './permissions.service';
 
 @NgModule({
-  declarations: [PermissionsDirective, PermissionsPipe],
-  exports: [PermissionsDirective, PermissionsPipe]
+  declarations: [ PermissionsDirective, PermissionsPipe ],
+  exports: [ PermissionsDirective, PermissionsPipe ]
 })
 export class PermissionsModule {
 
@@ -19,7 +19,7 @@ export class PermissionsModule {
         PermissionsGuard,
         PermissionsService
       ]
-    }
+    };
   }
 
 }

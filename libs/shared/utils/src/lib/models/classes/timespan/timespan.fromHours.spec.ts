@@ -1,4 +1,4 @@
-import { Timespan } from "./timespan";
+import { Timespan } from './timespan';
 
 describe('Timespan.fromHours => Timespan.totalHours', () => {
   test('0.00123 => 00:00:04.428 => 0.00123', () => {
@@ -57,11 +57,11 @@ describe('Timespan.fromHours => Timespan.totalHours', () => {
     expect(result.totalHours).toEqual(24);
   });
 
-  test('500.3389445 => 20.20:20:20.200 => 500.3389445', () => {
+  test('500.3389445 => 20.20:20:20.200 => 500.33894', () => {
     const ts = Timespan.fromHours(500.3389445);
     const result = new Timespan({ days: 20, hours: 20, minutes: 20, seconds: 20, milliseconds: 200 });
 
     expect(ts).toEqual(result);
-    expect(result.totalHours).toEqual(500.338941);
+    expect(result.totalHours).toEqual(500.33894);
   });
 });

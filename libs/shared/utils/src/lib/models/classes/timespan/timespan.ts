@@ -14,6 +14,14 @@ export interface ITimespanArgs {
 
 export class Timespan implements ITimespanArgs {
 
+  static readonly millisecondsPerSecond = 1000;
+  static readonly millisecondsPerMinute = this.millisecondsPerSecond * 60;
+  static readonly millisecondsPerHour = this.millisecondsPerMinute * 60;
+  static readonly millisecondsPerDay = this.millisecondsPerHour * 24;
+  static readonly maxValue = Timespan.fromMilliseconds(Number.MAX_SAFE_INTEGER);
+  static readonly minValue = Timespan.fromMilliseconds(Number.MIN_SAFE_INTEGER);
+  static readonly zero = Timespan.fromMilliseconds(0);
+
   private readonly _totalMilliseconds: number = 0;
   private readonly _totalSeconds: number = 0;
   private readonly _totalMinutes: number = 0;
@@ -30,15 +38,6 @@ export class Timespan implements ITimespanArgs {
   private readonly _minutes: number = 0;
   private readonly _hours: number = 0;
   private readonly _days: number = 0;
-
-  static readonly millisecondsPerSecond = 1000;
-  static readonly millisecondsPerMinute = this.millisecondsPerSecond * 60;
-  static readonly millisecondsPerHour = this.millisecondsPerMinute * 60;
-  static readonly millisecondsPerDay = this.millisecondsPerHour * 24;
-
-  static readonly maxValue = Timespan.fromMilliseconds(Number.MAX_SAFE_INTEGER);
-  static readonly minValue = Timespan.fromMilliseconds(Number.MIN_SAFE_INTEGER);
-  static readonly zero = Timespan.fromMilliseconds(0);
 
   get milliseconds() {
     return this._milliseconds;
@@ -119,16 +118,6 @@ export class Timespan implements ITimespanArgs {
     if (Number.isNaN(value)) throw new ArgumentError('Value is equal to NaN.');
   }
 
-  private getTotalMilliseconds(): number {
-    const d = this._days * Timespan.millisecondsPerDay;
-    const h = this._hours * Timespan.millisecondsPerHour;
-    const m = this._minutes * Timespan.millisecondsPerMinute;
-    const s = this._seconds * Timespan.millisecondsPerSecond;
-    const ms = this._milliseconds ?? 0;
-
-    return ms + s + m + h + d;
-  }
-
   static compare(t1: Timespan, t2: Timespan): number {
     if (t1.totalMilliseconds < t2.totalMilliseconds) return -1;
     if (t1.totalMilliseconds > t2.totalMilliseconds) return 1;
@@ -141,7 +130,7 @@ export class Timespan implements ITimespanArgs {
 
   static fromMilliseconds(value: number): Timespan {
     this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value)
+    this.validateValueIsFinite(value);
     this.validateValueInRange(value);
 
     return new Timespan(this.getTimespanArgs(Math.round(value)));
@@ -149,7 +138,7 @@ export class Timespan implements ITimespanArgs {
 
   static fromSeconds(value: number): Timespan {
     this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value)
+    this.validateValueIsFinite(value);
     this.validateValueInRange(value);
 
     return this.fromMilliseconds(value * Timespan.millisecondsPerSecond);
@@ -157,7 +146,7 @@ export class Timespan implements ITimespanArgs {
 
   static fromMinutes(value: number): Timespan {
     this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value)
+    this.validateValueIsFinite(value);
     this.validateValueInRange(value);
 
     return this.fromMilliseconds(value * Timespan.millisecondsPerMinute);
@@ -165,7 +154,7 @@ export class Timespan implements ITimespanArgs {
 
   static fromHours(value: number): Timespan {
     this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value)
+    this.validateValueIsFinite(value);
     this.validateValueInRange(value);
 
     return this.fromMilliseconds(value * Timespan.millisecondsPerHour);
@@ -181,7 +170,6 @@ export class Timespan implements ITimespanArgs {
     return this.fromMilliseconds(totalMs);
   }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   static parse(s: string): Timespan {
     if (isNullOrWhiteSpace(s)) throw new ArgumentNullError('s is not defined.');
@@ -197,7 +185,7 @@ export class Timespan implements ITimespanArgs {
     if (parts.length === 1) {
       days = Number(parts[0]);
 
-      return new Timespan({ days })
+      return new Timespan({ days });
     }
 
     if (parts.length === 2) {
@@ -217,7 +205,7 @@ export class Timespan implements ITimespanArgs {
       hours = Number(dh[0]);
       days = Number(dh?.[1] ?? 0);
       seconds = Number(sms[0]);
-      milliseconds = Number(sms?.[1] ?? 0)
+      milliseconds = Number(sms?.[1] ?? 0);
 
       return new Timespan({ days, hours, minutes, seconds, milliseconds });
     }
@@ -234,6 +222,26 @@ export class Timespan implements ITimespanArgs {
 
       return new Timespan({ days, hours, minutes, seconds, milliseconds });
     }
+  }
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
+  static tryParse(s: string): Timespan | undefined {
+    try {
+      return Timespan.parse(s);
+    } catch {
+      return undefined;
+    }
+  }
+
+  private getTotalMilliseconds(): number {
+    const d = this._days * Timespan.millisecondsPerDay;
+    const h = this._hours * Timespan.millisecondsPerHour;
+    const m = this._minutes * Timespan.millisecondsPerMinute;
+    const s = this._seconds * Timespan.millisecondsPerSecond;
+    const ms = this._milliseconds ?? 0;
+
+    return ms + s + m + h + d;
   }
 
   add(ts: Timespan): Timespan {
@@ -280,6 +288,8 @@ export class Timespan implements ITimespanArgs {
     return Timespan.fromMilliseconds(ms);
   }
 
+  // toString(format: string): string {}
+
   toString(): string {
     let str = '';
 
@@ -296,15 +306,5 @@ export class Timespan implements ITimespanArgs {
     if (this.milliseconds) str += `.${ ms }`;
 
     return str;
-  }
-
-  // toString(format: string): string {}
-
-  static tryParse(s: string): Timespan | undefined {
-    try {
-      return Timespan.parse(s);
-    } catch {
-      return undefined;
-    }
   }
 }

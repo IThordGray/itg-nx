@@ -1,3 +1,5 @@
+import { _isNumberValue, coerceBooleanValue } from '@itg/shared-utils';
+
 export enum FilterLogicalExpressions {
   and = 'and',
   or = 'or',
@@ -160,6 +162,17 @@ const isLogicalExpressionString = (value: string) => value?.startsWith(FilterLog
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const isComparatorExpressionString = (value: string) => value?.includes('=') && value?.includes(':');
 
+function parseValue(value: string): any {
+  if (value.toLowerCase() === 'true' || value.toLowerCase() === 'false') return coerceBooleanValue(value);
+  if (_isNumberValue(value)) return Number(value);
+  return value;
+}
+
+function getParsedValue(value: string | string[]): any | any[] {
+  if (Array.isArray(value)) return value.map(x => parseValue(x));
+  return parseValue(value);
+}
+
 function parseLogicalExpression(value: string): Expression {
   const operation = value.substring(0, value.indexOf('('));
   const remainder = value.substring((operation + '(').length, value.lastIndexOf(')')) || undefined;
@@ -179,35 +192,38 @@ function parseComparatorExpression(value: string): Expression {
   const property = value.substring(0, value.indexOf('='));
   const operation = value.substring(value.indexOf('=') + 1, value.indexOf(':'));
   let val: string | string[] = value.substring(value.indexOf(':') + 1);
+
   if (val.startsWith('[') && val.endsWith(']')) {
     val = val.substring(1, val.length - 1).split(',').map(x => x.trim());
   }
 
+  const parsedValue = getParsedValue(val);
+
   switch (operation) {
     case FilterComparatorExpressions.eq :
-      return new EqualsExpression(property, val);
+      return new EqualsExpression(property, parsedValue);
     case FilterComparatorExpressions.gt :
-      return new GreaterThanExpression(property, val);
+      return new GreaterThanExpression(property, parsedValue);
     case FilterComparatorExpressions.lt :
-      return new LesserThanExpression(property, val);
+      return new LesserThanExpression(property, parsedValue);
     case FilterComparatorExpressions.gte :
-      return new GreaterOrEqualToExpression(property, val);
+      return new GreaterOrEqualToExpression(property, parsedValue);
     case FilterComparatorExpressions.lte :
-      return new LesserOrEqualToExpression(property, val);
+      return new LesserOrEqualToExpression(property, parsedValue);
     case FilterComparatorExpressions.neq :
-      return new NotEqualsExpression(property, val);
+      return new NotEqualsExpression(property, parsedValue);
     case FilterComparatorExpressions.contains :
-      return new ContainsExpression(property, val);
+      return new ContainsExpression(property, parsedValue);
     case FilterComparatorExpressions.in :
-      return new InExpression(property, val);
+      return new InExpression(property, parsedValue);
     case FilterComparatorExpressions.notIn :
-      return new NotInExpression(property, val);
+      return new NotInExpression(property, parsedValue);
     case FilterComparatorExpressions.startsWith :
-      return new StartsWithExpression(property, val);
+      return new StartsWithExpression(property, parsedValue);
     case FilterComparatorExpressions.endsWith :
-      return new EndsWithExpression(property, val);
+      return new EndsWithExpression(property, parsedValue);
     case FilterComparatorExpressions.all :
-      return new AllExpression(property, val);
+      return new AllExpression(property, parsedValue);
     default:
       throw new Error('Invalid comparator operation used.');
   }

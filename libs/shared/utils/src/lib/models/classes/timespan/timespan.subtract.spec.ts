@@ -28,7 +28,7 @@ describe('Timespan.subtract', () => {
   });
 
   test('1:12:15:16 - 1:17:32:20.000 = -0:05:17:04.000', () => {
-    const result = new Timespan({ days: 0, hours: -5, minutes: -17, seconds: -4 });
+    const result = new Timespan({ days: -0, hours: -5, minutes: -17, seconds: -4, milliseconds: -0 });
     const ts = new Timespan({ days: 1, hours: 17, minutes: 32, seconds: 20 });
     expect(base.subtract(ts)).toEqual(result);
   });
