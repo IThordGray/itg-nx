@@ -13,14 +13,14 @@ export class PermissionsPipe implements PipeTransform, OnDestroy {
   ) {
   }
 
-  transform(permissions: string[], includeAll: boolean = false): Observable<boolean> {
-    return this.checkPermissions(permissions, includeAll);
-  }
-
   checkPermissions(permissions: string[], includeAll: boolean): Observable<boolean> {
     return this._permissionsService.hasPermissions(permissions, includeAll).pipe(
       takeUntil(this._onDestroy$)
     );
+  }
+
+  transform(permissions: string[], includeAll: boolean = false): Observable<boolean> {
+    return this.checkPermissions(permissions, includeAll);
   }
 
   ngOnDestroy(): void {
