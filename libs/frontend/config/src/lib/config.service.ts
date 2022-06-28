@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { cloneDeep, get, set } from 'lodash-es';
+
+export const DEFAULT_CONFIG = new InjectionToken('Default config', { providedIn: 'root', factory: () => ({}) })
 
 @Injectable()
 export class ConfigService {
   private readonly _config: Record<string, any> = {};
 
   constructor(
-    defaultConfig?: Record<string, any>
+    @Inject(DEFAULT_CONFIG) @Optional() defaultConfig?: Record<string, any>
   ) {
     this._config = cloneDeep(defaultConfig) ?? {};
   }
