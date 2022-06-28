@@ -48,17 +48,19 @@ export class LoggerProvidersService {
     (provider as LogProvider & LogStream).subscribe();
   }
 
+  get(): LogProvider[];
+
+  get(providerName: string): LogProvider | undefined;
+
+  get(providerName?: string): (LogProvider | undefined) | LogProvider[] {
+    if (providerName) return this._providers.get(providerName);
+    return Array.from(this._providers.values());
+  }
+
   set(providerName: string, provider: LogProvider): LogProvider {
     this.subscribeProvider(provider);
     this._providers.set(providerName, provider);
     return provider;
-  }
-
-  get(): LogProvider[];
-  get(providerName: string): LogProvider | undefined;
-  get(providerName?: string): (LogProvider | undefined) | LogProvider[] {
-    if (providerName) return this._providers.get(providerName);
-    return Array.from(this._providers.values());
   }
 
 }

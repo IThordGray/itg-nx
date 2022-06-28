@@ -12,15 +12,15 @@ export abstract class LogProvider {
   ) {
   }
 
-  abstract trace(entry: Log): void;
-
   abstract debug(entry: Log): void;
-
-  abstract info(entry: Log): void;
-
-  abstract warn(entry: Log): void;
 
   abstract error(entry: Log): void;
 
   abstract fatal(entry: Log): void;
+
+  abstract info(entry: Log): void;
+
+  abstract trace(entry: Log): void;
+
+  abstract warn(entry: Log): void;
 }

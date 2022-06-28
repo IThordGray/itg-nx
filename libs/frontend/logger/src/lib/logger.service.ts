@@ -10,20 +10,8 @@ export class LoggerService {
 
   readonly logs$: Subject<Log> = new Subject();
 
-  trace(message: string, ...optionalParams: any[]): void {
-    this.logs$.next(new Log(message, LogLevel.Trace, optionalParams));
-  }
-
   debug(message: string, ...optionalParams: any[]): void {
     this.logs$.next(new Log(message, LogLevel.Debug, optionalParams));
-  }
-
-  info(message: string, ...optionalParams: any[]): void {
-    this.logs$.next(new Log(message, LogLevel.Info, optionalParams));
-  }
-
-  warn(message: string, ...optionalParams: any[]): void {
-    this.logs$.next(new Log(message, LogLevel.Warn, optionalParams));
   }
 
   error(arg: string | Error, ...optionalParams: any[]): void {
@@ -33,6 +21,18 @@ export class LoggerService {
 
   fatal(message: string, ...optionalParams: any[]): void {
     this.logs$.next(new Log(message, LogLevel.Fatal, optionalParams));
+  }
+
+  info(message: string, ...optionalParams: any[]): void {
+    this.logs$.next(new Log(message, LogLevel.Info, optionalParams));
+  }
+
+  trace(message: string, ...optionalParams: any[]): void {
+    this.logs$.next(new Log(message, LogLevel.Trace, optionalParams));
+  }
+
+  warn(message: string, ...optionalParams: any[]): void {
+    this.logs$.next(new Log(message, LogLevel.Warn, optionalParams));
   }
 
 }
