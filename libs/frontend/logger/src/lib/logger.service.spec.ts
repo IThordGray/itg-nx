@@ -31,8 +31,8 @@ export class MockProvider extends LogProvider {
 
 }
 
-describe('LogService', () => {
-  let logger: any | LoggerService = undefined;
+describe('LoggerService', () => {
+  let logger!: LoggerService;
 
   beforeEach(() => {
     logger = TestBed.inject(LoggerService);
