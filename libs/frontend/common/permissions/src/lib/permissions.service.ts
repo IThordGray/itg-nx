@@ -13,10 +13,6 @@ export class PermissionsService {
   ) {
   }
 
-  load(): void {
-    this.permissionsApi.getAll().subscribe(x => this._permission$.next(x));
-  }
-
   hasPermissions(permissions: string[], includeAll: boolean = false): Observable<boolean> {
     return this._permission$.pipe(
       map(validPermissions => {
@@ -27,5 +23,9 @@ export class PermissionsService {
             : permissions.some(x => validPermissions.includes(x));
       })
     );
+  }
+
+  load(): void {
+    this.permissionsApi.getAll().subscribe(x => this._permission$.next(x));
   }
 }
