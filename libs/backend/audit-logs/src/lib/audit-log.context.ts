@@ -1,4 +1,4 @@
-import { Guid } from '@itg/shared-utils';
+import { Guid } from '@ithordgray/shared-utils';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

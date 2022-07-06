@@ -15,14 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@itg/backend-audit-logs": ["libs/backend/audit-logs/src/index.ts"],
-      "@itg/frontend-common": ["libs/frontend/common/src/index.ts"],
-      "@itg/frontend-common/permissions": [ "libs/frontend/common/permissions/src/index.ts" ],
-      "@itg/shared-config": ["libs/frontend/config/src/index.ts"],
-      "@itg/shared-logger": ["libs/frontend/logger/src/index.ts"],
-      "@itg/shared-notify": ["libs/frontend/notify/src/index.ts"],
-      "@itg/shared-utils": ["libs/shared/utils/src/index.ts"],
-      "@itg/shared/filter-expressions": [
+      "@ithordgray/backend-audit-logs": ["libs/backend/audit-logs/src/index.ts"],
+      "@ithordgray/frontend-common": ["libs/frontend/common/src/index.ts"],
+      "@ithordgray/frontend-common/permissions": [ "libs/frontend/common/permissions/src/index.ts" ],
+      "@ithordgray/shared-config": ["libs/frontend/config/src/index.ts"],
+      "@ithordgray/shared-logger": ["libs/frontend/logger/src/index.ts"],
+      "@ithordgray/shared-notify": ["libs/frontend/notify/src/index.ts"],
+      "@ithordgray/shared-utils": ["libs/shared/utils/src/index.ts"],
+      "@ithordgray/shared/filter-expressions": [
         "libs/shared/filter-expressions/src/index.ts"
       ]
     }

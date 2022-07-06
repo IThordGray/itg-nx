@@ -1,4 +1,4 @@
-import { _isNumberValue, coerceBooleanValue } from '@itg/shared-utils';
+import { _isNumberValue, coerceBooleanValue } from '@ithordgray/shared-utils';
 
 export enum FilterLogicalExpressions {
   and = 'and',

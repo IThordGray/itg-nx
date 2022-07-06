@@ -1,3 +1,3 @@
-# @itg/frontend-common/permissions
+# @ithordgray/frontend-common/permissions
 
-Secondary entry point of `@itg/frontend-common`. It can be used by importing from `@itg/frontend-common/permissions`.
+Secondary entry point of `@ithordgray/frontend-common`. It can be used by importing from `@ithordgray/frontend-common/permissions`.

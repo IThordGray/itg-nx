@@ -1,4 +1,4 @@
-import { IQueryResults, IQueryResultsOptions } from '@itg/shared-utils';
+import { IQueryResults, IQueryResultsOptions } from '@ithordgray/shared-utils';
 import { IAuditLog } from './abstractions/audit-log.interface';
 
 export abstract class AuditLogRepository {

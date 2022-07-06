@@ -1,4 +1,4 @@
-import { RestrictedRecord } from '@itg/shared-utils';
+import { RestrictedRecord } from '@ithordgray/shared-utils';
 
 export interface IAuditMeta {
   reference?: string;
