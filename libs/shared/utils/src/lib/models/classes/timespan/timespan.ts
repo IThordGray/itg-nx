@@ -81,11 +81,19 @@ export class Timespan implements ITimespanArgs {
 
   constructor(args: ITimespanArgs) {
     const { days, hours, minutes, seconds, milliseconds } = args;
-    this._days = days ?? 0;
-    this._hours = hours ?? 0;
-    this._minutes = minutes ?? 0;
-    this._seconds = seconds ?? 0;
-    this._milliseconds = milliseconds ?? 0;
+    const ms =
+      ((days ?? 0) * Timespan.millisecondsPerDay) +
+      ((hours ?? 0) * Timespan.millisecondsPerHour) +
+      ((minutes ?? 0) * Timespan.millisecondsPerMinute) +
+      ((seconds ?? 0) * Timespan.millisecondsPerSecond) +
+      (milliseconds ?? 0);
+
+    const tsArgs = Timespan.getTimespanArgs(ms);
+    this._days = tsArgs.days;
+    this._hours = tsArgs.hours;
+    this._minutes = tsArgs.minutes;
+    this._seconds = tsArgs.seconds;
+    this._milliseconds = tsArgs.milliseconds;
 
     this._totalMilliseconds = this.getTotalMilliseconds();
     this._totalSeconds = Number((this._totalMilliseconds * this._secondsPerMillisecond).toFixed(5));
