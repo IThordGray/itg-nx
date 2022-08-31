@@ -17,6 +17,7 @@ export * from './lib/models/interfaces/dto.interface';
 export * from './lib/models/interfaces/mapper.interface';
 export * from './lib/models/interfaces/query-options.interface';
 export * from './lib/models/interfaces/query-results.interface';
+export * from './lib/models/interfaces/repository.interface';
 export * from './lib/models/types/restricted-record.type';
 export * from './lib/models/types/type.type';
 export * from './lib/models/utils/guard.utils';
