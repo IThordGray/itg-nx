@@ -165,6 +165,8 @@ const isComparatorExpressionString = (value: string) => value?.includes('=') && 
 function parseValue(value: string): any {
   if (value.toLowerCase() === 'true' || value.toLowerCase() === 'false') return coerceBooleanValue(value);
   if (_isNumberValue(value)) return Number(value);
+  if (value === 'null') return null;
+  if (value === 'undefined') return undefined;
   return value;
 }
 
@@ -173,10 +175,18 @@ function getParsedValue(value: string | string[]): any | any[] {
   return parseValue(value);
 }
 
+function parseArguments(value: string | undefined, args: Expression[] = []): Expression[] {
+  if (!value) return args;
+  const idx = value.indexOf(',');
+  args.push(parseExpression(value.substring(0, idx > -1 ? idx : undefined)));
+  if (idx > -1) return [...args, parseExpression(value.substring(idx + 1))];
+  return args;
+}
+
 function parseLogicalExpression(value: string): Expression {
   const operation = value.substring(0, value.indexOf('('));
   const remainder = value.substring((operation + '(').length, value.lastIndexOf(')')) || undefined;
-  const args = remainder?.split(new RegExp(/(?!\B\([^)]*),(?![^(]*\)\B)/g)).map(v => parseExpression(v)) ?? [];
+  const args = parseArguments(remainder);
 
   switch (operation) {
     case FilterLogicalExpressions.and :

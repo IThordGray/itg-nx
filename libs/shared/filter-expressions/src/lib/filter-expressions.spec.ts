@@ -41,3 +41,8 @@ describe('Filter expressions - ToString', () => {
     expect(exp.toString()).toBe('and(or(name=contains:vor,name=endsWith:man),price=gte:50)');
   });
 });
+
+test('and(clientRef=eq:6276a05fdc4142352cedf6ad,and(terminationDate=neq:null,or(policyNumber=contains:er,client.userInfo.firstName=contains:er,client.userInfo.lastName=contains:er)))', () => {
+  const exp = Expression.parse('and(clientRef=eq:6276a05fdc4142352cedf6ad,and(terminationDate=neq:null,or(policyNumber=contains:er,client.userInfo.firstName=contains:er,client.userInfo.lastName=contains:er)))');
+  expect(exp).toBeDefined();
+})
