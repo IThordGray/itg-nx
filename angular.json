@@ -1,12 +1,13 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
-  "version": 2,
+  "version": 1,
   "projects": {
     "backend-audit-logs": "libs/backend/audit-logs",
     "frontend-common": "libs/frontend/common",
     "frontend-config": "libs/frontend/config",
     "frontend-logger": "libs/frontend/logger",
     "frontend-notify": "libs/frontend/notify",
+    "shared-cache-manager": "libs/shared/cache-manager",
     "shared-filter-expressions": "libs/shared/filter-expressions",
     "shared-utils": "libs/shared/utils",
     "stub": "apps/stub",

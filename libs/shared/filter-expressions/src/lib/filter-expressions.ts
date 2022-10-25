@@ -1,4 +1,5 @@
 import { _isNumberValue, coerceBooleanValue } from '@ithordgray/shared-utils';
+import { split } from 'lodash-es';
 
 export enum FilterLogicalExpressions {
   and = 'and',
@@ -175,17 +176,46 @@ function getParsedValue(value: string | string[]): any | any[] {
   return parseValue(value);
 }
 
-function parseArguments(value: string | undefined, args: Expression[] = []): Expression[] {
-  if (!value) return args;
-  const idx = value.indexOf(',');
-  args.push(parseExpression(value.substring(0, idx > -1 ? idx : undefined)));
-  if (idx > -1) return [...args, parseExpression(value.substring(idx + 1))];
-  return args;
+function parseArguments(value: string): Expression[] {
+  if (!(value.includes('(') || value.includes(')'))) return value.split(',').map(x => parseExpression(x));
+
+  const valueArr = value.split('');
+  let idx = -1;
+  const bracketIdxPairs: [number, number][] = [];
+  const commaIdx = [];
+  for (let i = 0; i < value?.length; i++) {
+    if (value[i] === '(') {
+      idx += 1;
+      bracketIdxPairs[idx] = [i, -1];
+      continue;
+    }
+
+    if (value[i] === ')') {
+      bracketIdxPairs[idx][1] = i;
+      idx -= 1;
+      continue;
+    }
+
+    if (value[i] === ',') {
+      commaIdx.push(i);
+    }
+  }
+  const commaSplits = commaIdx.filter(x => !bracketIdxPairs.some(([start, end]) => x > start && x < end));
+  const args = [];
+  commaSplits.forEach(v => {
+    args.push(valueArr.splice(0, v).join(''));
+    valueArr.splice(0, 1);
+  });
+
+  args.push(valueArr.join(''));
+
+  return args.map(x => parseExpression(x));
 }
 
 function parseLogicalExpression(value: string): Expression {
+  // Extract the operation, then parse the remainder as the operation's arguments.
   const operation = value.substring(0, value.indexOf('('));
-  const remainder = value.substring((operation + '(').length, value.lastIndexOf(')')) || undefined;
+  const remainder = value.substring((operation + '(').length, value.lastIndexOf(')'));
   const args = parseArguments(remainder);
 
   switch (operation) {

@@ -1,11 +1,16 @@
+import { IAlertOptions } from './alert-options.interface';
+import { IConfirmOptions } from './confirm-options.interface';
+import { INotificationOptions } from './notification-options.interface';
+import { IPromptOptions } from './prompt-options.interface';
+
 export interface INotifyProvider {
 
-  showAlertAsync(message: string, args: Record<string, unknown>): Promise<void>;
+  showAlertAsync<TOptions extends IAlertOptions>(args: TOptions): Promise<void>;
 
-  showConfirmAsync(message: string, args: Record<string, unknown>): Promise<boolean>;
+  showConfirmAsync<TOptions extends IConfirmOptions>(args: TOptions): Promise<boolean>;
 
-  showNotificationAsync(title: string, message: string, args: Record<string, unknown>): Promise<void>;
+  showNotificationAsync<TOptions extends INotificationOptions>(args: TOptions): Promise<void>;
 
-  showPromptAsync(message: string, args: Record<string, unknown>): Promise<unknown>;
+  showPromptAsync<TOptions extends IPromptOptions>(args: TOptions): Promise<unknown>;
 
 }
