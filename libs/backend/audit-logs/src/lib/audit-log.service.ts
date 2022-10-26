@@ -13,15 +13,13 @@ export class AuditLogService {
   ) {
   }
 
-  dispatch(msg: IAuditLog<unknown>): void {
+  upsertAsync(msg: IAuditLog<unknown>): Promise<void> {
     msg.dispatchedAt = new Date();
     (msg.meta ??= {}).reference = this._auditContext.getReference();
-    this._repo.createAsync(msg);
+    return this._repo.createAsync(msg);
   }
 
-  getAllAsync(): Promise<IAuditLog<unknown>[]>;
-  getAllAsync(options?: IQueryResultsOptions): Promise<IQueryResults<IAuditLog<unknown>>>;
-  getAllAsync(options?: IQueryResultsOptions): Promise<IAuditLog<unknown>[] | IQueryResults<IAuditLog<unknown>>> {
+  getAllAsync(options?: IQueryResultsOptions): Promise<IQueryResults<IAuditLog<unknown>>> {
     return this._repo.getAllAsync(options);
   }
 }
