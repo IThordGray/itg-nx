@@ -23,7 +23,7 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
-    "@nrwl/angular": "14.3.6",
+    "@nrwl/angular": "14.8.6",
     "@types/lodash-es": "^4.17.6",
     "babel-jest": "^27.5.1",
     "lodash-es": "^4.17.21",
@@ -33,7 +33,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~14.0.0",
+    "@angular-devkit/build-angular": "~15.0.0",
     "@angular-eslint/eslint-plugin": "~13.2.1",
     "@angular-eslint/eslint-plugin-template": "~13.2.1",
     "@angular-eslint/template-parser": "~13.2.1",
