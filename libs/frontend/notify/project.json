@@ -1,11 +1,12 @@
 {
+  "name": "frontend-notify",
   "projectType": "library",
   "sourceRoot": "libs/frontend/notify/src",
   "prefix": "itg",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/frontend/notify"],
+      "outputs": ["{workspaceRoot}/dist/libs/frontend/notify"],
       "options": {
         "project": "libs/frontend/notify/ng-package.json"
       },
@@ -21,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/frontend/notify"],
+      "outputs": ["{workspaceRoot}/coverage/libs/frontend/notify"],
       "options": {
         "jestConfig": "libs/frontend/notify/jest.config.ts",
         "passWithNoTests": true

@@ -1,11 +1,12 @@
 {
+  "name": "frontend-common",
   "projectType": "library",
   "sourceRoot": "libs/frontend/common/src",
   "prefix": "itg",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/frontend/common"],
+      "outputs": ["{workspaceRoot}/dist/libs/frontend/common"],
       "options": {
         "project": "libs/frontend/common/ng-package.json"
       },
@@ -21,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/frontend/common"],
+      "outputs": ["{workspaceRoot}/coverage/libs/frontend/common"],
       "options": {
         "jestConfig": "libs/frontend/common/jest.config.ts",
         "passWithNoTests": true

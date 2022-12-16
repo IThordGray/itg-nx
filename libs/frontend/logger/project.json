@@ -1,11 +1,12 @@
 {
+  "name": "frontend-logger",
   "projectType": "library",
   "sourceRoot": "libs/frontend/logger/src",
   "prefix": "itg",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/frontend/logger"],
+      "outputs": ["{workspaceRoot}/dist/libs/frontend/logger"],
       "options": {
         "project": "libs/frontend/logger/ng-package.json"
       },
@@ -21,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/frontend/logger"],
+      "outputs": ["{workspaceRoot}/coverage/libs/frontend/logger"],
       "options": {
         "jestConfig": "libs/frontend/logger/jest.config.ts",
         "passWithNoTests": true

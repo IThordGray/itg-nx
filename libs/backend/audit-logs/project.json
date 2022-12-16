@@ -1,4 +1,5 @@
 {
+  "name": "backend-audit-logs",
   "$schema": "..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/backend/audit-logs/src",
   "projectType": "library",
@@ -35,7 +36,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/backend/audit-logs"],
+      "outputs": ["{workspaceRoot}/coverage/libs/backend/audit-logs"],
       "options": {
         "jestConfig": "libs/backend/audit-logs/jest.config.ts",
         "passWithNoTests": true

@@ -7,5 +7,46 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nrwl/angular:package",
+        "outputs": [
+          "{workspaceRoot}/dist/libs/frontend/notify"
+        ],
+        "options": {
+          "project": "libs/frontend/notify/ng-package.json"
+        },
+        "configurations": {
+          "production": {
+            "tsConfig": "libs/frontend/notify/tsconfig.lib.prod.json"
+          },
+          "development": {
+            "tsConfig": "libs/frontend/notify/tsconfig.lib.json"
+          }
+        },
+        "defaultConfiguration": "production"
+      },
+      "test": {
+        "executor": "@nrwl/jest:jest",
+        "outputs": [
+          "{workspaceRoot}/coverage/libs/frontend/notify"
+        ],
+        "options": {
+          "jestConfig": "libs/frontend/notify/jest.config.ts",
+          "passWithNoTests": true
+        }
+      },
+      "lint": {
+        "executor": "@nrwl/linter:eslint",
+        "options": {
+          "lintFilePatterns": [
+            "libs/frontend/notify/**/*.ts",
+            "libs/frontend/notify/**/*.html"
+          ]
+        }
+      }
+    }
   }
 }

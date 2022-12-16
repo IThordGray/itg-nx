@@ -1,11 +1,12 @@
 {
+  "name": "frontend-config",
   "projectType": "library",
   "sourceRoot": "libs/frontend/config/src",
   "prefix": "itg",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/frontend/config"],
+      "outputs": ["{workspaceRoot}/dist/libs/frontend/config"],
       "options": {
         "project": "libs/frontend/config/ng-package.json"
       },
@@ -21,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/frontend/config"],
+      "outputs": ["{workspaceRoot}/coverage/libs/frontend/config"],
       "options": {
         "jestConfig": "libs/frontend/config/jest.config.ts",
         "passWithNoTests": true
