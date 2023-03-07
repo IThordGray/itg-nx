@@ -34,6 +34,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "15.2.1",
+    "@angular-devkit/core": "~15.1.0",
+    "@angular-devkit/schematics": "~15.1.0",
     "@angular-eslint/eslint-plugin": "15.0.0",
     "@angular-eslint/eslint-plugin-template": "15.0.0",
     "@angular-eslint/template-parser": "15.0.0",
@@ -51,6 +53,7 @@
     "@nrwl/nest": "15.8.5",
     "@nrwl/nx-cloud": "15.1.1",
     "@nrwl/workspace": "15.8.5",
+    "@schematics/angular": "~15.1.0",
     "@types/jest": "29.4.0",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "5.36.1",
