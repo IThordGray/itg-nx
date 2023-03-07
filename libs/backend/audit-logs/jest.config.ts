@@ -2,15 +2,16 @@
 export default {
   displayName: 'backend-audit-logs',
   preset: '../../../jest.preset.js',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json'
-    }
-  },
+  globals: {},
   testEnvironment: 'node',
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest'
+    '^.+\\.[tj]s$': [
+      'ts-jest',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+      },
+    ],
   },
-  moduleFileExtensions: [ 'ts', 'js', 'html' ],
-  coverageDirectory: '../../../coverage/libs/backend/audit-logs'
+  moduleFileExtensions: ['ts', 'js', 'html'],
+  coverageDirectory: '../../../coverage/libs/backend/audit-logs',
 };
