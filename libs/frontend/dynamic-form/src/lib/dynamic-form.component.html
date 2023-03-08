@@ -1,3 +1,7 @@
 <form [formGroup]="formGroup">
-  <dynamic-form-question *ngFor="let question of questions" [dyFormControl]="formGroup.controls[question.key]"></dynamic-form-question>
+  <dynamic-form-question
+    *ngFor="let question of questions"
+    [dyFormControl]="formGroup.controls[question.key]"
+    [question]="question"
+  ></dynamic-form-question>
 </form>

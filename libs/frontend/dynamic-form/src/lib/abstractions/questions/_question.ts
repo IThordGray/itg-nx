@@ -2,7 +2,7 @@ import { Type } from '@angular/core';
 import { IQuestionComponent } from '../question.component';
 
 export interface IQuestionOptions<TValue> {
-  value: TValue;
+  value: TValue | undefined;
   key: string;
   label?: string;
   required?: boolean;

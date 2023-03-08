@@ -17,6 +17,7 @@ export class DynamicFormComponent {
 
   set questions(value: Question<unknown>[]) {
     this.#questions = value;
+    console.log(value);
     value?.forEach(question => {
       const fc = new FormControl(question.value);
       if (question.required) fc.setValidators(Validators.required);

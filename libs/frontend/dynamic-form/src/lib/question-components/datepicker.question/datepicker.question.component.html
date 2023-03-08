@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline">
+  <mat-label *ngIf="question.label" [attr.for]="question.key">{{question.label}}</mat-label>
+  <input
+    [disabled]="question.disabled"
+    [formControl]="dyFormControl"
+    [matDatepicker]="picker"
+    [required]="question.required"
+    matInput
+  >
+  <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="dyFormControl.invalid">{{ question.label }} is required</mat-error>
+</mat-form-field>

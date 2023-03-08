@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/stub",
         "index": "apps/stub/src/index.html",
@@ -15,8 +17,14 @@
         "polyfills": "apps/stub/src/polyfills.ts",
         "tsConfig": "apps/stub/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/stub/src/favicon.ico", "apps/stub/src/assets"],
-        "styles": ["apps/stub/src/styles.scss"],
+        "assets": [
+          "apps/stub/src/favicon.ico",
+          "apps/stub/src/assets"
+        ],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/stub/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -73,12 +81,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/stub/**/*.ts", "apps/stub/**/*.html"]
+        "lintFilePatterns": [
+          "apps/stub/**/*.ts",
+          "apps/stub/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/stub"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/stub"
+      ],
       "options": {
         "jestConfig": "apps/stub/jest.config.ts",
         "passWithNoTests": true

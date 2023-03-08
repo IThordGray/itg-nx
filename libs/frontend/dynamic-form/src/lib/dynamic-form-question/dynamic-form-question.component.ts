@@ -15,8 +15,9 @@ export class DynamicFormQuestionComponent implements OnInit {
   @Input() question!: Question<unknown>;
   @Input() dyFormControl!: FormControl;
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (!this.question) return;
+    if (!this.dyFormControl) return;
     const componentRef = this.#viewContainerRef.createComponent<IQuestionComponent>(this.question.controlType);
     componentRef.instance.question = this.question;
     componentRef.instance.dyFormControl = this.dyFormControl;
