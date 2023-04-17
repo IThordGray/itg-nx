@@ -1,6 +1,6 @@
 {
   "name": "backend-audit-logs",
-  "$schema": "..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/backend/audit-logs/src",
   "projectType": "library",
   "targets": {

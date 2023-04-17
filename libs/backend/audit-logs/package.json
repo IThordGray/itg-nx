@@ -1,57 +1,5 @@
 {
   "name": "@ithordgray/backend-audit-logs",
   "version": "0.0.2",
-  "type": "commonjs",
-  "nx": {
-    "targets": {
-      "build": {
-        "executor": "@nrwl/js:tsc",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "options": {
-          "outputPath": "dist/libs/backend/audit-logs",
-          "tsConfig": "libs/backend/audit-logs/tsconfig.lib.json",
-          "packageJson": "libs/backend/audit-logs/package.json",
-          "main": "libs/backend/audit-logs/src/index.ts",
-          "assets": [
-            "libs/backend/audit-logs/*.md"
-          ]
-        }
-      },
-      "publish": {
-        "executor": "@nrwl/workspace:run-commands",
-        "options": {
-          "command": "node tools/scripts/publish.mjs backend-audit-logs {args.ver} {args.tag}"
-        },
-        "dependsOn": [
-          {
-            "projects": "self",
-            "target": "build"
-          }
-        ]
-      },
-      "lint": {
-        "executor": "@nrwl/linter:eslint",
-        "outputs": [
-          "{options.outputFile}"
-        ],
-        "options": {
-          "lintFilePatterns": [
-            "libs/backend/audit-logs/**/*.ts"
-          ]
-        }
-      },
-      "test": {
-        "executor": "@nrwl/jest:jest",
-        "outputs": [
-          "{workspaceRoot}/coverage/libs/backend/audit-logs"
-        ],
-        "options": {
-          "jestConfig": "libs/backend/audit-logs/jest.config.ts",
-          "passWithNoTests": true
-        }
-      }
-    }
-  }
+  "type": "commonjs"
 }
