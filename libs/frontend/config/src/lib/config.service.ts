@@ -1,5 +1,5 @@
 import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
-import { cloneDeep, get, set } from 'lodash-es';
+import { cloneDeep, get, set } from '@ithordgray/shared-utils';
 
 export const DEFAULT_CONFIG = new InjectionToken('Default config', { providedIn: 'root', factory: () => ({}) })
 

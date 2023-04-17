@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline" class="stretch">
+  <mat-label *ngIf="label">{{label}}</mat-label>
+  <input (keydown)="$event.cancelBubble = true" (keyup)="$event.cancelBubble = true" [formControl]="search" matInput>
+  <mat-icon *ngIf="!hideIcon" class="prefix" matPrefix>search</mat-icon>
+  <button (click)="reset()" *ngIf="!!search.getRawValue()" class="ms-2 clear" mat-icon-button matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>

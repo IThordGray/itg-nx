@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash-es';
+import { cloneDeep } from '@ithordgray/shared-utils';
 import { Expression } from './filter-expressions';
 import { FilterExpression } from './filter-expressions.utils';
 

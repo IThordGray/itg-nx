@@ -1,0 +1,15 @@
+<div class="heading-container">
+  <div class="heading-container__main">
+    <div class="ag-h3">{{ heading }}</div>
+    <button (click)="clearAll()" color="primary" mat-button>Clear all</button>
+  </div>
+
+  <search
+    (filter)="doFilter($event)" [hideIcon]="true" [label]="searchLabel"
+    class="heading-container__search"
+  ></search>
+</div>
+
+<div class="mat-options-container">
+  <ng-content select="mat-option"></ng-content>
+</div>

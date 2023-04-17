@@ -1,4 +1,4 @@
-import { get, isNumber, isString } from 'lodash-es';
+import { get, isNumber, isString } from '@ithordgray/shared-utils';
 import { ComparatorExpression, Expression, LogicalExpression } from './filter-expressions';
 
 function getFilterQuery<TValue>(value: TValue, expression: Expression): boolean {
