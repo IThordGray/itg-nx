@@ -1,5 +1,4 @@
 import { _isNumberValue, coerceBooleanValue } from '@ithordgray/shared-utils';
-import { split } from 'lodash-es';
 
 export enum FilterLogicalExpressions {
   and = 'and',

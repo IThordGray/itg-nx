@@ -1,6 +1,6 @@
 {
   "name": "@ithordgray/shared-filter-expressions",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "commonjs",
   "nx": {
     "targets": {

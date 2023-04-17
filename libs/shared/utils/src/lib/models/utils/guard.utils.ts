@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash-es';
+import { isEmpty } from '../../helpers/is-empty.helper';
 import { isNullOrUndefined } from '../../helpers/is-null-or-undefined.helper';
 import { isWhiteSpace } from '../../helpers/is-white-space.helper';
 import { ArgumentNullError } from '../errors/argument-null.error';
@@ -16,7 +16,7 @@ export class Guard {
       (typeof value === 'string' && isWhiteSpace(value)) ||
       (Array.isArray(value) && isEmpty(value)) ||
       (typeof value === 'object' && isEmpty(value))
-    ) throw new InvalidOperationError(`${ name } cannot be null or empty.`);
+    ) throw new InvalidOperationError(`"${ name }" cannot be null or empty.`);
   }
 
 }
