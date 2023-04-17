@@ -17,7 +17,7 @@ describe('Guard', () => {
     });
 
     it('should include the argument name in the error message', () => {
-      expect(() => Guard.againstNullArgument(null, 'name')).toThrowError('Argument "name" cannot be null or undefined.');
+      expect(() => Guard.againstNullArgument(null, 'name')).toThrowError('Argument [name] cannot be null or empty.');
     });
   });
 

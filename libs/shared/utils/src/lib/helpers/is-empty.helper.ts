@@ -1,23 +1,29 @@
 export function isEmpty(value: any): boolean {
-  if (value == null) {
-    return true;
-  }
-  if (Array.isArray(value) || typeof value === 'string' || typeof value.splice === 'function' || isBuffer(value) || isTypedArray(value) || isArguments(value)) {
+  if (value == null) return true;
+
+  if (
+    Array.isArray(value) ||
+    typeof value === 'string' ||
+    typeof value.splice === 'function' ||
+    isBuffer(value) ||
+    isTypedArray(value) ||
+    isArguments(value) ||
+    isArrayLike(value)
+  ) {
     return !value.length;
   }
+
   if (isObjectLike(value)) {
     const tag = getTag(value);
-    if (tag == mapTag || tag == setTag) {
-      return !value.size;
-    }
-    if (isPrototype(value)) {
-      return !baseKeys(value).length;
-    }
+
+    if (tag == mapTag || tag == setTag) return !value.size;
+
+    if (isPrototype(value)) return !baseKeys(value).length;
+
     for (const key in value) {
-      if (hasOwnProperty.call(value, key)) {
-        return false;
-      }
+      if (hasOwnProperty.call(value, key)) return false;
     }
+
     return true;
   }
   return false;
@@ -38,6 +44,10 @@ function isArguments(value: any): boolean {
 
 function isObjectLike(value: any): boolean {
   return typeof value === 'object' && value !== null;
+}
+
+function isArrayLike(value: any): boolean {
+  return typeof value === 'object' && value.hasOwnProperty('length');
 }
 
 function getTag(value: any): string {

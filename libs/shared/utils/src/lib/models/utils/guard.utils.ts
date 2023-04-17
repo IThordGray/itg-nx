@@ -16,7 +16,7 @@ export class Guard {
       (typeof value === 'string' && isWhiteSpace(value)) ||
       (Array.isArray(value) && isEmpty(value)) ||
       (typeof value === 'object' && isEmpty(value))
-    ) throw new InvalidOperationError(`${ name } cannot be null or empty.`);
+    ) throw new InvalidOperationError(`"${ name }" cannot be null or empty.`);
   }
 
 }

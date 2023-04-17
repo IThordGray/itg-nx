@@ -1,5 +1,7 @@
 export class InvalidOperationError extends Error {
   constructor(message?: string) {
-    super(message);
+    let m = 'Operation not valid';
+    if (message) m += `: ${ message }`;
+    super(m);
   }
 }
