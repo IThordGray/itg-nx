@@ -1,44 +1,5 @@
 {
   "name": "@ithordgray/shared-filter-expressions",
   "version": "1.0.0",
-  "type": "commonjs",
-  "nx": {
-    "targets": {
-      "build": {
-        "executor": "@nrwl/js:tsc",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "options": {
-          "outputPath": "dist/libs/shared/filter-expressions",
-          "main": "libs/shared/filter-expressions/src/index.ts",
-          "tsConfig": "libs/shared/filter-expressions/tsconfig.lib.json",
-          "assets": [
-            "libs/shared/filter-expressions/*.md"
-          ]
-        }
-      },
-      "lint": {
-        "executor": "@nrwl/linter:eslint",
-        "outputs": [
-          "{options.outputFile}"
-        ],
-        "options": {
-          "lintFilePatterns": [
-            "libs/shared/filter-expressions/**/*.ts"
-          ]
-        }
-      },
-      "test": {
-        "executor": "@nrwl/jest:jest",
-        "outputs": [
-          "{workspaceRoot}/coverage/libs/shared/filter-expressions"
-        ],
-        "options": {
-          "jestConfig": "libs/shared/filter-expressions/jest.config.ts",
-          "passWithNoTests": true
-        }
-      }
-    }
-  }
+  "type": "commonjs"
 }
