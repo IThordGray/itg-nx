@@ -6,7 +6,7 @@ export enum SortKeyWords {
 export type IQueryOptions = IFilterOptions & IPaginationOptions & ISortOptions;
 
 export interface IFilterOptions {
-  filter?: string;
+  filter?: any;
 }
 
 export interface IPaginationOptions {
