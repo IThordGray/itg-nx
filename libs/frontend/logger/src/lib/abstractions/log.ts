@@ -1,12 +1,12 @@
-import { LogLevel } from './log-level.enum';
+import { LogLevel } from './log-level';
 
 export class Log {
   date = new Date();
 
   constructor(
-    public message: string,
+    public message: string | Error,
     public level: LogLevel,
-    public optionalParams: any[]
+    public optionalParams?: any[]
   ) {
   }
 

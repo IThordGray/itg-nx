@@ -1,5 +1,5 @@
 import { Log } from './log';
-import { LogLevel } from './log-level.enum';
+import { LogLevel } from './log-level';
 
 export interface ILogProviderConfig {
   logLevel: LogLevel;

@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { filter, Observable } from 'rxjs';
-import { LogProvider } from './abstractions/abstract-log-provider';
 import { Log } from './abstractions/log';
-import { LogLevel } from './abstractions/log-level.enum';
+import { LogLevel } from './abstractions/log-level';
+import { LogProvider } from './abstractions/log-provider';
+import { LOG_PROVIDERS } from './abstractions/log-providers.injection-token';
 import { LoggerService } from './logger.service';
 
 class LogStream {
   logs$!: Observable<Log>;
 
-  private shouldLog(requested: LogLevel) {
+  shouldLog(requested: LogLevel): boolean {
     if ((this as unknown as LogProvider).providerConfig.logLevel === LogLevel.Trace) return true;
 
     return !(
@@ -29,38 +30,22 @@ class LogStream {
       if (log.level === LogLevel.Fatal) return (this as unknown as LogProvider).fatal(log);
     });
   }
-
 }
 
 @Injectable({ providedIn: 'root' })
 export class LoggerProvidersService {
+  private readonly _logger = inject(LoggerService);
+  private readonly _providers = inject(LOG_PROVIDERS);
 
-  private _providers: Map<string, LogProvider> = new Map();
+  subscribeToProviders(): void {
+    this._providers.forEach(provider => {
+      const stream = new LogStream();
 
-  constructor(
-    private _logger: LoggerService
-  ) {
+      (provider as LogProvider & LogStream).logs$ = this._logger.logs$;
+      (provider as LogProvider & LogStream).shouldLog = stream.shouldLog;
+      (provider as LogProvider & LogStream).subscribe = stream.subscribe;
+
+      (provider as LogProvider & LogStream).subscribe();
+    });
   }
-
-  private subscribeProvider(provider: LogProvider): void {
-    Object.assign(provider, new LogStream());
-    (provider as LogProvider & LogStream).logs$ = this._logger.logs$;
-    (provider as LogProvider & LogStream).subscribe();
-  }
-
-  get(): LogProvider[];
-
-  get(providerName: string): LogProvider | undefined;
-
-  get(providerName?: string): (LogProvider | undefined) | LogProvider[] {
-    if (providerName) return this._providers.get(providerName);
-    return Array.from(this._providers.values());
-  }
-
-  set(providerName: string, provider: LogProvider): LogProvider {
-    this.subscribeProvider(provider);
-    this._providers.set(providerName, provider);
-    return provider;
-  }
-
 }
