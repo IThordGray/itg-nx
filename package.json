@@ -43,7 +43,6 @@
     "@angular/language-service": "16.2.1",
     "@nestjs/schematics": "10.0.1",
     "@nestjs/testing": "10.0.2",
-    "@nrwl/nest": "16.7.2",
     "@schematics/angular": "16.2.0",
     "@types/jest": "29.4.0",
     "@types/node": "16.11.7",
@@ -72,6 +71,7 @@
     "@nx/cypress": "16.7.2",
     "@nx/linter": "16.7.2",
     "@nx/js": "16.7.2",
-    "@nx/jest": "16.7.2"
+    "@nx/jest": "16.7.2",
+    "@nx/nest": "16.7.2"
   }
 }
