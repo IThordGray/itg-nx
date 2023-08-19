@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/frontend/notify"],
       "options": {
-        "project": "libs/frontend/notify/ng-package.json"
+        "project": "libs/frontend/notify/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

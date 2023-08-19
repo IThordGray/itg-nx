@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/frontend/logger"],
       "options": {
-        "project": "libs/frontend/logger/ng-package.json"
+        "project": "libs/frontend/logger/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

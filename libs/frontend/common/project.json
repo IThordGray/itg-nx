@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/frontend/common"],
       "options": {
-        "project": "libs/frontend/common/ng-package.json"
+        "project": "libs/frontend/common/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {
