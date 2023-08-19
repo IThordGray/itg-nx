@@ -4,6 +4,9 @@ import { ArgumentError } from '../../errors/argument.error';
 import { FormatError } from '../../errors/format.error';
 import { OverflowError } from '../../errors/overflow.error';
 
+export const GENERAL_SHORT_TIMESPAN_FORMAT_SPECIFIER = 'g';
+export const GENERAL_LONG_TIMESPAN_FORMAT_SPECIFIER = 'G';
+
 export interface ITimespanArgs {
   days?: number;
   hours?: number;
@@ -252,6 +255,69 @@ export class Timespan implements ITimespanArgs {
     return ms + s + m + h + d;
   }
 
+  private getShortTimespanFormat(ts: Timespan): string {
+    let str = '';
+
+    if (ts._totalMilliseconds < 0) str += '-';
+
+    const h = `${ ts.hours }`.padStart(2, '0');
+    const m = `${ ts.minutes }`.padStart(2, '0');
+    const s = `${ ts.seconds }`.padStart(2, '0');
+    const ms = `${ ts.milliseconds }`.padStart(3, '0');
+
+    if (ts.days) str += `${ ts.days }.`;
+    str += `${ h }:`;
+    str += `${ m }:`;
+    str += `${ s }`;
+
+    if (ts.milliseconds) str += `.${ ms }`;
+
+    return str;
+  }
+
+  private getLongTimespanFormat(ts: Timespan): string {
+    let str = '';
+
+    if (ts._totalMilliseconds < 0) str += '-';
+
+    const h = `${ Math.abs(ts.hours) }`.padStart(2, '0');
+    const m = `${ Math.abs(ts.minutes) }`.padStart(2, '0');
+    const s = `${ Math.abs(ts.seconds) }`.padStart(2, '0');
+    const ms = `${ Math.abs(ts.milliseconds) }`.padStart(3, '0');
+
+    str += `${ ts.days }.`;
+    str += `${ h }:`;
+    str += `${ m }:`;
+    str += `${ s }.`;
+    str += `${ ms }`;
+
+    return str;
+  }
+
+  private getCustomTimespanFormat(ts: Timespan, format: string): string {
+    const isNegative = ts._totalMilliseconds < 0;
+    const formattedTime = format
+      .replace(/dddddddd/g, ts.days.toString().padStart(8, '0'))
+      .replace(/ddddddd/g, ts.days.toString().padStart(7, '0'))
+      .replace(/dddddd/g, ts.days.toString().padStart(6, '0'))
+      .replace(/ddddd/g, ts.days.toString().padStart(5, '0'))
+      .replace(/dddd/g, ts.days.toString().padStart(4, '0'))
+      .replace(/ddd/g, ts.days.toString().padStart(3, '0'))
+      .replace(/dd/g, ts.days.toString().padStart(2, '0'))
+      .replace(/d/g, ts.days.toString())
+      .replace(/hh/g, ts.hours.toString().padStart(2, '0'))
+      .replace(/h/g, ts.hours.toString())
+      .replace(/mm/g, ts.minutes.toString().padStart(2, '0'))
+      .replace(/m/g, ts.minutes.toString())
+      .replace(/ss/g, ts.seconds.toString().padStart(2, '0'))
+      .replace(/s/g, ts.seconds.toString())
+      .replace(/fff/g, ts.milliseconds.toString().padEnd(3, '0').substring(0, 3))
+      .replace(/ff/g, ts.milliseconds.toString().padEnd(3, '0').substring(0, 2))
+      .replace(/f/g, ts.milliseconds.toString().padEnd(3, '0').substring(0, 1));
+
+    return isNegative ? `-${ formattedTime }` : formattedTime;
+  }
+
   add(ts: Timespan): Timespan {
     const ms = this._totalMilliseconds + ts.totalMilliseconds;
     Timespan.validateValueInRange(ms);
@@ -280,6 +346,8 @@ export class Timespan implements ITimespanArgs {
     return this._totalMilliseconds >> 32;
   }
 
+  // toString(format: string): string {}
+
   multiply(factor: number): Timespan {
     const ms = this._totalMilliseconds * factor;
     Timespan.validateValueInRange(ms);
@@ -296,23 +364,9 @@ export class Timespan implements ITimespanArgs {
     return Timespan.fromMilliseconds(ms);
   }
 
-  // toString(format: string): string {}
-
-  toString(): string {
-    let str = '';
-
-    const h = `${ this.hours }`.padStart(2, '0');
-    const m = `${ this.minutes }`.padStart(2, '0');
-    const s = `${ this.seconds }`.padStart(2, '0');
-    const ms = `${ this.milliseconds }`.padStart(3, '0');
-
-    if (this.days) str += `${ this.days }.`;
-    str += `${ h }:`;
-    str += `${ m }:`;
-    str += `${ s }`;
-
-    if (this.milliseconds) str += `.${ ms }`;
-
-    return str;
+  toString(format: string = GENERAL_SHORT_TIMESPAN_FORMAT_SPECIFIER): string {
+    if (format === GENERAL_LONG_TIMESPAN_FORMAT_SPECIFIER) return this.getLongTimespanFormat(this);
+    if (format === GENERAL_SHORT_TIMESPAN_FORMAT_SPECIFIER) return this.getShortTimespanFormat(this);
+    return this.getCustomTimespanFormat(this, format);
   }
 }
