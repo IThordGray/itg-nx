@@ -1,7 +1,7 @@
 const exec = require('child_process').exec;
 
-const readWorkspaceConfig = require('@nrwl/workspace').readWorkspaceConfig;
-const readPackageJson = require('@nrwl/workspace').readPackageJson;
+const readWorkspaceConfig = require('@nx/workspace').readWorkspaceConfig;
+const readPackageJson = require('@nx/workspace').readPackageJson;
 
 function execAsync(command) {
   return new Promise((resolve, reject) => {
@@ -17,10 +17,12 @@ function execAsync(command) {
   });
 }
 
-const {version} = readPackageJson();
-const {projects} = readWorkspaceConfig({format: "nx"})
+const { version } = readPackageJson();
+const { projects } = readWorkspaceConfig({ format: 'nx' });
 
-const libraries = Object.values(projects)?.filter(x => x.projectType === 'library').map(x => x.name);
+const libraries = Object.values(projects)
+  ?.filter((x) => x.projectType === 'library')
+  .map((x) => x.name);
 
 function buildLibraries() {
   let buildCmd = 'nx run-many -t build -p ';
