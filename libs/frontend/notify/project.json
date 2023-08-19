@@ -6,7 +6,7 @@
   "prefix": "itg",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/frontend/notify"],
       "options": {
         "project": "libs/frontend/notify/ng-package.json"
