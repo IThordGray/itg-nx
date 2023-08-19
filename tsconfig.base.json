@@ -22,6 +22,9 @@
       "@ithordgray/frontend-common/permissions": [
         "libs/frontend/common/permissions/src/index.ts"
       ],
+      "@ithordgray/frontend/dynamic-form": [
+        "libs/frontend/dynamic-form/src/index.ts"
+      ],
       "@ithordgray/shared-config": ["libs/frontend/config/src/index.ts"],
       "@ithordgray/shared-logger": ["libs/frontend/logger/src/index.ts"],
       "@ithordgray/shared-notify": ["libs/frontend/notify/src/index.ts"],

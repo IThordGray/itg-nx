@@ -1,0 +1,7 @@
+<form [formGroup]="formGroup">
+  <tg-dynamic-form-question
+    *ngFor="let question of questions"
+    [formControl]="formGroup.controls[question.key]"
+    [question]="question"
+  ></tg-dynamic-form-question>
+</form>
