@@ -1,9 +1,9 @@
 import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { cloneDeep, get, set } from '@ithordgray/shared-utils';
 
-export const DEFAULT_CONFIG = new InjectionToken('Default config', { providedIn: 'root', factory: () => ({}) })
+export const DEFAULT_CONFIG = new InjectionToken('Default config', { providedIn: 'root', factory: () => ({}) });
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ConfigService {
   private readonly _config: Record<string, any> = {};
 
