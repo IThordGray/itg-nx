@@ -29,6 +29,41 @@
           "libs/frontend/dynamic-form/**/*.html"
         ]
       }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/frontend/dynamic-form/.storybook",
+        "browserTarget": "frontend-dynamic-form:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/frontend-dynamic-form",
+        "configDir": "libs/frontend/dynamic-form/.storybook",
+        "browserTarget": "frontend-dynamic-form:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/frontend/dynamic-form/.storybook --url=http://localhost:4400"
+      }
     }
   }
 }
