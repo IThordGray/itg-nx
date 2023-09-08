@@ -5,10 +5,8 @@ import { LogLevel } from './abstractions/log-level';
 import { LogProvider } from './abstractions/log-provider';
 import { LOG_PROVIDERS } from './abstractions/log-providers.injection-token';
 import { LoggerService } from './logger.service';
-import MockedObject = jest.MockedObject;
-import spyOn = jest.spyOn;
 
-const getMockProvider: () => MockedObject<LogProvider> = () => {
+const getMockProvider: () => jest.MockedObject<LogProvider> = () => {
   return {
     providerConfig: { logLevel: LogLevel.Trace },
     logs$: new Subject<Log>(),
@@ -41,9 +39,9 @@ describe('LoggerService', () => {
   });
 
   it('should log a debug message', () => {
-    const providers = loggerService['_providers'] as Array<MockedObject<LogProvider>>;
+    const providers = loggerService['_providers'] as Array<jest.MockedObject<LogProvider>>;
 
-    const mockProviderDebug = spyOn(providers[0], 'debug');
+    const mockProviderDebug = jest.spyOn(providers[0], 'debug');
 
     const message = 'Debug message';
     const optionalParams = [ 'param1', 'param2' ];
@@ -53,13 +51,13 @@ describe('LoggerService', () => {
     expect(mockProviderDebug).toHaveBeenCalledWith(
       expect.objectContaining({
         ...(new Log(message, LogLevel.Debug, optionalParams)),
-        date: expect(Date)
+        date: expect.any(Date)
       })
     );
   });
 
   it('should log an error message', () => {
-    const providers = loggerService['_providers'] as Array<MockedObject<LogProvider>>;
+    const providers = loggerService['_providers'] as Array<jest.MockedObject<LogProvider>>;
     const mockProviderError = jest.spyOn(providers[0], 'error');
 
     const message = 'Error message';
@@ -75,7 +73,7 @@ describe('LoggerService', () => {
   });
 
   it('should log a fatal message', () => {
-    const providers = loggerService['_providers'] as Array<MockedObject<LogProvider>>;
+    const providers = loggerService['_providers'] as Array<jest.MockedObject<LogProvider>>;
     const mockProviderFatal = jest.spyOn(providers[0], 'fatal');
 
     const message = 'Fatal message';
@@ -91,7 +89,7 @@ describe('LoggerService', () => {
   });
 
   it('should log an info message', () => {
-    const providers = loggerService['_providers'] as Array<MockedObject<LogProvider>>;
+    const providers = loggerService['_providers'] as Array<jest.MockedObject<LogProvider>>;
     const mockProviderInfo = jest.spyOn(providers[0], 'info');
 
     const message = 'Info message';
@@ -108,7 +106,7 @@ describe('LoggerService', () => {
   });
 
   it('should log a trace message', () => {
-    const providers = loggerService['_providers'] as Array<MockedObject<LogProvider>>;
+    const providers = loggerService['_providers'] as Array<jest.MockedObject<LogProvider>>;
     const mockProviderTrace = jest.spyOn(providers[0], 'trace');
 
     const message = 'Trace message';
@@ -125,7 +123,7 @@ describe('LoggerService', () => {
   });
 
   it('should log a warn message', () => {
-    const providers = loggerService['_providers'] as Array<MockedObject<LogProvider>>;
+    const providers = loggerService['_providers'] as Array<jest.MockedObject<LogProvider>>;
     const mockProviderWarn = jest.spyOn(providers[0], 'warn');
 
     const message = 'Warn message';
