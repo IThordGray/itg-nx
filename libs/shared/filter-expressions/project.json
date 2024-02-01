@@ -11,8 +11,7 @@
         "outputPath": "dist/libs/shared/filter-expressions",
         "main": "libs/shared/filter-expressions/src/index.ts",
         "tsConfig": "libs/shared/filter-expressions/tsconfig.lib.json",
-        "assets": ["libs/shared/filter-expressions/*.md"],
-        "updateBuildableProjectDepsInPackageJson": true
+        "assets": ["libs/shared/filter-expressions/*.md"]
       }
     },
     "lint": {

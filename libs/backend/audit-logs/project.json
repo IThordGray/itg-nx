@@ -12,8 +12,7 @@
         "tsConfig": "libs/backend/audit-logs/tsconfig.lib.json",
         "packageJson": "libs/backend/audit-logs/package.json",
         "main": "libs/backend/audit-logs/src/index.ts",
-        "assets": ["libs/backend/audit-logs/*.md"],
-        "updateBuildableProjectDepsInPackageJson": true
+        "assets": ["libs/backend/audit-logs/*.md"]
       }
     },
     "publish": {
