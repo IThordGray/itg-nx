@@ -31,15 +31,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/frontend/common/**/*.ts",
-          "libs/frontend/common/**/*.html",
-          "libs/frontend/common/permissions/**/*.ts",
-          "libs/frontend/common/permissions/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []

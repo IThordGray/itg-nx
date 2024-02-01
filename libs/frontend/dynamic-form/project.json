@@ -22,13 +22,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "libs/frontend/dynamic-form/**/*.ts",
-          "libs/frontend/dynamic-form/**/*.html"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
