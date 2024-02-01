@@ -34,8 +34,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/backend/audit-logs"],
       "options": {
-        "jestConfig": "libs/backend/audit-logs/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/backend/audit-logs/jest.config.ts"
       }
     }
   },

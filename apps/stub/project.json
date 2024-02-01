@@ -77,8 +77,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/stub"],
       "options": {
-        "jestConfig": "apps/stub/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/stub/jest.config.ts"
       }
     }
   },

@@ -22,8 +22,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/shared/filter-expressions"],
       "options": {
-        "jestConfig": "libs/shared/filter-expressions/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/shared/filter-expressions/jest.config.ts"
       }
     }
   },
