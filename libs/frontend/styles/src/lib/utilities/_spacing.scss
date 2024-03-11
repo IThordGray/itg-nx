@@ -1,0 +1,39 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+@mixin generate-spacing-classes-for-breakpoint($breakpoint, $spacers, $type) {
+  $type-prefix: str-slice($type, 1, 1);
+  $properties: (
+          "": [#{$type}],
+          "t": [#{$type}-top],
+          "b": [#{$type}-bottom],
+          "s": [#{$type}-left],
+          "e": [#{$type}-right],
+          "x": [#{$type}-left, #{$type}-right],
+          "y": [#{$type}-top, #{$type}-bottom],
+  );
+
+  @include bp.media-breakpoint-up($breakpoint) {
+    @each $suffix, $property in $properties {
+      @each $spacer, $value in $spacers {
+        $infix: bp.breakpoint-infix($breakpoint);
+        .#{$type-prefix}#{$suffix}#{$infix}-#{$spacer} {
+          @each $p in $property {
+            #{$p}: $value !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@mixin generate() {
+  $spacersWithAuto: map-merge(v.$spacers, (auto: auto));
+
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-spacing-classes-for-breakpoint($breakpoint, $spacersWithAuto, padding);
+    @include generate-spacing-classes-for-breakpoint($breakpoint, $spacersWithAuto, margin);
+  }
+}

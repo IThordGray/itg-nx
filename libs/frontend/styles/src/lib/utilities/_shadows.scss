@@ -1,0 +1,32 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+$properties: (
+        "0": [0, 0],
+        "1": [2, 0.08],
+        "2": [6, 0.12],
+        "3": [12, 0.16],
+        "4": [24, 0.24]
+);
+
+@mixin generate-shadow-classes-for-breakpoint($breakpoint) {
+  @include bp.media-breakpoint-up($breakpoint) {
+    $breakpoint-infix: bp.breakpoint-infix($breakpoint);
+
+    @each $prop, $value in $properties {
+      $px: nth($value, 1);
+      $opacity: nth($value, 2);
+
+      .shadow#{$breakpoint-infix}-#{$prop} {
+        box-shadow: 0 #{$px / 2}px #{$px}px 2px rgba(33, 33, 33, $opacity) !important;
+      }
+    }
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-shadow-classes-for-breakpoint($breakpoint);
+  }
+}

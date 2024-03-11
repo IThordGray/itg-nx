@@ -1,0 +1,26 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+@mixin generate-overflow-classes-for-breakpoint($breakpoint) {
+  $axes: ['', x, y];
+  $properties: [auto, hidden, visible, scroll];
+
+  @include bp.media-breakpoint-up($breakpoint) {
+    @each $axis in $axes {
+      @each $property in $properties {
+        $infix: bp.breakpoint-infix($breakpoint);
+
+        .overflow#{$infix}-#{$property} {
+          overflow#{if($axis == '', '', '-#{$axis}')}: $property !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-overflow-classes-for-breakpoint($breakpoint);
+  }
+}

@@ -1,0 +1,26 @@
+@use "../_variables.scss" as v;
+@use "breakpoints" as bp;
+
+@mixin generate-size-classes-for-breakpoint($breakpoint) {
+  $options: [10, 20, 25, 30, 33, 40, 50, 60, 66, 70, 75, 80, 90, 100];
+
+  @include bp.media-breakpoint-up($breakpoint) {
+    $breakpoint-infix: bp.breakpoint-infix($breakpoint);
+
+    @each $option in $options {
+      .w-#{$option}#{$breakpoint-infix} {
+        width: percentage($option / 100) !important;
+      }
+
+      .h-#{$option}#{$breakpoint-infix} {
+        height: percentage($option / 100) !important;
+      }
+    }
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-size-classes-for-breakpoint($breakpoint);
+  }
+}

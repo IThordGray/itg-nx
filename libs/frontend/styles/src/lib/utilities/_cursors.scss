@@ -1,0 +1,9 @@
+@mixin generate() {
+  $properties: [default, help, wait,  pointer];
+
+  @each $property in $properties {
+    .cursor-#{$property} {
+      cursor: $property !important;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use "utilities/borders" as border;
+@use "utilities/cursors" as cursor;
+@use "utilities/display" as display;
+@use "utilities/flex" as flex;
+@use "utilities/overflow" as overflow;
+@use "utilities/position" as position;
+@use "utilities/rounded" as rounded;
+@use "utilities/shadows" as shadow;
+@use "utilities/sizes" as sizes;
+@use "utilities/spacing" as spacing;
+@use "utilities/text-alignments" as textAlignment;
+@use "utilities/text-transforms" as textTransform;
+
+@use "colors" as colors;
+
+@include border.generate();
+@include cursor.generate();
+@include display.generate();
+@include flex.generate();
+@include overflow.generate();
+@include position.generate();
+@include rounded.generate();
+@include shadow.generate();
+@include sizes.generate();
+@include spacing.generate();
+@include textAlignment.generate();
+@include textTransform.generate();
+
+@include colors.generate-palette-colors();

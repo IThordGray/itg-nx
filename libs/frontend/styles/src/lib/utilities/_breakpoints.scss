@@ -1,0 +1,22 @@
+@use '../variables' as v;
+
+@mixin media-breakpoint-up($breakpoint) {
+  $min: breakpoint-min($breakpoint, v.$breakpoints);
+
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@function breakpoint-min($name, $breakpoints: v.$breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: v.$breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}

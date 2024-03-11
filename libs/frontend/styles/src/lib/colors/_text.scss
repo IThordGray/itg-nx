@@ -1,0 +1,12 @@
+@use "../variables" as v;
+
+@mixin text-color($color-name, $shade) {
+  $shadeInfix: if($shade == '', '', '-#{$shade}');
+  .#{v.$prefix}-text-#{$color-name}#{$shadeInfix} {
+    color: var(--#{v.$prefix}-#{$color-name}#{$shadeInfix});
+  }
+
+  .#{v.$prefix}-text-contrast-#{$color-name}#{$shadeInfix} {
+    color: var(--#{v.$prefix}-#{$color-name}-contrast#{$shadeInfix});
+  }
+}

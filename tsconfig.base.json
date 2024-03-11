@@ -22,6 +22,8 @@
       "@ithordgray/frontend-common/permissions": [
         "libs/frontend/common/permissions/src/index.ts"
       ],
+      "@ithordgray/frontend-sidebar": ["libs/frontend/sidebar/src/index.ts"],
+      "@ithordgray/frontend-styles": ["libs/frontend/styles/src/index.ts"],
       "@ithordgray/frontend/dynamic-form": [
         "libs/frontend/dynamic-form/src/index.ts"
       ],

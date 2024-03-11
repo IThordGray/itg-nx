@@ -1,0 +1,34 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+$border-sides: (
+        "": "border",
+        "top": "border-top",
+        "bottom": "border-bottom",
+        "start": "border-left",
+        "end": "border-right"
+);
+
+@mixin generate-border-classes-for-breakpoint($breakpoint) {
+  @include bp.media-breakpoint-up($breakpoint) {
+    $breakpoint-infix: bp.breakpoint-infix($breakpoint);
+
+    @each $side, $prop in $border-sides {
+      @each $size, $length in v.$border-widths {
+        $side-infix: if($side == '', '', '-#{$side}');
+        $size-infix: if($size == null, '', '-#{$size}');
+
+        .border#{$side-infix}#{$breakpoint-infix}#{$size-infix} {
+          #{$prop}: #{$length} solid var(--#{v.$prefix}-border-color);
+        }
+      }
+    }
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-border-classes-for-breakpoint($breakpoint);
+  }
+}

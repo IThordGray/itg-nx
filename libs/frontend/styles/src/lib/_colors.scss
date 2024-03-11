@@ -1,0 +1,64 @@
+@use 'sass:list';
+@use "colors/css-variable" as css-variable;
+@use "colors/border" as border-color;
+
+@use "colors/background" as bg-color;
+@use "colors/text" as text-color;
+@use "colors/hover" as hover-color;
+
+@use "palettes/app/default-primary" as default-primary-pallete;
+@use "palettes/app/default-secondary" as default-secondary-pallete;
+@use "palettes/app/default-tertiary" as default-tertiary-pallete;
+
+@use "palettes/status/default-success" as default-success-pallete;
+@use "palettes/status/default-warning" as default-warning-pallete;
+@use "palettes/status/default-danger" as default-danger-pallete;
+@use "palettes/status/default-info" as default-info-pallete;
+
+@use "palettes/grey/default-light" as default-light-pallete;
+@use "palettes/grey/default-medium" as default-medium-pallete;
+@use "palettes/grey/default-dark" as default-dark-pallete;
+
+@mixin generate-colors($color-name, $color-palette) {
+  :root {
+    @each $shade, $color-value in $color-palette {
+      @include css-variable.css-variable($color-name, $shade, $color-value);
+    }
+  }
+
+  @each $shade, $color-value in $color-palette {
+    @include border-color.border-color($color-name, $shade);
+    @include bg-color.bg-color($color-name, $shade);
+    @include text-color.text-color($color-name, $shade);
+    @include hover-color.hover-color($color-name, $shade);
+  }
+}
+
+$default-palettes: (
+        primary: default-primary-pallete.$palette,
+        secondary: default-secondary-pallete.$palette,
+        tertiary: default-tertiary-pallete.$palette,
+        success: default-success-pallete.$palette,
+        warning: default-warning-pallete.$palette,
+        danger: default-danger-pallete.$palette,
+        info: default-info-pallete.$palette,
+        light: default-light-pallete.$palette,
+        medium: default-medium-pallete.$palette,
+        dark: default-dark-pallete.$palette,
+);
+
+@mixin generate-palette-colors($custom-palettes: ()) {
+
+  $palettes: map-merge($default-palettes, $custom-palettes);
+
+  @each $color-name, $color-palette in $palettes {
+    @include generate-colors($color-name, $color-palette);
+  }
+
+  @include generate-colors('white', ("": (#ffffff, #000000)));
+  @include generate-colors('black', ("": (#000000, #ffffff)));
+
+  :root {
+    --itg-border-color: #0000001f;
+  }
+}

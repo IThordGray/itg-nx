@@ -1,0 +1,24 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+@mixin generate-text-alignment-classes-for-breakpoint($breakpoint) {
+  $properties: [start, end, center];
+
+  @include bp.media-breakpoint-up($breakpoint) {
+    $infix: bp.breakpoint-infix($breakpoint);
+
+    @each $property in $properties {
+      .text#{$infix}-#{$property} {
+        text-align: $property !important;
+      }
+    }
+    
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-text-alignment-classes-for-breakpoint($breakpoint);
+  }
+}

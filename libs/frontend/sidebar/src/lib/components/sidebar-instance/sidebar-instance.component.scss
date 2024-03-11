@@ -1,0 +1,9 @@
+$instance-width: 360px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: $instance-width;
+  max-width: $instance-width;
+}

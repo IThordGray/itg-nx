@@ -1,0 +1,8 @@
+@use "../variables" as v;
+@use 'sass:list';
+
+@mixin css-variable($color-name, $shade, $color-value) {
+  $shadeInfix: if($shade == '', '', '-#{$shade}');
+  --#{v.$prefix}-#{$color-name}#{$shadeInfix}: #{list.nth($color-value, 1)};
+  --#{v.$prefix}-#{$color-name}-contrast#{$shadeInfix}: #{list.nth($color-value, 2)};
+}

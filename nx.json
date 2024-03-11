@@ -74,5 +74,6 @@
       "!{projectRoot}/tsconfig.storybook.json"
     ]
   },
-  "nxCloudAccessToken": "NzA1ZjUwZjUtMmU5YS00NmY5LWE3N2EtZjlhZGFkNDk4N2EyfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NzA1ZjUwZjUtMmU5YS00NmY5LWE3N2EtZjlhZGFkNDk4N2EyfHJlYWQtd3JpdGU=",
+  "neverConnectToCloud": true
 }

@@ -1,0 +1,49 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+$rounded-sides: (
+        "": ("border-radius"),
+        "top": ("border-top-left-radius", "border-top-right-radius"),
+        "bottom": ("border-bottom-left-radius", "border-bottom-right-radius"),
+        "start": ("border-top-left-radius", "border-bottom-left-radius"),
+        "end": ("border-top-right-radius", "border-bottom-right-radius")
+);
+
+$rounded-values: (
+        null: v.$border-radius,
+        0: 0,
+        1: v.$border-radius-sm,
+        2: v.$border-radius,
+        3: v.$border-radius-lg,
+        4: v.$border-radius-xl,
+        5: v.$border-radius-xxl,
+        circle: 50%,
+        pill: v.$border-radius-pill
+);
+
+@mixin generate-border-classes-for-breakpoint($breakpoint) {
+
+  @include bp.media-breakpoint-up($breakpoint) {
+    $breakpoint-infix: bp.breakpoint-infix($breakpoint);
+
+    @each $side, $prop in $rounded-sides {
+      @each $size, $length in $rounded-values {
+        $side-infix: if($side == '', '', '-#{$side}');
+        $size-infix: if($size == null, '', '-#{$size}');
+
+        .rounded#{$side-infix}#{$breakpoint-infix}#{$size-infix} {
+          @each $property in $prop {
+            #{$property}: #{$length} !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-border-classes-for-breakpoint($breakpoint);
+  }
+}

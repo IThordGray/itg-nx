@@ -16,7 +16,10 @@
         "tsConfig": "apps/stub/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/stub/src/favicon.ico", "apps/stub/src/assets"],
-        "styles": ["apps/stub/src/styles.scss"],
+        "styles": [
+          "apps/stub/src/styles.scss",
+          "libs/frontend/styles/src/lib/index.scss"
+        ],
         "scripts": []
       },
       "configurations": {

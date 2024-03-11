@@ -1,0 +1,8 @@
+@use "../variables" as v;
+
+@mixin border-color($color-name, $shade) {
+  $shadeInfix: if($shade == '', '', '-#{$shade}');
+  .#{v.$prefix}-border-#{$color-name}#{$shadeInfix} {
+    border-color: var(--#{v.$prefix}-#{$color-name}#{$shadeInfix}) !important;
+  }
+}

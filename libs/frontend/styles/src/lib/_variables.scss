@@ -1,0 +1,40 @@
+@function generate-spacers($n, $spacer) {
+  $spacers: ();
+  @for $i from 0 through $n {
+    $spacers: map-merge($spacers, ($i: $spacer * $i * 0.25));
+  }
+  @return $spacers;
+}
+
+$prefix: 'itg' !default;
+
+$spacer: 1rem !default;
+$spacers: generate-spacers(10, $spacer) !default;
+
+$breakpoints: (
+        'xs': 0,
+        'sm': 576px,
+        'md': 768px,
+        'lg': 992px,
+        'xl': 1200px,
+        'xxl': 1400px
+) !default;
+
+$border-widths: (
+        null: 1px,
+        0: 0,
+        1: 1px,
+        2: 2px,
+        3: 3px,
+        4: 4px,
+        5: 5px
+) !default;
+
+$border-color: #0000001f !default;
+
+$border-radius: .375rem !default;
+$border-radius-sm: .25rem !default;
+$border-radius-lg: .5rem !default;
+$border-radius-xl: 1rem !default;
+$border-radius-xxl: 2rem !default;
+$border-radius-pill: 50rem !default;

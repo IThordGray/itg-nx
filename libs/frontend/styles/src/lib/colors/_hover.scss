@@ -1,0 +1,9 @@
+@use "../variables" as v;
+
+@mixin hover-color($color-name, $shade) {
+  $shadeInfix: if($shade == '', '', '-#{$shade}');
+  .hover-#{$color-name}#{$shadeInfix}:hover {
+    background-color: var(--#{v.$prefix}-#{$color-name}#{$shadeInfix}) !important;
+    color: var(--#{v.$prefix}-#{$color-name}-contrast#{$shadeInfix}) !important;
+  }
+}

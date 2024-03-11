@@ -1,0 +1,40 @@
+$palette: (
+        light: (#6C6F7B, #ffffff),
+        '': (#2D3142, #ffffff),
+        dark: (#11131D, #ffffff),
+        bg: (#E6E6E8, #000000),
+);
+
+$mat-palette: (
+        50 : #e6e6e8,
+        100 : #c0c1c6,
+        200 : #9698a1,
+        300 : #6c6f7b,
+        400 : #4d505e,
+        500 : #2d3142,
+        600 : #282c3c,
+        700 : #222533,
+        800 : #1c1f2b,
+        900 : #11131d,
+        A100 : #6181ff,
+        A200 : #2e58ff,
+        A400 : #0032fa,
+        A700 : #002de0,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #ffffff,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #ffffff,
+                A400 : #ffffff,
+                A700 : #ffffff,
+        )
+);
+

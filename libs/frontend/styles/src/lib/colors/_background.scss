@@ -1,0 +1,8 @@
+@use "../variables" as v;
+
+@mixin bg-color($color-name, $shade) {
+  $shadeInfix: if($shade == '', '', '-#{$shade}');
+  .#{v.$prefix}-bg-#{$color-name}#{$shadeInfix} {
+    background-color: var(--#{v.$prefix}-#{$color-name}#{$shadeInfix}) !important;
+  }
+}

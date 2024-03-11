@@ -1,0 +1,174 @@
+@use "../variables" as v;
+@use "breakpoints" as bp;
+@use "sass:string";
+
+@mixin generate-flex-direction-classes-for-breakpoint($breakpoint) {
+  $properties: [row, column, row-reverse, column-reverse];
+
+  @each $property in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+      .flex#{$infix}-#{$property} {
+        flex-direction: $property !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-grow-classes-for-breakpoint($breakpoint) {
+  $properties: [0, 1];
+
+  @each $property in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+
+      .flex-grow#{$infix}-#{$property} {
+        flex-grow: $property !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-shrink-classes-for-breakpoint($breakpoint) {
+  $properties: [0, 1];
+
+  @each $property in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+
+      .flex-shrink#{$infix}-#{$property} {
+        flex-shrink: $property !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-gap-classes-for-breakpoint($breakpoint) {
+  @each $spacer, $value in v.$spacers {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+
+      .gap#{$infix}-#{$spacer} {
+        gap: $value !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-align-classes-for-breakpoint($breakpoint) {
+  $properties: [start, end, center, baseline, stretch];
+
+  @each $property in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+      .align-items#{$infix}-#{$property} {
+        align-items: $property !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-wrap-classes-for-breakpoint($breakpoint) {
+  $properties: [nowrap, wrap, wrap-reverse];
+
+  @each $property in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+      .flex#{$infix}-#{$property} {
+        flex-wrap: $property !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-justify-content-classes-for-breakpoint($breakpoint) {
+  $properties: (
+          start: flex-start,
+          end: flex-end,
+          center: center,
+          between: space-between,
+          around: space-around,
+          evenly: space-evenly
+  );
+
+  @each $property, $value in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+      .justify-content#{$infix}-#{$property} {
+        justify-content: $value !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-align-content-classes-for-breakpoint($breakpoint) {
+  $properties: (
+          start: flex-start,
+          end: flex-end,
+          center: center,
+          between: space-between,
+          around: space-around,
+          evenly: space-evenly
+  );
+
+  @each $property, $value in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+      .align-content#{$infix}-#{$property} {
+        align-content: $value !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-align-self-classes-for-breakpoint($breakpoint) {
+  $properties: (
+          start: flex-start,
+          end: flex-end,
+          center: center,
+          baseline: baseline,
+          stretch: stretch
+  );
+
+  @each $property, $value in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+      .align-self#{$infix}-#{$property} {
+        align-self: $value !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-order-classes-for-breakpoint($breakpoint) {
+  $properties: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  @each $property in $properties {
+    @include bp.media-breakpoint-up($breakpoint) {
+      $infix: bp.breakpoint-infix($breakpoint);
+
+      .order#{$infix}-#{$property} {
+        order: $property !important;
+      }
+    }
+  }
+}
+
+@mixin generate-flex-classes-for-breakpoint($breakpoint) {
+  @include generate-flex-direction-classes-for-breakpoint($breakpoint);
+  @include generate-flex-grow-classes-for-breakpoint($breakpoint);
+  @include generate-flex-shrink-classes-for-breakpoint($breakpoint);
+  @include generate-flex-gap-classes-for-breakpoint($breakpoint);
+  @include generate-flex-align-classes-for-breakpoint($breakpoint);
+  @include generate-flex-wrap-classes-for-breakpoint($breakpoint);
+  @include generate-flex-justify-content-classes-for-breakpoint($breakpoint);
+  @include generate-flex-align-content-classes-for-breakpoint($breakpoint);
+  @include generate-flex-align-self-classes-for-breakpoint($breakpoint);
+  @include generate-flex-order-classes-for-breakpoint($breakpoint);
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-flex-classes-for-breakpoint($breakpoint);
+  }
+}

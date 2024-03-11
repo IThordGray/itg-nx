@@ -1,0 +1,23 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+@mixin generate-display-classes-for-breakpoint($breakpoint: null) {
+  $properties: (none, inline, inline-block, block, flex, inline-flex);
+
+  @include bp.media-breakpoint-up($breakpoint) {
+    $infix: bp.breakpoint-infix($breakpoint);
+
+    @each $property in $properties {
+      .d#{$infix}-#{$property} {
+        display: $property !important;
+      }
+    }
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-display-classes-for-breakpoint($breakpoint);
+  }
+}
