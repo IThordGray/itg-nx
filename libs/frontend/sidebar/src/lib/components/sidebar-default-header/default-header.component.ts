@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SIDEBAR_CONFIG } from '../../abstractions/injection-tokens';
 import { SidebarCloseComponent } from '../sidebar-close/sidebar-close.component';
 import { SidebarSubtitleComponent } from '../sidebar-subtitle/sidebar-subtitle.component';
 import { SidebarTitleComponent } from '../sidebar-title/sidebar-title.component';
@@ -15,10 +16,14 @@ import { SidebarTitleComponent } from '../sidebar-title/sidebar-title.component'
   styleUrl: 'default-header.component.scss'
 })
 
-export class DefaultHeaderComponent implements OnInit {
-  constructor() {
+export class DefaultHeaderComponent {
+  private readonly _sidebarConfig = inject(SIDEBAR_CONFIG);
+
+  get heading(): string | undefined {
+    return this._sidebarConfig.heading as string;
   }
 
-  ngOnInit() {
+  get subheading(): string | undefined {
+    return this._sidebarConfig.subheading;
   }
 }

@@ -30,7 +30,7 @@ export class SidebarContainerComponent {
   get instances(): ISidebarRef[] { return this.sidebarContainerRef.instances }
 
   async createSidebarInstanceAsync<T, D = any>(componentOrTemplate: TSidebarContent<T>, config: ISidebarConfig<D> & { parent?: ISidebarRef } = {}): Promise<SidebarRef<T | null>> {
-    if (this.instances.length && !config?.parent) this.instances[0]?.close;
+    if (this.instances.length && !config?.parent) this.instances[0]?.close();
 
     const injector = Injector.create({
       parent: this._injector,
@@ -44,6 +44,7 @@ export class SidebarContainerComponent {
     const sidebarInstanceComponentRef = (await this.getContentContainerAsync()).createComponent(SidebarInstanceComponent, { injector });
     const sidebarRef = sidebarInstanceComponentRef.instance.sidebarRef as SidebarRef<T>;
     sidebarRef.instanceComponentRef = sidebarInstanceComponentRef;
+    sidebarRef.parentRef = config.parent;
 
     (sidebarRef as any)._beforeOpened.next();
     (sidebarRef as any)._beforeOpened.complete();

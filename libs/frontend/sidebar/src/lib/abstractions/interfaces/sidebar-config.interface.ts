@@ -1,7 +1,7 @@
 import { TemplateRef } from '@angular/core';
-import { ISidebarRef } from './sidebar-ref.interface';
 
-export interface ISidebarConfig<D> {
+export interface ISidebarConfig<D>  {
   heading?: string | TemplateRef<any>;
+  subheading?: string;
   data?: D;
 }

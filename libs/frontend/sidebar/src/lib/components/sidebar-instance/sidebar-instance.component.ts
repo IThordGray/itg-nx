@@ -1,7 +1,7 @@
 import {
   Component,
   ComponentRef,
-  EmbeddedViewRef,
+  EmbeddedViewRef, HostBinding,
   inject,
   Injector,
   TemplateRef,
@@ -48,6 +48,10 @@ export class SidebarInstanceComponent {
   @ViewChild('headerContainer', { read: ViewContainerRef })
   private set _headerContainer(value: ViewContainerRef) {
     this._headerContainer$.next(value);
+  }
+
+  @HostBinding('class.border-end') get isNotLast() {
+    return this._sidebarContainerRef.instances[0]?.componentRef?.instance !== this;
   }
 
   get containerRef(): SidebarContainerRef {

@@ -32,7 +32,7 @@ export class SidebarRef<T> implements ISidebarRef<T> {
 
   close(): void {
     const childInstance = this.containerRef.instances.find(x => x.parentRef === this);
-    if (childInstance) childInstance.close;
+    if (childInstance) childInstance.close();
 
     const thisInstanceIdx = this.containerRef.instances.findIndex(x => x === this);
     if (thisInstanceIdx === -1) return;
@@ -49,7 +49,7 @@ export class SidebarRef<T> implements ISidebarRef<T> {
 
   async openChildAsync<T, D = any>(component: Type<T>, sidebarConfig?: ISidebarConfig<D>): Promise<ISidebarRef<T>>;
   async openChildAsync<T, D = any>(template: TemplateRef<T>, sidebarConfig?: ISidebarConfig<D>): Promise<ISidebarRef<null>>;
-  async openChildAsync<T, D = any>(componentOrTemplate: TSidebarContent<T>, sidebarConfig: ISidebarConfig<D> = {}): Promise<ISidebarRef<T | null>> {
+  async openChildAsync<T, D = any>(componentOrTemplate: TSidebarContent<T>, sidebarConfig: ISidebarConfig<D>  = {}): Promise<ISidebarRef<T | null>> {
     const existingInstanceIdx = this.containerRef.instances.findIndex(x => x.parentRef === this);
     if (existingInstanceIdx !== -1) this.containerRef.instances[existingInstanceIdx].close();
 

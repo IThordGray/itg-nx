@@ -11,7 +11,7 @@ export interface ISidebarRef<T = any> {
   componentRef?: ComponentRef<T> | undefined;
   embeddedViewRef?: EmbeddedViewRef<any> | undefined;
 
-  close: () => void;
+  close(): void;
 
   openChildAsync<T, D = any>(component: Type<T>, sidebarConfig: ISidebarConfig<D>): Promise<ISidebarRef<T>>;
   openChildAsync<T, D = any>(template: TemplateRef<T>, sidebarConfig: ISidebarConfig<D>): Promise<ISidebarRef<null>>;
