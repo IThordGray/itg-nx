@@ -16,6 +16,9 @@ export interface ITimespanArgs {
 }
 
 export class Timespan implements ITimespanArgs {
+  private static _dayOnlyFormat = /^\d+$/;
+  private static _shortFormat = /^([01]?\d|2[0-3]):([0-5]\d)$/;
+  private static _longFormat = /^(\d+[:\.])?([01]?\d|2[0-3]):([0-5]\d):([0-5]\d)(\.\d{1,3})?$/;
 
   static readonly millisecondsPerSecond = 1000;
   static readonly millisecondsPerMinute = this.millisecondsPerSecond * 60;
@@ -115,6 +118,13 @@ export class Timespan implements ITimespanArgs {
     return { days, hours, minutes, seconds, milliseconds };
   }
 
+  private static validateParseFormat(value: string) {
+    if (this._dayOnlyFormat.test(value)) return;
+    if (this._shortFormat.test(value)) return;
+    if (this._longFormat.test(value)) return;
+    throw new FormatError('timeString invalid format');
+  }
+
   private static validateValueInRange(value: number) {
     if (value < Number.MIN_SAFE_INTEGER) throw new OverflowError('The resulting TimeSpan is less than the minimum value.');
     if (value > Number.MAX_SAFE_INTEGER) throw new OverflowError('The resulting TimeSpan is greater than the maximum value.');
@@ -136,39 +146,7 @@ export class Timespan implements ITimespanArgs {
   }
 
   static equals(t1: Timespan, t2: Timespan): boolean {
-    return t1.totalMilliseconds === t2.milliseconds;
-  }
-
-  static fromMilliseconds(value: number): Timespan {
-    this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value);
-    this.validateValueInRange(value);
-
-    return new Timespan(this.getTimespanArgs(Math.round(value)));
-  }
-
-  static fromSeconds(value: number): Timespan {
-    this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value);
-    this.validateValueInRange(value);
-
-    return this.fromMilliseconds(value * Timespan.millisecondsPerSecond);
-  }
-
-  static fromMinutes(value: number): Timespan {
-    this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value);
-    this.validateValueInRange(value);
-
-    return this.fromMilliseconds(value * Timespan.millisecondsPerMinute);
-  }
-
-  static fromHours(value: number): Timespan {
-    this.validateValueIsNumber(value);
-    this.validateValueIsFinite(value);
-    this.validateValueInRange(value);
-
-    return this.fromMilliseconds(value * Timespan.millisecondsPerHour);
+    return t1.totalMilliseconds === t2.totalMilliseconds;
   }
 
   static fromDays(value: number): Timespan {
@@ -181,61 +159,89 @@ export class Timespan implements ITimespanArgs {
     return this.fromMilliseconds(totalMs);
   }
 
-  // @ts-ignore
-  static parse(s: string): Timespan {
-    if (isNullOrWhiteSpace(s)) throw new ArgumentNullError('s is not defined.');
+  static fromHours(value: number): Timespan {
+    this.validateValueIsNumber(value);
+    this.validateValueIsFinite(value);
+    this.validateValueInRange(value);
 
-    const parts = s.split(':');
-
-    let days = 0;
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
-    let milliseconds = 0;
-
-    if (parts.length === 1) {
-      days = Number(parts[0]);
-
-      return new Timespan({ days });
-    }
-
-    if (parts.length === 2) {
-      hours = Number(parts[0]);
-      minutes = Number(parts[1]);
-
-      return new Timespan({ hours, minutes });
-    }
-
-    if (parts.length === 3) {
-      if (!(/^(\d\d)(\.\d{1,3})?$/.test(parts[2]))) throw new FormatError('s has an invalid format');
-
-      minutes = Number(parts[1]);
-      const dh = parts[0].split('.');
-      const sms = parts[2].split('.');
-      dh.reverse();
-      hours = Number(dh[0]);
-      days = Number(dh?.[1] ?? 0);
-      seconds = Number(sms[0]);
-      milliseconds = Number(sms?.[1] ?? 0);
-
-      return new Timespan({ days, hours, minutes, seconds, milliseconds });
-    }
-
-    if (parts.length === 4) {
-      if (!(/^(\d\d)(\.\d{1,3})?$/.test(parts[3]))) throw new FormatError('s has an invalid format');
-
-      days = Number(parts[0]);
-      hours = Number(parts[1]);
-      minutes = Number(parts[2]);
-      const sms = parts[3].split('.');
-      seconds = Number(sms[0]);
-      milliseconds = Number(sms?.[1] ?? 0);
-
-      return new Timespan({ days, hours, minutes, seconds, milliseconds });
-    }
+    return this.fromMilliseconds(value * Timespan.millisecondsPerHour);
   }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  static fromMilliseconds(value: number): Timespan {
+    this.validateValueIsNumber(value);
+    this.validateValueIsFinite(value);
+    this.validateValueInRange(value);
+
+    return new Timespan(this.getTimespanArgs(Math.round(value)));
+  }
+
+  static fromMinutes(value: number): Timespan {
+    this.validateValueIsNumber(value);
+    this.validateValueIsFinite(value);
+    this.validateValueInRange(value);
+
+    return this.fromMilliseconds(value * Timespan.millisecondsPerMinute);
+  }
+
+  static fromSeconds(value: number): Timespan {
+    this.validateValueIsNumber(value);
+    this.validateValueIsFinite(value);
+    this.validateValueInRange(value);
+
+    return this.fromMilliseconds(value * Timespan.millisecondsPerSecond);
+  }
+
+  static parse(timeString: string): Timespan {
+    if (isNullOrWhiteSpace(timeString)) throw new ArgumentNullError('timeString is not defined.');
+    this.validateParseFormat(timeString);
+
+    const parts = timeString.split(':');
+
+    // format: d
+    if (parts.length === 1) {
+      return new Timespan({
+        days: Number(parts[0])
+      });
+    }
+
+    // format: hh:mm
+    if (parts.length === 2) {
+      return new Timespan({
+        hours: Number(parts[0]),
+        minutes: Number(parts[1])
+      });
+    }
+
+    // format: d.hh:mm:ss.fff
+    if (parts.length === 3) {
+      const sms = parts[2].split('.');
+      const dh = parts[0].split('.');
+      dh.reverse();
+
+      return new Timespan({
+        days: Number(dh?.[1] ?? 0),
+        hours: Number(dh[0]),
+        minutes: Number(parts[1]),
+        seconds: Number(sms[0]),
+        milliseconds: Number(sms?.[1] ?? 0)
+      });
+    }
+
+    // format: d:hh:mm:ss.fff
+    if (parts.length === 4) {
+      const sms = parts[3].split('.');
+
+      return new Timespan({
+        days: Number(parts[0]),
+        hours: Number(parts[1]),
+        minutes: Number(parts[2]),
+        seconds: Number(sms[0]),
+        milliseconds: Number(sms?.[1] ?? 0)
+      });
+    }
+
+    throw new Error('Failed to parse timeString');
+  }
 
   static tryParse(s: string): Timespan | undefined {
     try {
@@ -243,55 +249,6 @@ export class Timespan implements ITimespanArgs {
     } catch {
       return undefined;
     }
-  }
-
-  private getTotalMilliseconds(): number {
-    const d = this._days * Timespan.millisecondsPerDay;
-    const h = this._hours * Timespan.millisecondsPerHour;
-    const m = this._minutes * Timespan.millisecondsPerMinute;
-    const s = this._seconds * Timespan.millisecondsPerSecond;
-    const ms = this._milliseconds ?? 0;
-
-    return ms + s + m + h + d;
-  }
-
-  private getShortTimespanFormat(ts: Timespan): string {
-    let str = '';
-
-    if (ts._totalMilliseconds < 0) str += '-';
-
-    const h = `${ ts.hours }`.padStart(2, '0');
-    const m = `${ ts.minutes }`.padStart(2, '0');
-    const s = `${ ts.seconds }`.padStart(2, '0');
-    const ms = `${ ts.milliseconds }`.padStart(3, '0');
-
-    if (ts.days) str += `${ ts.days }.`;
-    str += `${ h }:`;
-    str += `${ m }:`;
-    str += `${ s }`;
-
-    if (ts.milliseconds) str += `.${ ms }`;
-
-    return str;
-  }
-
-  private getLongTimespanFormat(ts: Timespan): string {
-    let str = '';
-
-    if (ts._totalMilliseconds < 0) str += '-';
-
-    const h = `${ Math.abs(ts.hours) }`.padStart(2, '0');
-    const m = `${ Math.abs(ts.minutes) }`.padStart(2, '0');
-    const s = `${ Math.abs(ts.seconds) }`.padStart(2, '0');
-    const ms = `${ Math.abs(ts.milliseconds) }`.padStart(3, '0');
-
-    str += `${ ts.days }.`;
-    str += `${ h }:`;
-    str += `${ m }:`;
-    str += `${ s }.`;
-    str += `${ ms }`;
-
-    return str;
   }
 
   private getCustomTimespanFormat(ts: Timespan, format: string): string {
@@ -318,6 +275,55 @@ export class Timespan implements ITimespanArgs {
     return isNegative ? `-${ formattedTime }` : formattedTime;
   }
 
+  private getLongTimespanFormat(ts: Timespan): string {
+    let str = '';
+
+    if (ts._totalMilliseconds < 0) str += '-';
+
+    const h = `${ Math.abs(ts.hours) }`.padStart(2, '0');
+    const m = `${ Math.abs(ts.minutes) }`.padStart(2, '0');
+    const s = `${ Math.abs(ts.seconds) }`.padStart(2, '0');
+    const ms = `${ Math.abs(ts.milliseconds) }`.padStart(3, '0');
+
+    str += `${ ts.days }.`;
+    str += `${ h }:`;
+    str += `${ m }:`;
+    str += `${ s }.`;
+    str += `${ ms }`;
+
+    return str;
+  }
+
+  private getShortTimespanFormat(ts: Timespan): string {
+    let str = '';
+
+    if (ts._totalMilliseconds < 0) str += '-';
+
+    const h = `${ ts.hours }`.padStart(2, '0');
+    const m = `${ ts.minutes }`.padStart(2, '0');
+    const s = `${ ts.seconds }`.padStart(2, '0');
+    const ms = `${ ts.milliseconds }`.padStart(3, '0');
+
+    if (ts.days) str += `${ ts.days }.`;
+    str += `${ h }:`;
+    str += `${ m }:`;
+    str += `${ s }`;
+
+    if (ts.milliseconds) str += `.${ ms }`;
+
+    return str;
+  }
+
+  private getTotalMilliseconds(): number {
+    const d = this._days * Timespan.millisecondsPerDay;
+    const h = this._hours * Timespan.millisecondsPerHour;
+    const m = this._minutes * Timespan.millisecondsPerMinute;
+    const s = this._seconds * Timespan.millisecondsPerSecond;
+    const ms = this._milliseconds ?? 0;
+
+    return ms + s + m + h + d;
+  }
+
   add(ts: Timespan): Timespan {
     const ms = this._totalMilliseconds + ts.totalMilliseconds;
     Timespan.validateValueInRange(ms);
@@ -338,15 +344,13 @@ export class Timespan implements ITimespanArgs {
     return Timespan.fromMilliseconds(Math.abs(this._totalMilliseconds));
   }
 
-  equals(ts: Timespan): boolean {
-    return this._totalMilliseconds === ts._totalMilliseconds;
+  equalsTo(ts: Timespan): boolean {
+    return Timespan.equals(this, ts);
   }
 
   getHashCode(): number {
     return this._totalMilliseconds >> 32;
   }
-
-  // toString(format: string): string {}
 
   multiply(factor: number): Timespan {
     const ms = this._totalMilliseconds * factor;
