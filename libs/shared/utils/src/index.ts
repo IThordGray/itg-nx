@@ -19,6 +19,7 @@ export * from './lib/models/errors/format.error';
 export * from './lib/models/errors/invalid-operation.error';
 export * from './lib/models/errors/not-found.error';
 export * from './lib/models/errors/overflow.error';
+export * from './lib/models/interfaces/date-range.interface';
 export * from './lib/models/interfaces/dto.interface';
 export * from './lib/models/interfaces/mapper.interface';
 export * from './lib/models/interfaces/query-options.interface';

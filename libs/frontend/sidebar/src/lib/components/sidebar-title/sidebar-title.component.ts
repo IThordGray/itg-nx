@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -7,10 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: 'sidebar-title.component.scss'
 })
 
-export class SidebarTitleComponent implements OnInit {
-  constructor() {
-  }
+export class SidebarTitleComponent {
 
-  ngOnInit() {
-  }
 }

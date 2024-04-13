@@ -1,11 +1,10 @@
 import { Component, inject, Injector, TemplateRef, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { filter, firstValueFrom, ReplaySubject } from 'rxjs';
 import { TSidebarContent } from '../../abstractions/component-or-template.type';
-import { SIDEBAR_CONFIG, SIDEBAR_CONTAINER_REF, SIDEBAR_DATA } from '../../abstractions/injection-tokens';
-import { ISidebarConfig } from '../../abstractions/interfaces/sidebar-config.interface';
+import { SIDEBAR_CONTAINER_REF, SIDEBAR_PARENT_REF } from '../../abstractions/injection-tokens';
+import { ISidebarContainerConfig } from '../../abstractions/interfaces/sidebar-container-config.interface';
+import { ISidebarContainerRef } from '../../abstractions/interfaces/sidebar-container-ref.interface';
 import { ISidebarRef } from '../../abstractions/interfaces/sidebar-ref.interface';
-import { SidebarContainerRef } from '../../abstractions/sidebar-container-ref';
-import { SidebarRef } from '../../abstractions/sidebar-ref';
 import { SidebarInstanceComponent } from '../sidebar-instance/sidebar-instance.component';
 
 @Component({
@@ -14,12 +13,12 @@ import { SidebarInstanceComponent } from '../sidebar-instance/sidebar-instance.c
   templateUrl: 'sidebar-container.component.html',
   styleUrl: 'sidebar-container.component.scss'
 })
-export class SidebarContainerComponent {
-
+export class SidebarContainerComponent implements ISidebarContainerRef {
   private readonly _contentContainer$ = new ReplaySubject<ViewContainerRef>(1);
   private readonly _injector = inject(Injector);
 
-  readonly sidebarContainerRef = new SidebarContainerRef(this);
+  instances: ISidebarRef[] = [];
+
   readonly getContentContainerAsync = () => firstValueFrom(this._contentContainer$.pipe(filter(x => !!x)));
 
   @ViewChild('contentContainer', { read: ViewContainerRef })
@@ -27,41 +26,38 @@ export class SidebarContainerComponent {
     this._contentContainer$.next(value);
   }
 
-  get instances(): ISidebarRef[] { return this.sidebarContainerRef.instances }
-
-  async createSidebarInstanceAsync<T, D = any>(componentOrTemplate: TSidebarContent<T>, config: ISidebarConfig<D> & { parent?: ISidebarRef } = {}): Promise<SidebarRef<T | null>> {
-    if (this.instances.length && !config?.parent) this.instances[0]?.close();
+  async openAsync<T, D = any, R = any>(component: Type<T>, sidebarConfig: ISidebarContainerConfig<D>): Promise<ISidebarRef<T, R>>;
+  async openAsync<T, D = any, R = any>(template: TemplateRef<T>, sidebarConfig: ISidebarContainerConfig<D>): Promise<ISidebarRef<null, R>>;
+  async openAsync<T, D = any, R = any>(componentOrTemplate: TSidebarContent<T>, sidebarConfig: ISidebarContainerConfig<D>): Promise<ISidebarRef<T | null, R>> {
+    if (this.instances.length && !sidebarConfig.parent) this.instances[0].close();
 
     const injector = Injector.create({
       parent: this._injector,
       providers: [
-        { provide: SIDEBAR_CONTAINER_REF, useValue: this.sidebarContainerRef },
-        { provide: SIDEBAR_CONFIG, useValue: config },
-        { provide: SIDEBAR_DATA, useValue: config?.data }
+        { provide: SIDEBAR_CONTAINER_REF, useValue: this },
+        { provide: SIDEBAR_PARENT_REF, useValue: sidebarConfig.parent }
       ]
     });
 
     const sidebarInstanceComponentRef = (await this.getContentContainerAsync()).createComponent(SidebarInstanceComponent, { injector });
-    const sidebarRef = sidebarInstanceComponentRef.instance.sidebarRef as SidebarRef<T>;
-    sidebarRef.instanceComponentRef = sidebarInstanceComponentRef;
-    sidebarRef.parentRef = config.parent;
 
-    (sidebarRef as any)._beforeOpened.next();
-    (sidebarRef as any)._beforeOpened.complete();
+    sidebarInstanceComponentRef.instance.afterClosed().subscribe(() => sidebarInstanceComponentRef.destroy());
+
+    (sidebarInstanceComponentRef.instance as any)._beforeOpened$.next();
+    (sidebarInstanceComponentRef.instance as any)._beforeOpened$.complete();
 
     await Promise.all([
-      sidebarRef.instanceComponentRef.instance.createHeaderComponentAsync(),
-      sidebarRef.instanceComponentRef.instance.createComponentAsync(componentOrTemplate)
+      sidebarInstanceComponentRef.instance.createHeaderComponentAsync(),
+      sidebarInstanceComponentRef.instance.createComponentAsync(componentOrTemplate)
     ]);
 
     setTimeout(() => {
-      (sidebarRef as any)._afterOpened.next();
-      (sidebarRef as any)._afterOpened.complete();
+      (sidebarInstanceComponentRef.instance as any)._afterOpened$.next();
+      (sidebarInstanceComponentRef.instance as any)._afterOpened$.complete();
     }, 0);
 
+    this.instances.push(sidebarInstanceComponentRef.instance);
 
-    this.instances.push(sidebarRef);
-
-    return sidebarRef;
+    return sidebarInstanceComponentRef.instance;
   }
 }

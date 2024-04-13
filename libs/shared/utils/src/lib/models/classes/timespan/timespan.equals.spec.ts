@@ -6,7 +6,7 @@ describe('Timespan.equals', () => {
 
   test('00:15:00 : 00:15:00 => true', () => {
     const result = true;
-    const ts = new Timespan({ days: 0, hours: 0, minutes: 15, seconds: 0 });
+    const ts = new Timespan({ days: 0, hours: 1, minutes: 15, seconds: 0 });
     expect(base.equals(ts)).toEqual(result);
   });
 

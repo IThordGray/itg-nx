@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SIDEBAR_REF } from '../../abstractions/injection-tokens';
+import { SidebarInstanceComponent } from '../sidebar-instance/sidebar-instance.component';
 
 @Component({
   standalone: true,
@@ -10,10 +11,10 @@ import { SIDEBAR_REF } from '../../abstractions/injection-tokens';
 
 export class SidebarCustomHeaderComponent {
 
-  private readonly _sidebarRef = inject(SIDEBAR_REF);
+  private readonly _sidebarRef = inject<SidebarInstanceComponent>(SIDEBAR_REF);
 
   constructor() {
-    this._sidebarRef.instanceComponentRef.instance.destroyDefaultHeader();
+    this._sidebarRef.destroyDefaultHeader();
   }
 
 }
