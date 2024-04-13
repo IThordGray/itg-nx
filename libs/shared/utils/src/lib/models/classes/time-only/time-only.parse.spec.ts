@@ -4,21 +4,21 @@ import { TimeOnly } from './time-only';
 describe('TimeOnly.parse', () => {
   test('Correctly parse a valid time string without seconds', () => {
     const timeString = '14:45';
-    const expected = new TimeOnly({ hour: 14, minute: 45 });
+    const expected = new TimeOnly({ hours: 14, minutes: 45 });
     const result = TimeOnly.parse(timeString);
     expect(result).toEqual(expected);
   });
 
   test('Correctly parse a valid time string with seconds', () => {
     const timeString = '23:59:59';
-    const expected = new TimeOnly({ hour: 23, minute: 59, second: 59 });
+    const expected = new TimeOnly({ hours: 23, minutes: 59, seconds: 59 });
     const result = TimeOnly.parse(timeString);
     expect(result).toEqual(expected);
   });
 
   test('Correctly parse a valid time string with milliseconds', () => {
     const timeString = '09:30:00.999';
-    const expected = new TimeOnly({ hour: 9, minute: 30, second: 0, millisecond: 999 });
+    const expected = new TimeOnly({ hours: 9, minutes: 30, seconds: 0, milliseconds: 999 });
     const result = TimeOnly.parse(timeString);
     expect(result).toEqual(expected);
   });

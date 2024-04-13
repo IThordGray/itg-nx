@@ -1,26 +1,34 @@
 import { isNullOrWhiteSpace } from '../../../helpers/is-null-or-whitespace.helper';
+import { StaticImplements } from '../../../helpers/static-implements.helper';
 import { ArgumentNullError } from '../../errors/argument-null.error';
 import { ArgumentError } from '../../errors/argument.error';
 import { FormatError } from '../../errors/format.error';
 import { OverflowError } from '../../errors/overflow.error';
-import { Timespan } from '../timespan/timespan';
+import { IComparable, IComparableStatic } from '../../interfaces/comparable.interface';
+import { IEquatable, IEquatableStatic } from '../../interfaces/equatable.interface';
+import { IFormattable } from '../../interfaces/formattable.interface';
+import { IParsableStatic } from '../../interfaces/parsable.interface';
+import { TimeSpan } from '../time-span/time-span';
 
 export interface ITimeOnlyArgs {
-  hour?: number;
-  minute?: number;
-  second?: number;
-  millisecond?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
+  milliseconds?: number;
 }
 
-export class TimeOnly {
+@StaticImplements<IParsableStatic<TimeOnly>>()
+@StaticImplements<IComparableStatic<TimeOnly>>()
+@StaticImplements<IEquatableStatic<TimeOnly>>()
+export class TimeOnly implements IComparable<TimeOnly>, IEquatable<TimeOnly>, IFormattable {
   private static _shortFormat = /^([01]?\d|2[0-3]):([0-5]\d)$/;
   private static _longFormat = /^([01]?\d|2[0-3]):([0-5]\d):([0-5]\d)(\.\d{1,3})?$/;
 
   static readonly millisecondsPerSecond = 1000;
-  static readonly millisecondsPerMinute = this.millisecondsPerSecond * 60;
-  static readonly millisecondsPerHour = this.millisecondsPerMinute * 60;
-  static readonly millisecondsPerDay = this.millisecondsPerHour * 24;
-  static readonly maxValue = TimeOnly.fromMilliseconds(this.millisecondsPerDay - 1);
+  static readonly millisecondsPerMinute = TimeOnly.millisecondsPerSecond * 60;
+  static readonly millisecondsPerHour = TimeOnly.millisecondsPerMinute * 60;
+  static readonly millisecondsPerDay = TimeOnly.millisecondsPerHour * 24;
+  static readonly maxValue = TimeOnly.fromMilliseconds(TimeOnly.millisecondsPerDay - 1);
   static readonly minValue = TimeOnly.fromMilliseconds(0);
 
   private readonly _secondsPerMillisecond = 1 / TimeOnly.millisecondsPerSecond;
@@ -68,8 +76,8 @@ export class TimeOnly {
   constructor(args: ITimeOnlyArgs) {
     this._date = new Date();
 
-    const { hour, minute, second, millisecond } = args;
-    this._date.setHours(hour ?? 0, minute ?? 0, second ?? 0, millisecond ?? 0);
+    const { hours, minutes, seconds, milliseconds } = args;
+    this._date.setHours(hours ?? 0, minutes ?? 0, seconds ?? 0, milliseconds ?? 0);
     this._date.setFullYear(1970, 0, 1); // Set date to Unix epoch date for consistency
 
     const startOfDay = new Date();
@@ -82,11 +90,11 @@ export class TimeOnly {
   }
 
   private static getTimeOnlyArgs(totalMs: number) {
-    const hour = Math.trunc((totalMs % this.millisecondsPerDay) / this.millisecondsPerHour);
-    const minute = Math.trunc((totalMs % this.millisecondsPerHour) / this.millisecondsPerMinute);
-    const second = Math.trunc((totalMs % this.millisecondsPerMinute) / this.millisecondsPerSecond);
-    const millisecond = totalMs % this.millisecondsPerSecond;
-    return { hour, minute, second, millisecond };
+    const hours = Math.trunc((totalMs % this.millisecondsPerDay) / this.millisecondsPerHour);
+    const minutes = Math.trunc((totalMs % this.millisecondsPerHour) / this.millisecondsPerMinute);
+    const seconds = Math.trunc((totalMs % this.millisecondsPerMinute) / this.millisecondsPerSecond);
+    const milliseconds = totalMs % this.millisecondsPerSecond;
+    return { hours, minutes, seconds, milliseconds };
   }
 
   private static validateHoursInRange(value: number) {
@@ -140,10 +148,10 @@ export class TimeOnly {
 
   static fromDateTime(date: Date): TimeOnly {
     const args = {
-      hour: date.getHours(),
-      minute: date.getMinutes(),
-      second: date.getSeconds(),
-      millisecond: date.getMilliseconds()
+      hours: date.getHours(),
+      minutes: date.getMinutes(),
+      seconds: date.getSeconds(),
+      milliseconds: date.getMilliseconds()
     };
 
     return new TimeOnly(args);
@@ -190,8 +198,8 @@ export class TimeOnly {
     // format: hh:mm
     if (parts.length === 2) {
       return new TimeOnly({
-        hour: Number(parts[0]),
-        minute: Number(parts[1])
+        hours: Number(parts[0]),
+        minutes: Number(parts[1])
       });
     }
 
@@ -200,10 +208,10 @@ export class TimeOnly {
       const sms = parts[2].split('.');
 
       return new TimeOnly({
-        hour: Number(parts[0]),
-        minute: Number(parts[1]),
-        second: Number(sms[0]),
-        millisecond: Number(sms[1] ?? 0)
+        hours: Number(parts[0]),
+        minutes: Number(parts[1]),
+        seconds: Number(sms[0]),
+        milliseconds: Number(sms[1] ?? 0)
       });
     }
 
@@ -218,7 +226,7 @@ export class TimeOnly {
     }
   }
 
-  add(ts: Timespan): TimeOnly {
+  add(ts: TimeSpan): TimeOnly {
     const newDate = new Date(this._date.getTime());
 
     newDate.setDate(newDate.getDate() + ts.days);
@@ -241,11 +249,11 @@ export class TimeOnly {
     return TimeOnly.fromDateTime(newDate);
   }
 
-  compareTo(t: TimeOnly): number {
+  compareTo(t: TimeOnly): -1 | 1 | 0 {
     return TimeOnly.compare(this, t);
   }
 
-  equalsTo(t: TimeOnly): boolean {
+  equals(t: TimeOnly): boolean {
     return TimeOnly.equals(this, t);
   }
 
@@ -256,7 +264,7 @@ export class TimeOnly {
     );
   }
 
-  subtract(ts: Timespan): TimeOnly {
+  subtract(ts: TimeSpan): TimeOnly {
     const newDate = new Date(this._date.getTime());
 
     newDate.setDate(newDate.getDate() - ts.days);
