@@ -276,7 +276,10 @@ export class TimeOnly implements IComparable<TimeOnly>, IEquatable<TimeOnly>, IF
   }
 
   toDate(): Date {
-    return this._date;
+    const date = new Date();
+    date.setFullYear(this._date.getFullYear(), this._date.getMonth(), this._date.getDate());
+    date.setHours(this._date.getHours(), this._date.getMinutes(), this._date.getSeconds(), this._date.getMilliseconds());
+    return date;
   }
 
   toString(): string {
