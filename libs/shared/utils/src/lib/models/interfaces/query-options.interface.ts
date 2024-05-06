@@ -15,8 +15,5 @@ export interface IPaginationOptions {
 }
 
 export interface ISortOptions {
-  sort?: Record<string, {
-    order?: number;
-    type: SortKeyWords;
-  }>;
+  sort?: [string, SortKeyWords][];
 }
