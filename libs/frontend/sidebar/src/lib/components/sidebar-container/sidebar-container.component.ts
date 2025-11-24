@@ -1,7 +1,7 @@
 import { Component, inject, Injector, TemplateRef, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { filter, firstValueFrom, ReplaySubject } from 'rxjs';
 import { TSidebarContent } from '../../abstractions/component-or-template.type';
-import { SIDEBAR_CONTAINER_REF, SIDEBAR_PARENT_REF } from '../../abstractions/injection-tokens';
+import { SIDEBAR_CONFIG, SIDEBAR_CONTAINER_REF, SIDEBAR_PARENT_REF } from '../../abstractions/injection-tokens';
 import { ISidebarContainerConfig } from '../../abstractions/interfaces/sidebar-container-config.interface';
 import { ISidebarContainerRef } from '../../abstractions/interfaces/sidebar-container-ref.interface';
 import { ISidebarRef } from '../../abstractions/interfaces/sidebar-ref.interface';
@@ -35,7 +35,8 @@ export class SidebarContainerComponent implements ISidebarContainerRef {
       parent: this._injector,
       providers: [
         { provide: SIDEBAR_CONTAINER_REF, useValue: this },
-        { provide: SIDEBAR_PARENT_REF, useValue: sidebarConfig.parent }
+        { provide: SIDEBAR_PARENT_REF, useValue: sidebarConfig.parent },
+        { provide: SIDEBAR_CONFIG, useValue: sidebarConfig }
       ]
     });
 
