@@ -2,6 +2,7 @@ export * from './lib/helpers/clone-deep.helper';
 export * from './lib/helpers/coerce-boolean-value.helper';
 export * from './lib/helpers/coerce-number-value.helper';
 export * from './lib/helpers/create-proxy.helper';
+export * from './lib/helpers/extensions';
 export * from './lib/helpers/get.helper';
 export * from './lib/helpers/is-empty.helper';
 export * from './lib/helpers/is-null-or-undefined.helper';
