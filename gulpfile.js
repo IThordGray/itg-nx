@@ -61,10 +61,8 @@ function findPackageJsonPath(libraryName) {
 // Function to get build output path for a library
 function getBuildOutputPath(libraryName) {
   const project = Object.values(projects).find((p) => p.name === libraryName);
-  if (!project || !project.targets?.build?.options?.outputPath) {
-    return null;
-  }
-  return project.targets.build.options.outputPath;
+  const outputPath = project?.targets?.build?.options?.outputPath ?? project?.targets?.build?.outputs[0]?.replace('{workspaceRoot}/', '');
+  return outputPath;
 }
 
 // Function to update package.json version for a library
@@ -130,6 +128,7 @@ function packLibrariesTask(done) {
   }
 
   console.log(`Packing ${publicLibraries.length} public libraries...`);
+  const repoRoot = process.cwd();
   
   const packPromises = publicLibraries.map((libName) => {
     const outputPath = getBuildOutputPath(libName);
@@ -146,10 +145,12 @@ function packLibrariesTask(done) {
 
     // Update version in dist package.json before packing
     const distPackageJsonPath = path.join(outputPath, 'package.json');
+    let packageName = libName;
     if (fs.existsSync(distPackageJsonPath)) {
       try {
         const packageJson = JSON.parse(fs.readFileSync(distPackageJsonPath, 'utf8'));
         packageJson.version = version;
+        packageName = packageJson.name || libName;
         fs.writeFileSync(distPackageJsonPath, JSON.stringify(packageJson, null, 2) + '\n');
       } catch (error) {
         console.error(`Error updating dist package.json for ${libName}:`, error.message);
@@ -158,8 +159,29 @@ function packLibrariesTask(done) {
 
     console.log(`Packing ${libName} from ${outputPath}...`);
     return execAsync('npm pack', { cwd: outputPath })
-      .then(() => {
-        console.log(`Successfully packed ${libName}`);
+      .then((stdout) => {
+        // npm pack outputs the tarball filename to stdout
+        const tarballName = stdout.trim().split('\n').pop().trim();
+        const tarballPath = path.join(outputPath, tarballName);
+        const destPath = path.join(repoRoot, tarballName);
+        
+        if (fs.existsSync(tarballPath)) {
+          // Move tarball to repo root
+          fs.renameSync(tarballPath, destPath);
+          console.log(`Successfully packed ${libName} -> ${tarballName}`);
+        } else {
+          // Fallback: try to find any .tgz file in the output directory
+          const files = fs.readdirSync(outputPath);
+          const tgzFile = files.find(f => f.endsWith('.tgz'));
+          if (tgzFile) {
+            const foundTarballPath = path.join(outputPath, tgzFile);
+            const foundDestPath = path.join(repoRoot, tgzFile);
+            fs.renameSync(foundTarballPath, foundDestPath);
+            console.log(`Successfully packed ${libName} -> ${tgzFile}`);
+          } else {
+            console.warn(`Could not find tarball for ${libName} after packing`);
+          }
+        }
       })
       .catch((error) => {
         console.error(`Error packing ${libName}:`, error.message);
@@ -169,7 +191,7 @@ function packLibrariesTask(done) {
 
   Promise.all(packPromises)
     .then(() => {
-      console.log('All libraries packed successfully');
+      console.log('All libraries packed successfully to repo root');
       done();
     })
     .catch((error) => {
