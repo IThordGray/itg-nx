@@ -22,7 +22,7 @@ export class SidebarRef<T> implements ISidebarRef<T> {
   afterClosed = () => this._afterClosed as Observable<any>;
 
   containerRef!: ISidebarContainerRef;
-  instanceComp  onentRef!: ComponentRef<SidebarInstanceComponent>
+  instanceComponentRef!: ComponentRef<SidebarInstanceComponent>
 
   private destroyComponent(): void {
     this.componentRef?.destroy?.();
