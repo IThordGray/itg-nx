@@ -2,6 +2,7 @@ const { exec } = require('child_process');
 const { promisify } = require('util');
 const fs = require('fs');
 const path = require('path');
+const { log } = require('console');
 
 const readWorkspaceConfig = require('@nx/workspace').readWorkspaceConfig;
 const readPackageJson = require('@nx/workspace').readPackageJson;
@@ -159,7 +160,7 @@ function packLibrariesTask(done) {
 
     console.log(`Packing ${libName} from ${outputPath}...`);
     return execAsync('npm pack', { cwd: outputPath })
-      .then((stdout) => {
+      .then(({ stdout }) => {
         // npm pack outputs the tarball filename to stdout
         const tarballName = stdout.trim().split('\n').pop().trim();
         const tarballPath = path.join(outputPath, tarballName);
