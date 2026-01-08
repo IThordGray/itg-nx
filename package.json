@@ -1,6 +1,6 @@
 {
   "name": "itg",
-  "version": "18.0.1",
+  "version": "18.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -32,6 +32,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
+    "zod": "^4.3.5",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
