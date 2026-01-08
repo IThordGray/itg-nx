@@ -1,0 +1,23 @@
+@use '../variables' as v;
+@use 'breakpoints' as bp;
+@use "sass:string";
+
+@mixin generate-font-weight-classes-for-breakpoint($breakpoint: null) {
+  $properties: (light: 300, regular: 400, semibold: 500, bold: 600);
+
+  @include bp.media-breakpoint-up($breakpoint) {
+    $infix: bp.breakpoint-infix($breakpoint);
+
+    @each $property, $value in $properties {
+      .fw#{$infix}-#{$property} {
+        font-weight: $value !important;
+      }
+    }
+  }
+}
+
+@mixin generate() {
+  @each $breakpoint in map-keys(v.$breakpoints) {
+    @include generate-font-weight-classes-for-breakpoint($breakpoint);
+  }
+}

@@ -24,9 +24,9 @@ export interface ITimespanArgs {
 @StaticImplements<IComparableStatic<TimeSpan>>()
 @StaticImplements<IEquatableStatic<TimeSpan>>()
 export class TimeSpan implements IComparable<TimeSpan>, IEquatable, IFormattable {
-  private static _dayOnlyFormat = /^\d+$/;
-  private static _shortFormat = /^([01]?\d|2[0-3]):([0-5]\d)$/;
-  private static _longFormat = /^(\d+[:\.])?([01]?\d|2[0-3]):([0-5]\d):([0-5]\d)(\.\d{1,3})?$/;
+  private static _dayOnlyFormat = /^-?\d+$/;
+  private static _shortFormat = /^-?([01]?\d|2[0-3]):([0-5]\d)(\.\d+)?$/;
+  private static _longFormat = /^-?(\d+[:\.])?([01]?\d|2[0-3]):([0-5]\d):([0-5]\d)(\.\d+)?$/;
 
   static readonly millisecondsPerSecond = 1000;
   static readonly millisecondsPerMinute = TimeSpan.millisecondsPerSecond * 60;
@@ -200,25 +200,36 @@ export class TimeSpan implements IComparable<TimeSpan>, IEquatable, IFormattable
     return this.fromMilliseconds(value * TimeSpan.millisecondsPerSecond);
   }
 
+  private static convertFractionalSecondsToMilliseconds(fractionalPart: string): number {
+    if (!fractionalPart || fractionalPart.length === 0) return 0;
+    // Convert fractional seconds (e.g., "3643211" = 0.3643211 seconds) to milliseconds
+    const fractionalSeconds = Number('0.' + fractionalPart);
+    return Math.round(fractionalSeconds * TimeSpan.millisecondsPerSecond);
+  }
+
   static parse(timeString: string): TimeSpan {
     if (isNullOrWhiteSpace(timeString)) throw new ArgumentNullError('timeString is not defined.');
     this.validateParseFormat(timeString);
 
-    const parts = timeString.split(':');
+    const isNegative = timeString.startsWith('-');
+    const normalizedString = isNegative ? timeString.substring(1) : timeString;
+    const parts = normalizedString.split(':');
 
     // format: d
     if (parts.length === 1) {
-      return new TimeSpan({
+      const result = new TimeSpan({
         days: Number(parts[0])
       });
+      return isNegative ? result.negate() : result;
     }
 
     // format: hh:mm
     if (parts.length === 2) {
-      return new TimeSpan({
+      const result = new TimeSpan({
         hours: Number(parts[0]),
         minutes: Number(parts[1])
       });
+      return isNegative ? result.negate() : result;
     }
 
     // format: d.hh:mm:ss.fff
@@ -227,26 +238,28 @@ export class TimeSpan implements IComparable<TimeSpan>, IEquatable, IFormattable
       const dh = parts[0].split('.');
       dh.reverse();
 
-      return new TimeSpan({
+      const result = new TimeSpan({
         days: Number(dh?.[1] ?? 0),
         hours: Number(dh[0]),
         minutes: Number(parts[1]),
         seconds: Number(sms[0]),
-        milliseconds: Number(sms?.[1] ?? 0)
+        milliseconds: this.convertFractionalSecondsToMilliseconds(sms?.[1] ?? '')
       });
+      return isNegative ? result.negate() : result;
     }
 
     // format: d:hh:mm:ss.fff
     if (parts.length === 4) {
       const sms = parts[3].split('.');
 
-      return new TimeSpan({
+      const result = new TimeSpan({
         days: Number(parts[0]),
         hours: Number(parts[1]),
         minutes: Number(parts[2]),
         seconds: Number(sms[0]),
-        milliseconds: Number(sms?.[1] ?? 0)
+        milliseconds: this.convertFractionalSecondsToMilliseconds(sms?.[1] ?? '')
       });
+      return isNegative ? result.negate() : result;
     }
 
     throw new Error('Failed to parse timeString');

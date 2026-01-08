@@ -23,7 +23,7 @@ export class Log {
       messageStr = this.message;
     }
 
-    return `${ LogLevel[this.level] }: ${ messageStr } ${ this.optionalParams ? JSON.stringify(this.optionalParams) : '' }`.trim();
+    return `${ LogLevel[this.level] }: ${ messageStr } ${ !!this.optionalParams?.length ? JSON.stringify(this.optionalParams) : '' }`.trim();
   }
 
 }

@@ -9,8 +9,7 @@ export abstract class LogProvider {
 
   constructor(
     public providerConfig: ILogProviderConfig
-  ) {
-  }
+  ) { }
 
   abstract debug(entry: Log): void;
 
