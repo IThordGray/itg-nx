@@ -209,7 +209,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@ithordgray/frontend-sidebar",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -318,7 +318,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@ithordgray/frontend-common",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -427,7 +427,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@ithordgray/frontend-config",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -536,7 +536,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@ithordgray/frontend-logger",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -645,7 +645,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@ithordgray/frontend-notify",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -754,7 +754,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@ithordgray/frontend-styles",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "packageMain": "./src/index.js",
             "isInPackageManagerWorkspaces": false
           }
@@ -840,7 +840,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@ithordgray/shared-utils",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -1134,7 +1134,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "itg",
-            "packageVersion": "18.0.0",
+            "packageVersion": "21.0.0",
             "isInPackageManagerWorkspaces": true
           }
         },
@@ -43792,5 +43792,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1767899056024
+  "computedAt": 1767899166813
 }
