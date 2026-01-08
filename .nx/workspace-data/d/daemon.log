@@ -2055,3 +2055,245 @@ This workspace is more than three days old and is not connected. Workspaces must
 Error: This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app
     at Timeout._onTimeout (C:\dev\itg-nx\.nx\cache\cloud\2601.08.7\lib\daemon\process-run-end.js:1:984659)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:22.885Z - [WATCHER]: package.json was modified
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:22.889Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:22.891Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.027Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.027Z - [REQUEST]: package.json
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.027Z - [REQUEST]: 
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 11.572600000537932
+Time for 'nx/core/project-json:createNodes' 1.4142000004649162
+Time for 'nx/core/package-json:createNodes' 7.837799999862909
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.514Z - Time taken for 'hash changed files from watcher' 0.46530000027269125ms
+Unable to find local plugin [] Map(0) {}
+Unable to find local plugin [] Map(0) {}
+Unable to find local plugin [] Map(0) {}
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.728Z - Time taken for 'build-project-configs' 307.5647999998182ms
+Time for 'build typescript dependencies' 5.630499999970198
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.785Z - [SYNC]: collect registered sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.789Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:05:23.790Z - Time taken for 'total execution time for createProjectGraph()' 75.41960000060499ms
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.048Z - [WATCHER]: 0 file(s) created or restored, 7 file(s) modified, 0 file(s) deleted
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.052Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.052Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.259Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.259Z - [REQUEST]: libs/frontend/logger/package.json,libs/frontend/sidebar/package.json,libs/frontend/styles/package.json,libs/frontend/notify/package.json,libs/frontend/common/package.json,libs/shared/utils/package.json,libs/frontend/config/package.json
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.259Z - [REQUEST]: 
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.275Z - Time taken for 'hash changed files from watcher' 4.451599999330938ms
+Time for 'nx/core/project-json:createNodes' 1.3488000007346272
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 9.034099999815226
+Time for 'nx/core/package-json:createNodes' 5.898199999704957
+Unable to find local plugin [] Map(0) {}
+Unable to find local plugin [] Map(0) {}
+Unable to find local plugin [] Map(0) {}
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.362Z - Time taken for 'build-project-configs' 52.82980000041425ms
+Time for 'build typescript dependencies' 7.212299999780953
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.419Z - [SYNC]: collect registered sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.424Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.424Z - Time taken for 'total execution time for createProjectGraph()' 83.66550000011921ms
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.606Z - Established a connection. Number of open connections: 1
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.611Z - Closed a connection. Number of open connections: 0
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:05.612Z - Established a connection. Number of open connections: 1
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.326Z - Received raw message of length 32
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.327Z - Received json message of type GET_NX_CONSOLE_STATUS
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.328Z - Serializing response for GET_NX_CONSOLE_STATUS message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.329Z - Responding to GET_NX_CONSOLE_STATUS message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.329Z - [REQUEST]: Responding to the client. handleGetNxConsoleStatus
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.332Z - Done responding to the client handleGetNxConsoleStatus
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.333Z - Handled json message GET_NX_CONSOLE_STATUS. Handling time: 0. Response time: 5.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.496Z - Received raw message of length 32
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.496Z - Received json message of type REQUEST_PROJECT_GRAPH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.497Z - [REQUEST]: Client Request for Project Graph Received
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.502Z - Reusing in-memory cached project graph because no files changed.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.716Z - Wrote project graph cache to C:\dev\itg-nx\.nx\workspace-data\project-graph.json
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.716Z - Serializing response for REQUEST_PROJECT_GRAPH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.717Z - Responding to REQUEST_PROJECT_GRAPH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.717Z - [REQUEST]: Responding to the client. project-graph
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.723Z - Time taken for 'total for creating and serializing project graph' 219.49370000045747ms
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.727Z - Done responding to the client project-graph
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.728Z - Handled json message REQUEST_PROJECT_GRAPH. Handling time: 219. Response time: 12.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.736Z - Received raw message of length 1880
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.737Z - Received json message of type PRE_TASKS_EXECUTION
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.741Z - Serializing response for PRE_TASKS_EXECUTION message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.741Z - Responding to PRE_TASKS_EXECUTION message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.741Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.741Z - Time taken for 'preTasksExecution' 2.9890999998897314ms
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.742Z - Done responding to the client handleRunPreTasksExecution
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.742Z - Handled json message PRE_TASKS_EXECUTION. Handling time: 3. Response time: 1.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.807Z - Received raw message of length 14446
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.808Z - Received json message of type HASH_TASKS
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.813Z - Reusing in-memory cached project graph because no files changed.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:06.982Z - Wrote project graph cache to C:\dev\itg-nx\.nx\workspace-data\project-graph.json
+DEBUG nx::native::tasks::hash_planner: get_plans_internal COMPLETED in 24.8389ms - processed 7 tasks (setup: 19.7098ms, parallel_planning: 5.0874ms)
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "1283772337301507365" (".gitignore") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "17971928482742988357" ("nx.json") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Hash Value: "11828607586330851251"
+DEBUG nx::native::tasks::task_hasher: hash_plans COMPLETED in 132.5762ms - processed 7 plans (setup: 4.7056ms, hashing: 127.8523ms, assembly: 83.3008ms)
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:07.206Z - Serializing response for HASH_TASKS message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:07.214Z - Responding to HASH_TASKS message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:07.214Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:07.218Z - Time taken for 'write cache' 169.6085000000894ms
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:07.224Z - Done responding to the client handleHashTasks
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:07.224Z - Handled json message HASH_TASKS. Handling time: 398. Response time: 18.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:08.137Z - Received raw message of length 521
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:08.137Z - Received json message of type GET_ESTIMATED_TASK_TIMINGS
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:08.138Z - Serializing response for GET_ESTIMATED_TASK_TIMINGS message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:08.138Z - Responding to GET_ESTIMATED_TASK_TIMINGS message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:08.138Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:08.138Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:08.138Z - Handled json message GET_ESTIMATED_TASK_TIMINGS. Handling time: 1. Response time: 0.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:09.893Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:09.961Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:10.689Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:10.988Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.046Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.099Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.159Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.220Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.290Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.343Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.396Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.454Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.510Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.569Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.624Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.680Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.739Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.806Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.869Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.926Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.947Z - Received raw message of length 108
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.947Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.988Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.988Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.989Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.993Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.994Z - Done responding to the client recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:11.994Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 41. Response time: 6.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.050Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.102Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.156Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.213Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.264Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.321Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.382Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.437Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.481Z - Received raw message of length 105
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.481Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.544Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.544Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.544Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.550Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.551Z - Done responding to the client recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.551Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 63. Response time: 7.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.808Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.863Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.997Z - Received raw message of length 110
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:12.997Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.017Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.017Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.017Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.019Z - Done responding to the client recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.019Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 20. Response time: 2.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.149Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.807Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.867Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.910Z - Received raw message of length 108
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.910Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.946Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.947Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.947Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.952Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.953Z - Done responding to the client recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:13.953Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 36. Response time: 7.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:14.391Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:14.503Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:14.681Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:14.818Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.519Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.563Z - Received raw message of length 108
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.564Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.592Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.592Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.592Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.594Z - Done responding to the client recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.595Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 28. Response time: 3.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.625Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.659Z - Received raw message of length 108
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.659Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.682Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.682Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.682Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.684Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.684Z - Done responding to the client recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.684Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 23. Response time: 2.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:15.774Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.052Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.610Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.825Z - Received raw message of length 108
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.825Z - Received json message of type RECORD_OUTPUTS_HASH
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.852Z - Serializing response for RECORD_OUTPUTS_HASH message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.852Z - Responding to RECORD_OUTPUTS_HASH message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.853Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.855Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.857Z - Done responding to the client recordOutputsHash
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.857Z - Handled json message RECORD_OUTPUTS_HASH. Handling time: 27. Response time: 5.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.905Z - Received raw message of length 1283
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.905Z - Received json message of type RECORD_TASK_RUNS
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.908Z - Serializing response for RECORD_TASK_RUNS message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.908Z - Responding to RECORD_TASK_RUNS message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.908Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.910Z - Done responding to the client handleRecordTaskRuns
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.910Z - Handled json message RECORD_TASK_RUNS. Handling time: 2. Response time: 3.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.916Z - Received raw message of length 192
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.916Z - Received json message of type GET_FLAKY_TASKS
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.916Z - Serializing response for GET_FLAKY_TASKS message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.917Z - Responding to GET_FLAKY_TASKS message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.917Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.917Z - Done responding to the client handleGetFlakyTasks
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:16.917Z - Handled json message GET_FLAKY_TASKS. Handling time: 0. Response time: 1.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:17.221Z - Received raw message of length 2520627
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:17.327Z - Received json message of type PROCESS_IN_BACKGROUND
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.346Z - Serializing response for PROCESS_IN_BACKGROUND message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.346Z - Responding to PROCESS_IN_BACKGROUND message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.346Z - [REQUEST]: Responding to the client. PROCESS_IN_BACKGROUND
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.348Z - Uploading file artifacts
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.348Z - Done uploading file artifacts
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.348Z - Sending EndRun request
+[Nx Cloud Debug] Attempting to acquire filesystem lock with path:  C:\Users\IVORTH~1\AppData\Local\Temp\client-instance-id.lock
+[Nx Cloud Debug] Failed to create folder lock at path: C:\Users\IVORTH~1\AppData\Local\Temp\client-instance-id.lock
+[Nx Cloud] Unable to detect a VCS context from the environment.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.349Z - Done responding to the client PROCESS_IN_BACKGROUND
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.349Z - Handled json message PROCESS_IN_BACKGROUND. Handling time: 2018. Response time: 3.
+
+ NX   RunEnd. Completed tasks
+
+
+[
+  "shared-utils:build",
+  "frontend-sidebar:build:production",
+  "frontend-notify:build:production",
+  "frontend-styles:build",
+  "frontend-config:build:production",
+  "frontend-logger:build:production",
+  "frontend-common:build:production"
+]
+
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.360Z - Received raw message of length 409292
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.362Z - Received json message of type POST_TASKS_EXECUTION
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.363Z - Serializing response for POST_TASKS_EXECUTION message in json mode
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.363Z - Responding to POST_TASKS_EXECUTION message
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.363Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.363Z - Time taken for 'postTasksExecution' 0.4934000000357628ms
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.363Z - Done responding to the client handleRunPostTasksExecution
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.363Z - Handled json message POST_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.370Z - Closed a connection. Number of open connections: 0
+
+ NX   Connection to Nx Cloud failed with status code 401
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app.
+
+[NX v22.3.3 Daemon Server] - 2026-01-08T19:06:19.527Z - Error when sending EndRun
+Error: This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app
+    at Timeout._onTimeout (C:\dev\itg-nx\.nx\cache\cloud\2601.08.7\lib\daemon\process-run-end.js:1:984659)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
