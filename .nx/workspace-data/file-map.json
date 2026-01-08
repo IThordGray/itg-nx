@@ -1,0 +1,1685 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.3.3",
+  "pathMappings": {
+    "@ithordgray/backend-audit-logs": [
+      "libs/backend/audit-logs/src/index.ts"
+    ],
+    "@ithordgray/frontend-common": [
+      "libs/frontend/common/src/index.ts"
+    ],
+    "@ithordgray/frontend-common/permissions": [
+      "libs/frontend/common/permissions/src/index.ts"
+    ],
+    "@ithordgray/frontend-common/utils": [
+      "libs/frontend/common/utils/src/index.ts"
+    ],
+    "@ithordgray/frontend-sidebar": [
+      "libs/frontend/sidebar/src/index.ts"
+    ],
+    "@ithordgray/frontend-styles": [
+      "libs/frontend/styles/src/index.ts"
+    ],
+    "@ithordgray/frontend/dynamic-form": [
+      "libs/frontend/dynamic-form/src/index.ts"
+    ],
+    "@ithordgray/shared-config": [
+      "libs/frontend/config/src/index.ts"
+    ],
+    "@ithordgray/shared-logger": [
+      "libs/frontend/logger/src/index.ts"
+    ],
+    "@ithordgray/shared-notify": [
+      "libs/frontend/notify/src/index.ts"
+    ],
+    "@ithordgray/shared-utils": [
+      "libs/shared/utils/src/index.ts"
+    ],
+    "@ithordgray/shared/cache-manager": [
+      "libs/shared/cache-manager/src/index.ts"
+    ],
+    "@ithordgray/shared/filter-expressions": [
+      "libs/shared/filter-expressions/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [],
+    "projectFileMap": {
+      "frontend-styles": [
+        {
+          "file": "libs/frontend/styles/.eslintrc.json",
+          "hash": "12398963952796570856"
+        },
+        {
+          "file": "libs/frontend/styles/README.md",
+          "hash": "7661793758743918493"
+        },
+        {
+          "file": "libs/frontend/styles/package.json",
+          "hash": "18086310528283866864",
+          "deps": [
+            "npm:tslib"
+          ]
+        },
+        {
+          "file": "libs/frontend/styles/project.json",
+          "hash": "12823981186812235979"
+        },
+        {
+          "file": "libs/frontend/styles/src/index.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/_colors.scss",
+          "hash": "359057165612096298"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/_variables.scss",
+          "hash": "15664225200603781397"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/colors/_background.scss",
+          "hash": "3416054710022438282"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/colors/_border.scss",
+          "hash": "7134016678949448272"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/colors/_css-variable.scss",
+          "hash": "7759533892590554039"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/colors/_hover.scss",
+          "hash": "12057151132304895119"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/colors/_text.scss",
+          "hash": "16975568311540127521"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/index.scss",
+          "hash": "9337952751645575905"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/app/default-primary.scss",
+          "hash": "5828158256985998985"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/app/default-secondary.scss",
+          "hash": "4468174261180356353"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/app/default-tertiary.scss",
+          "hash": "1598448487564860285"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/grey/default-dark.scss",
+          "hash": "10118068403302073973"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/grey/default-light.scss",
+          "hash": "13016674599125639784"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/grey/default-medium.scss",
+          "hash": "14128340527912765914"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/status/default-danger.scss",
+          "hash": "9686496234290246473"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/status/default-info.scss",
+          "hash": "13454587979005951370"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/status/default-success.scss",
+          "hash": "11832032187796877142"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/palettes/status/default-warning.scss",
+          "hash": "9870756567230993286"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_borders.scss",
+          "hash": "1466742363688296013"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_breakpoints.scss",
+          "hash": "5141416122336585047"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_cursors.scss",
+          "hash": "4995424077405704687"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_display.scss",
+          "hash": "73203991379730814"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_flex.scss",
+          "hash": "17658866732969107364"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_font-weight.scss",
+          "hash": "5490512140396247274"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_overflow.scss",
+          "hash": "10932694603309764400"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_position.scss",
+          "hash": "10664529271407452978"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_rounded.scss",
+          "hash": "14703093671059905046"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_shadows.scss",
+          "hash": "1031117805706614432"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_sizes.scss",
+          "hash": "9286187156716680643"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_spacing.scss",
+          "hash": "7040907329365567515"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_text-alignments.scss",
+          "hash": "10363271493302016010"
+        },
+        {
+          "file": "libs/frontend/styles/src/lib/utilities/_text-transforms.scss",
+          "hash": "15856033561694520644"
+        },
+        {
+          "file": "libs/frontend/styles/tsconfig.json",
+          "hash": "11362601880824838265"
+        },
+        {
+          "file": "libs/frontend/styles/tsconfig.lib.json",
+          "hash": "4246227775020019741"
+        }
+      ],
+      "frontend-notify": [
+        {
+          "file": "libs/frontend/notify/.eslintrc.json",
+          "hash": "5059502871424989584"
+        },
+        {
+          "file": "libs/frontend/notify/README.md",
+          "hash": "18108242636138187591"
+        },
+        {
+          "file": "libs/frontend/notify/jest.config.ts",
+          "hash": "9207781408945510111"
+        },
+        {
+          "file": "libs/frontend/notify/ng-package.json",
+          "hash": "11652963162607382713"
+        },
+        {
+          "file": "libs/frontend/notify/package.json",
+          "hash": "8615348122545357969"
+        },
+        {
+          "file": "libs/frontend/notify/project.json",
+          "hash": "12886759466726287952"
+        },
+        {
+          "file": "libs/frontend/notify/src/index.ts",
+          "hash": "3106176753142952599"
+        },
+        {
+          "file": "libs/frontend/notify/src/lib/abstractions/alert-options.interface.ts",
+          "hash": "3982307041258375396"
+        },
+        {
+          "file": "libs/frontend/notify/src/lib/abstractions/confirm-options.interface.ts",
+          "hash": "15400176118777525560"
+        },
+        {
+          "file": "libs/frontend/notify/src/lib/abstractions/notification-options.interface.ts",
+          "hash": "2768845384127762606"
+        },
+        {
+          "file": "libs/frontend/notify/src/lib/abstractions/notify-provider.interface.ts",
+          "hash": "5189069517347634319"
+        },
+        {
+          "file": "libs/frontend/notify/src/lib/abstractions/prompt-options.interface.ts",
+          "hash": "6691569158997427633"
+        },
+        {
+          "file": "libs/frontend/notify/src/lib/notify.service.ts",
+          "hash": "15804834299190368177",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/notify/src/test-setup.ts",
+          "hash": "9531801021999427605",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/frontend/notify/tsconfig.json",
+          "hash": "970619675263736648"
+        },
+        {
+          "file": "libs/frontend/notify/tsconfig.lib.json",
+          "hash": "16872731496982739862"
+        },
+        {
+          "file": "libs/frontend/notify/tsconfig.lib.prod.json",
+          "hash": "1336526227511703137"
+        },
+        {
+          "file": "libs/frontend/notify/tsconfig.spec.json",
+          "hash": "3399222249261522044"
+        }
+      ],
+      "frontend-dynamic-form": [
+        {
+          "file": "libs/frontend/dynamic-form/.eslintrc.json",
+          "hash": "10519987642645426198"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/.storybook/main.ts",
+          "hash": "17980537865016664984"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/.storybook/preview.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/.storybook/tsconfig.json",
+          "hash": "8571989769539778070"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/README.md",
+          "hash": "12547093710904769158"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/jest.config.ts",
+          "hash": "7083112451599224889"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/project.json",
+          "hash": "13432288891504673440"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/index.ts",
+          "hash": "13516626482398661891"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/abstractions/models.ts",
+          "hash": "15092622111304363999",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form-question/dynamic-form-question.component.html",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form-question/dynamic-form-question.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form-question/dynamic-form-question.component.spec.ts",
+          "hash": "12383378384402416716",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form-question/dynamic-form-question.component.ts",
+          "hash": "6478381130501688618",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form/dynamic-form.component.html",
+          "hash": "15647799917115590979"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form/dynamic-form.component.scss",
+          "hash": "12580776879910910946"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form/dynamic-form.component.spec.ts",
+          "hash": "1512390363948624082",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form/dynamic-form.component.stories.ts",
+          "hash": "10339335970321795099"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/dynamic-form/dynamic-form.component.ts",
+          "hash": "13816937913113976072",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/lib/questions/text.question.ts",
+          "hash": "2510478524753589759",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/frontend/dynamic-form/src/test-setup.ts",
+          "hash": "10765977267162271731",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/frontend/dynamic-form/tsconfig.json",
+          "hash": "11879388897187586637"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/tsconfig.lib.json",
+          "hash": "7503733062113370520"
+        },
+        {
+          "file": "libs/frontend/dynamic-form/tsconfig.spec.json",
+          "hash": "7652445452192956988"
+        }
+      ],
+      "frontend-sidebar": [
+        {
+          "file": "libs/frontend/sidebar/.eslintrc.json",
+          "hash": "8296159128314837354"
+        },
+        {
+          "file": "libs/frontend/sidebar/README.md",
+          "hash": "5459024408676272822"
+        },
+        {
+          "file": "libs/frontend/sidebar/jest.config.ts",
+          "hash": "12776947566469275580"
+        },
+        {
+          "file": "libs/frontend/sidebar/ng-package.json",
+          "hash": "14731815286618569959"
+        },
+        {
+          "file": "libs/frontend/sidebar/package.json",
+          "hash": "10963963081268778982",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:tslib"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/project.json",
+          "hash": "4327746949097111455"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/index.ts",
+          "hash": "10219294451742709988"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/abstractions/component-or-template.type.ts",
+          "hash": "15879318648618028289",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/abstractions/injection-tokens.ts",
+          "hash": "15023447222023984372",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/abstractions/interfaces/sidebar-config.interface.ts",
+          "hash": "11322367388789510164",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/abstractions/interfaces/sidebar-container-config.interface.ts",
+          "hash": "16943276084003447081"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/abstractions/interfaces/sidebar-container-ref.interface.ts",
+          "hash": "18343485267643692624",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/abstractions/interfaces/sidebar-ref.interface.ts",
+          "hash": "17010827833086594405",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/abstractions/sidebar-ref.ts",
+          "hash": "3771220315401249991",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-close/sidebar-close.component.html",
+          "hash": "12110548317343638206"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-close/sidebar-close.component.scss",
+          "hash": "15435727429333606869"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-close/sidebar-close.component.ts",
+          "hash": "14559510487690838685",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-container/sidebar-container.component.html",
+          "hash": "7155269156678996220"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-container/sidebar-container.component.scss",
+          "hash": "6542634682292885625"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-container/sidebar-container.component.ts",
+          "hash": "16593139640081767203",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-custom-header/sidebar-custom-header.component.html",
+          "hash": "15622326406408665234"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-custom-header/sidebar-custom-header.component.scss",
+          "hash": "6470259389234416042"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-custom-header/sidebar-custom-header.component.ts",
+          "hash": "5971984618639117065",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-default-header/default-header.component.html",
+          "hash": "2538405695058444732"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-default-header/default-header.component.scss",
+          "hash": "3749301903210381365"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-default-header/default-header.component.ts",
+          "hash": "11174374646550134987",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-instance/sidebar-instance.component.html",
+          "hash": "1140765556585457904"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-instance/sidebar-instance.component.scss",
+          "hash": "16343570580063394526"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-instance/sidebar-instance.component.ts",
+          "hash": "10270525592384928441",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-subtitle/sidebar-subtitle.component.html",
+          "hash": "15622326406408665234"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-subtitle/sidebar-subtitle.component.scss",
+          "hash": "15775266116065378734"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-subtitle/sidebar-subtitle.component.ts",
+          "hash": "13279994917482961756",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-title/sidebar-title.component.html",
+          "hash": "15622326406408665234"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-title/sidebar-title.component.scss",
+          "hash": "14630685384671990036"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/components/sidebar-title/sidebar-title.component.ts",
+          "hash": "1731739769150597619",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/directives/sidebar-close.directive.ts",
+          "hash": "9749906179197690532",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/sidebar.service.ts",
+          "hash": "12092882072411323794",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/tests/accessibility-and-interaction.spec.ts",
+          "hash": "10322890863682703922"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/tests/basic-functionality.spec.ts",
+          "hash": "6894134558309305304",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/tests/configuration-and-customization.spec.ts",
+          "hash": "5805116357224872804"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/tests/content-rendering.spec.ts",
+          "hash": "7348167218823687147"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/tests/nested-instance-management.spec.ts",
+          "hash": "3438796643343730836"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/lib/tests/reference-and-data-handling.spec.ts",
+          "hash": "862705857441199634"
+        },
+        {
+          "file": "libs/frontend/sidebar/src/test-setup.ts",
+          "hash": "12935735732682149507",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/frontend/sidebar/tsconfig.json",
+          "hash": "8526453262384300416"
+        },
+        {
+          "file": "libs/frontend/sidebar/tsconfig.lib.json",
+          "hash": "6020606002228403423"
+        },
+        {
+          "file": "libs/frontend/sidebar/tsconfig.lib.prod.json",
+          "hash": "174503844014784742"
+        },
+        {
+          "file": "libs/frontend/sidebar/tsconfig.spec.json",
+          "hash": "7159729809249402441"
+        }
+      ],
+      "stub-e2e": [
+        {
+          "file": "apps/stub-e2e/.eslintrc.json",
+          "hash": "5570788962263802893"
+        },
+        {
+          "file": "apps/stub-e2e/cypress.json",
+          "hash": "14432080030250938036"
+        },
+        {
+          "file": "apps/stub-e2e/project.json",
+          "hash": "11527147146745011855"
+        },
+        {
+          "file": "apps/stub-e2e/src/fixtures/example.json",
+          "hash": "17341819486505642070"
+        },
+        {
+          "file": "apps/stub-e2e/src/integration/app.spec.ts",
+          "hash": "3428475946465858913"
+        },
+        {
+          "file": "apps/stub-e2e/src/support/app.po.ts",
+          "hash": "5364106453863571025"
+        },
+        {
+          "file": "apps/stub-e2e/src/support/commands.ts",
+          "hash": "11031723810997510506"
+        },
+        {
+          "file": "apps/stub-e2e/src/support/index.ts",
+          "hash": "15928825062325902088"
+        },
+        {
+          "file": "apps/stub-e2e/tsconfig.json",
+          "hash": "12854093335132307603"
+        }
+      ],
+      "stub": [
+        {
+          "file": "apps/stub/.eslintrc.json",
+          "hash": "7645225140246683715"
+        },
+        {
+          "file": "apps/stub/jest.config.ts",
+          "hash": "2514930327732901358"
+        },
+        {
+          "file": "apps/stub/project.json",
+          "hash": "11070614577270697432"
+        },
+        {
+          "file": "apps/stub/src/app/app.component.html",
+          "hash": "11642316770190599129"
+        },
+        {
+          "file": "apps/stub/src/app/app.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/stub/src/app/app.component.spec.ts",
+          "hash": "5631801530749385512",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/stub/src/app/app.component.ts",
+          "hash": "646850164324684491",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/stub/src/app/app.module.ts",
+          "hash": "16503634957522288251",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "apps/stub/src/app/nx-welcome.component.ts",
+          "hash": "10027647747519254837",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/stub/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/stub/src/environments/environment.prod.ts",
+          "hash": "3926102656993804675"
+        },
+        {
+          "file": "apps/stub/src/environments/environment.ts",
+          "hash": "14521450534601418167"
+        },
+        {
+          "file": "apps/stub/src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/stub/src/index.html",
+          "hash": "6651680378234666294"
+        },
+        {
+          "file": "apps/stub/src/main.ts",
+          "hash": "12530990079120336302",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser-dynamic"
+          ]
+        },
+        {
+          "file": "apps/stub/src/polyfills.ts",
+          "hash": "7176339394372785858",
+          "deps": [
+            "npm:zone.js"
+          ]
+        },
+        {
+          "file": "apps/stub/src/styles.scss",
+          "hash": "2917954890128038984"
+        },
+        {
+          "file": "apps/stub/src/test-setup.ts",
+          "hash": "9531801021999427605",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "apps/stub/tsconfig.app.json",
+          "hash": "2467139360149164917"
+        },
+        {
+          "file": "apps/stub/tsconfig.editor.json",
+          "hash": "11539145186223711902"
+        },
+        {
+          "file": "apps/stub/tsconfig.json",
+          "hash": "3639607200705369658"
+        },
+        {
+          "file": "apps/stub/tsconfig.spec.json",
+          "hash": "9252110109024281332"
+        }
+      ],
+      "frontend-logger": [
+        {
+          "file": "libs/frontend/logger/.eslintrc.json",
+          "hash": "5059502871424989584"
+        },
+        {
+          "file": "libs/frontend/logger/README.md",
+          "hash": "18365498356264757763"
+        },
+        {
+          "file": "libs/frontend/logger/jest.config.ts",
+          "hash": "5525662257380245504"
+        },
+        {
+          "file": "libs/frontend/logger/ng-package.json",
+          "hash": "16228409427922093471"
+        },
+        {
+          "file": "libs/frontend/logger/package.json",
+          "hash": "10085315129844598013"
+        },
+        {
+          "file": "libs/frontend/logger/project.json",
+          "hash": "4390542126563501372"
+        },
+        {
+          "file": "libs/frontend/logger/src/index.ts",
+          "hash": "10411491665544132408"
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/abstractions/log-level.ts",
+          "hash": "1974932753219515671"
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/abstractions/log-provider.ts",
+          "hash": "4565646856707797250"
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/abstractions/log-providers.injection-token.ts",
+          "hash": "14993032623287264063",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/abstractions/log.ts",
+          "hash": "17120966184192385269"
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/log-stream.ts",
+          "hash": "9591078721724286994",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/logger.service.spec.ts",
+          "hash": "6380248686121842616",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/logger.service.ts",
+          "hash": "12110058786814994842",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/logger/src/lib/providers/console.provider.ts",
+          "hash": "16113446766537163353"
+        },
+        {
+          "file": "libs/frontend/logger/src/test-setup.ts",
+          "hash": "9531801021999427605",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/frontend/logger/tsconfig.json",
+          "hash": "970619675263736648"
+        },
+        {
+          "file": "libs/frontend/logger/tsconfig.lib.json",
+          "hash": "16872731496982739862"
+        },
+        {
+          "file": "libs/frontend/logger/tsconfig.lib.prod.json",
+          "hash": "1336526227511703137"
+        },
+        {
+          "file": "libs/frontend/logger/tsconfig.spec.json",
+          "hash": "3399222249261522044"
+        }
+      ],
+      "frontend-common": [
+        {
+          "file": "libs/frontend/common/.eslintrc.json",
+          "hash": "5059502871424989584"
+        },
+        {
+          "file": "libs/frontend/common/README.md",
+          "hash": "4725660529030276320"
+        },
+        {
+          "file": "libs/frontend/common/jest.config.ts",
+          "hash": "1111962576742663685"
+        },
+        {
+          "file": "libs/frontend/common/ng-package.json",
+          "hash": "5013824765694962699"
+        },
+        {
+          "file": "libs/frontend/common/package.json",
+          "hash": "10016840379901308789"
+        },
+        {
+          "file": "libs/frontend/common/permissions/README.md",
+          "hash": "7443794061281024949"
+        },
+        {
+          "file": "libs/frontend/common/permissions/ng-package.json",
+          "hash": "14340292769999920453"
+        },
+        {
+          "file": "libs/frontend/common/permissions/src/index.ts",
+          "hash": "12759780866458521243"
+        },
+        {
+          "file": "libs/frontend/common/permissions/src/lib/permissions.api.ts",
+          "hash": "10971574642461523769",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/permissions/src/lib/permissions.directive.ts",
+          "hash": "15382754700909789652",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/permissions/src/lib/permissions.guard.ts",
+          "hash": "4806254233459856781",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/permissions/src/lib/permissions.module.ts",
+          "hash": "15839825408838075319",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/permissions/src/lib/permissions.pipe.ts",
+          "hash": "11731139274584661520",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/permissions/src/lib/permissions.service.ts",
+          "hash": "12237695960584353493",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/project.json",
+          "hash": "13868623940234683582"
+        },
+        {
+          "file": "libs/frontend/common/src/index.ts",
+          "hash": "10149207545056148427"
+        },
+        {
+          "file": "libs/frontend/common/src/lib/frontend-common.module.ts",
+          "hash": "1788542603450576064",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/src/test-setup.ts",
+          "hash": "9531801021999427605",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/frontend/common/tsconfig.json",
+          "hash": "970619675263736648"
+        },
+        {
+          "file": "libs/frontend/common/tsconfig.lib.json",
+          "hash": "15644919646863408194"
+        },
+        {
+          "file": "libs/frontend/common/tsconfig.lib.prod.json",
+          "hash": "1336526227511703137"
+        },
+        {
+          "file": "libs/frontend/common/tsconfig.spec.json",
+          "hash": "3399222249261522044"
+        }
+      ],
+      "shared-filter-expressions": [
+        {
+          "file": "libs/shared/filter-expressions/.eslintrc.json",
+          "hash": "17795843241288797487"
+        },
+        {
+          "file": "libs/shared/filter-expressions/README.md",
+          "hash": "2446555792325016822"
+        },
+        {
+          "file": "libs/shared/filter-expressions/jest.config.ts",
+          "hash": "8354054281180695933"
+        },
+        {
+          "file": "libs/shared/filter-expressions/package.json",
+          "hash": "7638038428318298345"
+        },
+        {
+          "file": "libs/shared/filter-expressions/project.json",
+          "hash": "7944602212149699677"
+        },
+        {
+          "file": "libs/shared/filter-expressions/src/index.ts",
+          "hash": "11328292070396927625"
+        },
+        {
+          "file": "libs/shared/filter-expressions/src/lib/filter-expressions.spec.ts",
+          "hash": "16975475488925658791"
+        },
+        {
+          "file": "libs/shared/filter-expressions/src/lib/filter-expressions.ts",
+          "hash": "4188586062673821624",
+          "deps": [
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/shared/filter-expressions/src/lib/filter-expressions.utils.spec.ts",
+          "hash": "13646475933672252412",
+          "deps": [
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/shared/filter-expressions/src/lib/filter-expressions.utils.ts",
+          "hash": "9329854124395546856",
+          "deps": [
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/shared/filter-expressions/tsconfig.json",
+          "hash": "7024484234412117445"
+        },
+        {
+          "file": "libs/shared/filter-expressions/tsconfig.lib.json",
+          "hash": "12206229544179874163"
+        },
+        {
+          "file": "libs/shared/filter-expressions/tsconfig.spec.json",
+          "hash": "54826231700302449"
+        }
+      ],
+      "frontend-config": [
+        {
+          "file": "libs/frontend/config/.eslintrc.json",
+          "hash": "5059502871424989584"
+        },
+        {
+          "file": "libs/frontend/config/README.md",
+          "hash": "17311159809334337964"
+        },
+        {
+          "file": "libs/frontend/config/jest.config.ts",
+          "hash": "5853625694260947679"
+        },
+        {
+          "file": "libs/frontend/config/ng-package.json",
+          "hash": "1657587279306255681"
+        },
+        {
+          "file": "libs/frontend/config/package.json",
+          "hash": "9131519077759758375"
+        },
+        {
+          "file": "libs/frontend/config/project.json",
+          "hash": "8107527026486239061"
+        },
+        {
+          "file": "libs/frontend/config/src/index.ts",
+          "hash": "6507577046248462602"
+        },
+        {
+          "file": "libs/frontend/config/src/lib/config.provider.ts",
+          "hash": "5898875207726560054",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/config/src/lib/config.service.spec.ts",
+          "hash": "17127644532739317296",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/frontend/config/src/lib/config.service.ts",
+          "hash": "333974454218436521",
+          "deps": [
+            "npm:@angular/core",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/frontend/config/src/test-setup.ts",
+          "hash": "9531801021999427605",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/frontend/config/tsconfig.json",
+          "hash": "970619675263736648"
+        },
+        {
+          "file": "libs/frontend/config/tsconfig.lib.json",
+          "hash": "16872731496982739862"
+        },
+        {
+          "file": "libs/frontend/config/tsconfig.lib.prod.json",
+          "hash": "1336526227511703137"
+        },
+        {
+          "file": "libs/frontend/config/tsconfig.spec.json",
+          "hash": "3399222249261522044"
+        }
+      ],
+      "shared-utils": [
+        {
+          "file": "libs/shared/utils/.eslintrc.json",
+          "hash": "17795843241288797487"
+        },
+        {
+          "file": "libs/shared/utils/README.md",
+          "hash": "784785747292098811"
+        },
+        {
+          "file": "libs/shared/utils/jest.config.ts",
+          "hash": "11977160706625661121"
+        },
+        {
+          "file": "libs/shared/utils/package.json",
+          "hash": "2614356334123767098"
+        },
+        {
+          "file": "libs/shared/utils/project.json",
+          "hash": "8543705038038307177"
+        },
+        {
+          "file": "libs/shared/utils/src/index.ts",
+          "hash": "16849382601547253564"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/clone-deep.helper.spec.ts",
+          "hash": "5662892241366784166"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/clone-deep.helper.ts",
+          "hash": "12925383239500114404"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/coerce-boolean-value.helper.spec.ts",
+          "hash": "12565481925703714088"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/coerce-boolean-value.helper.ts",
+          "hash": "7418535894402917901"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/coerce-number-value.helper.spec.ts",
+          "hash": "13932117535318029304"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/coerce-number-value.helper.ts",
+          "hash": "1341133336440644935"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/create-proxy.helper.ts",
+          "hash": "10727236578121422598"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/get.helper.spec.ts",
+          "hash": "5784102718797305276"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/get.helper.ts",
+          "hash": "18157438892424404796"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-empty.helper.spec.ts",
+          "hash": "9027087353500361693"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-empty.helper.ts",
+          "hash": "17291208942495987442"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-null-or-undefined.helper.spec.ts",
+          "hash": "16423405350905145918"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-null-or-undefined.helper.ts",
+          "hash": "16994625244178200437"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-null-or-whitespace.helper.ts",
+          "hash": "7449103822182596243"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-number.helper.spec.ts",
+          "hash": "17445942421567910783"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-number.helper.ts",
+          "hash": "12721086944888603777"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-string.helper.spec.ts",
+          "hash": "5676223161564826267"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-string.helper.ts",
+          "hash": "2693617910207989946"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-white-space.helper.spec.ts",
+          "hash": "5766847282129750397"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/is-white-space.helper.ts",
+          "hash": "2899064157773750196"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/set.helper.spec.ts",
+          "hash": "15480459948508248117"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/set.helper.ts",
+          "hash": "6185656949305931860"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/helpers/static-implements.helper.ts",
+          "hash": "8313575245427076103"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/guid/guid.spec.ts",
+          "hash": "5871861622829564248"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/guid/guid.ts",
+          "hash": "2003852673813692075"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/polling-handler/polling-handler.ts",
+          "hash": "8261666668253993383"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/progress/progress.spec.ts",
+          "hash": "1510584718561788009",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/progress/progress.ts",
+          "hash": "2259169795682176314",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.add.spec.ts",
+          "hash": "9132681864024230832"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.addHours.spec.ts",
+          "hash": "12355489643025433119"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.addMinutes.spec.ts",
+          "hash": "13331166141769311736"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.compareTo.spec.ts",
+          "hash": "12819812892020256038"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.equals.spec.ts",
+          "hash": "3992005360052625833"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.fromHours.spec.ts",
+          "hash": "13252783678612781580"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.fromMilliseconds.spec.ts",
+          "hash": "947526702580337578"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.fromMinutes.spec.ts",
+          "hash": "16986027622188072169"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.fromSeconds.spec.ts",
+          "hash": "301211871934660766"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.isBetween.spec.ts",
+          "hash": "5918612552502210362"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.parse.spec.ts",
+          "hash": "6213994187152132776"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.spec.ts",
+          "hash": "6669624986018684128"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.subtract.spec.ts",
+          "hash": "12526332348640318057"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-only/time-only.ts",
+          "hash": "7820183562593436350"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.add.spec.ts",
+          "hash": "10129873383602973591"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.compareTo.spec.ts",
+          "hash": "13073771583290872881"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.divide.spec.ts",
+          "hash": "13738852143385875363"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.duration.spec.ts",
+          "hash": "17188933125123537325"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.equals.spec.ts",
+          "hash": "16352440152678907976"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.fromDays.spec.ts",
+          "hash": "755525001233461331"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.fromHours.spec.ts",
+          "hash": "5847928838342364818"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.fromMilliseconds.spec.ts",
+          "hash": "18350116331640677962"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.fromMinutes.spec.ts",
+          "hash": "6524224348233797025"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.fromSeconds.spec.ts",
+          "hash": "7142320496969969269"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.getHashCode.spec.ts",
+          "hash": "2940670716724166823"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.multiply.spec.ts",
+          "hash": "7111222376109083364"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.negate.spec.ts",
+          "hash": "4477790400492345728"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.parse.spec.ts",
+          "hash": "12995847757957495949"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.spec.ts",
+          "hash": "8750104767428209439"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.subtract.spec.ts",
+          "hash": "16238352201036823216"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.toString.spec.ts",
+          "hash": "725483547067315135"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/classes/time-span/time-span.ts",
+          "hash": "15045628541012263424"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/aggregate.error.ts",
+          "hash": "4105432688636198019"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/argument-null.error.ts",
+          "hash": "11889317272915987388"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/argument.error.ts",
+          "hash": "13907632281565556604"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/format.error.ts",
+          "hash": "17092890235504474745"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/invalid-cast.error.ts",
+          "hash": "17000238350966491365",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/invalid-credentials.error.ts",
+          "hash": "16786354089769178495"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/invalid-operation.error.ts",
+          "hash": "2187455490246858198"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/not-found.error.ts",
+          "hash": "9136139410814551638"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/errors/overflow.error.ts",
+          "hash": "13851688941052820501"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/aggregate-response.interface.ts",
+          "hash": "18324027674143103185"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/comparable.interface.ts",
+          "hash": "7604323475309955751"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/date-range.interface.ts",
+          "hash": "3813123023827165978"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/disposable.interface.ts",
+          "hash": "12127035986440727983"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/equatable.interface.ts",
+          "hash": "17713734970553683184"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/format-provider.interface.ts",
+          "hash": "11970430993458128119"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/formattable.interface.ts",
+          "hash": "12999138509454222381"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/mapper.interface.ts",
+          "hash": "6574784589451596028"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/parsable.interface.ts",
+          "hash": "10911208789617456380"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/query-options.interface.ts",
+          "hash": "6043840940981910420"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/query-results.interface.ts",
+          "hash": "15163706773260151915"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/interfaces/repository.interface.ts",
+          "hash": "14144217676334804397"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/types/restricted-record.type.ts",
+          "hash": "5937219929781786029"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/types/type.type.ts",
+          "hash": "16592034958196074515"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/utils/guard.utils.spec.ts",
+          "hash": "1053340991191885567"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/models/utils/guard.utils.ts",
+          "hash": "13924581560454895737"
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.json",
+          "hash": "7024484234412117445"
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.lib.json",
+          "hash": "12206229544179874163"
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.spec.json",
+          "hash": "54826231700302449"
+        }
+      ],
+      "itg": [
+        {
+          "file": ".editorconfig",
+          "hash": "11532813898455409296"
+        },
+        {
+          "file": ".eslintignore",
+          "hash": "13404745306227114823"
+        },
+        {
+          "file": ".eslintrc.json",
+          "hash": "9188201835120897554"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "1283772337301507365"
+        },
+        {
+          "file": ".prettierignore",
+          "hash": "4916021956387236598"
+        },
+        {
+          "file": ".prettierrc",
+          "hash": "6820402234827505055"
+        },
+        {
+          "file": ".verdaccio/config.yml",
+          "hash": "14993594506392938393"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "15904881119927760751"
+        },
+        {
+          "file": "README.md",
+          "hash": "2007496367997801404"
+        },
+        {
+          "file": "apps/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "babel.config.js",
+          "hash": "59145771650340408"
+        },
+        {
+          "file": "decorate-angular-cli.js",
+          "hash": "16715193905812192462",
+          "deps": [
+            [
+              "npm:@nx/workspace",
+              "dynamic"
+            ],
+            [
+              "npm:nx",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "gulpfile.js",
+          "hash": "4279938677845627050",
+          "deps": [
+            "npm:@nx/workspace"
+          ]
+        },
+        {
+          "file": "jest.config.ts",
+          "hash": "3407785570333453138",
+          "deps": [
+            "npm:@nx/jest"
+          ]
+        },
+        {
+          "file": "jest.preset.js",
+          "hash": "6481884873699543387",
+          "deps": [
+            "npm:@nx/jest"
+          ]
+        },
+        {
+          "file": "libs/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "migrations.json",
+          "hash": "10593839840891849372"
+        },
+        {
+          "file": "nx.json",
+          "hash": "17971928482742988357"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "15634006515113526333"
+        },
+        {
+          "file": "package.json",
+          "hash": "17766715414334022547"
+        },
+        {
+          "file": "project.json",
+          "hash": "735773378393467295"
+        },
+        {
+          "file": "tools/scripts/publish.mjs",
+          "hash": "13028213522755210329",
+          "deps": [
+            "npm:chalk"
+          ]
+        },
+        {
+          "file": "tools/tsconfig.tools.json",
+          "hash": "11810713488198132402"
+        },
+        {
+          "file": "tsconfig.base.json",
+          "hash": "1196246809738449642"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "14820127915337397952"
+}

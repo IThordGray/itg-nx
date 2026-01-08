@@ -5,10 +5,7 @@ import { PermissionsGuard } from './permissions.guard';
 import { PermissionsPipe } from './permissions.pipe';
 import { PermissionsService } from './permissions.service';
 
-@NgModule({
-  declarations: [ PermissionsDirective, PermissionsPipe ],
-  exports: [ PermissionsDirective, PermissionsPipe ]
-})
+@NgModule({})
 export class PermissionsModule {
 
   static forRoot(): ModuleWithProviders<PermissionsModule> {

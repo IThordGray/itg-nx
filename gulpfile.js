@@ -4,14 +4,58 @@ const fs = require('fs');
 const path = require('path');
 const { log } = require('console');
 
-const readWorkspaceConfig = require('@nx/workspace').readWorkspaceConfig;
 const readPackageJson = require('@nx/workspace').readPackageJson;
 
 const execAsync = promisify(exec);
 
 // Get workspace configuration
 const { version } = readPackageJson();
-const { projects } = readWorkspaceConfig({ format: 'nx' });
+
+// Read all project.json files to get project configurations
+function readProjectsConfiguration() {
+  const projects = {};
+  
+  function findProjectJsonFiles(dir, fileList = []) {
+    const files = fs.readdirSync(dir);
+    
+    files.forEach((file) => {
+      const filePath = path.join(dir, file);
+      const stat = fs.statSync(filePath);
+      
+      // Skip node_modules, dist, tmp, and .git directories
+      if (file === 'node_modules' || file === 'dist' || file === 'tmp' || file === '.git' || file.startsWith('.')) {
+        return;
+      }
+      
+      if (stat.isDirectory()) {
+        findProjectJsonFiles(filePath, fileList);
+      } else if (file === 'project.json') {
+        fileList.push(filePath);
+      }
+    });
+    
+    return fileList;
+  }
+
+  const projectJsonFiles = findProjectJsonFiles(process.cwd());
+
+  projectJsonFiles.forEach((projectJsonPath) => {
+    try {
+      const projectConfig = JSON.parse(fs.readFileSync(projectJsonPath, 'utf8'));
+      const projectName = projectConfig.name || path.basename(path.dirname(projectJsonPath));
+      projects[projectName] = {
+        ...projectConfig,
+        root: path.dirname(projectJsonPath)
+      };
+    } catch (error) {
+      console.warn(`Error reading ${projectJsonPath}:`, error.message);
+    }
+  });
+
+  return projects;
+}
+
+const projects = readProjectsConfiguration();
 
 // Filter for public libraries (those with a publish target)
 function getPublicLibraries() {
